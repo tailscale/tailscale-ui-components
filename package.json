@@ -1,0 +1,52 @@
+{
+  "name": "tailscale-ui-components",
+  "version": "0.0.1",
+  "license": "BSD-3-Clause",
+  "engines": {
+    "node": "18.16.1",
+    "yarn": "1.22.19"
+  },
+  "private": true,
+  "main": "index.ts",
+  "peerDependencies": {
+    "classnames": "^2.3.1",
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "18.0.20",
+    "classnames": "^2.3.1",
+    "eslint": "^8.23.1",
+    "eslint-config-react-app": "^7.0.1",
+    "prettier": "^2.5.1",
+    "prettier-plugin-organize-imports": "^3.2.2",
+    "react": "^18.2.0",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^4.7.4",
+    "vitest": "^0.32.0"
+  },
+  "scripts": {
+    "lint": "tsc --noEmit && eslint 'src/**/*.{ts,tsx,js,jsx}'",
+    "test": "vitest",
+    "format": "prettier --write 'src/**/*.{ts,tsx}'",
+    "format-check": "prettier --check 'src/**/*.{ts,tsx}'"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app"
+    ],
+    "plugins": [
+      "react-hooks"
+    ],
+    "rules": {
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "error"
+    },
+    "settings": {
+      "projectRoot": "package.json"
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 80
+  }
+}
