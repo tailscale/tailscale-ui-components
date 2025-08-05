@@ -3,6 +3,45 @@
 @tailwind utilities;
 
 @layer base {
+  @font-face {
+    font-family: "Inter";
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+    src: url("/assets/fonts/Inter.var.latin.woff2") format("woff2-variations");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC,
+      U+02BB-02BC, U+2000-206F, U+2122, U+2190-2199, U+2212, U+2215, U+FEFF,
+      U+FFFD, U+E06B-E080, U+02E2, U+02E2, U+02B0, U+1D34, U+1D57, U+1D40,
+      U+207F, U+1D3A, U+1D48, U+1D30, U+02B3, U+1D3F;
+  }
+
+  @font-face {
+    font-family: "Inter";
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+    src: url("/assets/fonts/Inter.var.italic.latin.woff2")
+      format("woff2-variations");
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC,
+      U+02BB-02BC, U+2000-206F, U+2122, U+2190-2199, U+2212, U+2215, U+FEFF,
+      U+FFFD, U+E06B-E080, U+02E2, U+02E2, U+02B0, U+1D34, U+1D57, U+1D40,
+      U+207F, U+1D3A, U+1D48, U+1D30, U+02B3, U+1D3F;
+  }
+
+  html {
+    /**
+     * These lines force the page to occupy the full width of the browser,
+     * ignoring the scrollbar, and prevent horizontal scrolling. This eliminates
+     * shifting when moving between pages with a scrollbar and those without, by
+     * ignoring the width of the scrollbar.
+     *
+     * It also disables horizontal scrolling of the body wholesale, so, as always
+     * avoid content flowing off the page.
+     */
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
   :root {
     --color-white: 255 255 255;
 
@@ -16,7 +55,9 @@
     --color-gray-600: 68 67 66;
     --color-gray-700: 46 45 45;
     --color-gray-800: 35 34 34;
-    --color-gray-900: 31 30 30;
+    --color-gray-900: 31 30 30; /* this is also specified in index.html for dark mode */
+    --color-gray-1000: 24 23 23;
+    --color-gray-1100: 17 16 16;
 
     --color-red-0: 255 246 244;
     --color-red-50: 255 211 207;
@@ -82,16 +123,1233 @@
     --color-text-muted: rgb(var(--color-gray-500) / 1);
     --color-text-disabled: rgb(var(--color-gray-400) / 1);
     --color-text-primary: rgb(var(--color-blue-600) / 1);
-    --color-text-warning: rgb(var(--color-orange-600) / 1);
+    --color-text-success: rgb(var(--color-green-500) / 1);
+    --color-text-warning: rgb(var(--color-yellow-500) / 1);
     --color-text-danger: rgb(var(--color-red-600) / 1);
 
+    --color-bg-base: rgb(var(--color-white) / 1);
     --color-bg-app: rgb(var(--color-gray-100) / 1);
     --color-bg-menu-item-hover: rgb(var(--color-gray-100) / 1);
 
     --color-border-base: rgb(var(--color-gray-200) / 1);
+    --color-border-focus: rgb(var(--color-blue-200) / 1);
+    --color-border-focus-danger: rgb(var(--color-red-300) / 1);
+    --color-border-interactive: rgb(var(--color-gray-300) / 1);
+    --color-border-interactive-hover: rgb(var(--color-gray-400) / 1);
+
+    --color-outline-focus: rgb(var(--color-blue-100) / 1);
+    --color-outline-focus-warning: rgb(var(--color-yellow-100) / 1);
+    --color-outline-focus-danger: rgb(var(--color-red-100) / 1);
+
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-base: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+      0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+      0 8px 10px -6px rgb(0 0 0 / 0.1);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+    --shadow-none: 0 0 #0000;
+    --shadow-popover: 0 0 0 1px rgba(0, 0, 0, 0.03),
+      0 15px 35px 0 rgba(0, 0, 0, 0.1), 0 5px 15px 0 rgba(0, 0, 0, 0.08);
+    --shadow-dialog: 0 10px 40px rgba(0, 0, 0, 0.12),
+      0 0 16px rgba(0, 0, 0, 0.08);
+    --shadow-button: 0 1px 1px rgba(0, 0, 0, 0.04);
+    --shadow-tooltip: 0 0 0 1px rgba(0, 0, 0, 0.09),
+      0 2px 5px rgba(0, 0, 0, 0.04);
+    --shadow-soft: 0 4px 12px 0 rgba(0, 0, 0, 0.03);
+    --shadow-form: 0 1px 1px rgba(0, 0, 0, 0.04);
+
+    --color-codemirror-background: #fdfcfb;
+    --color-codemirror-border: #eeebea;
+  }
+
+  :root.dark {
+    --color-border-base: rgb(var(--color-gray-700) / 1);
+    --color-border-focus: rgb(var(--color-blue-600) / 1);
+    --color-border-focus-danger: rgb(var(--color-red-600) / 1);
+    --color-border-interactive: rgb(var(--color-gray-600) / 1);
+    --color-border-interactive-hover: rgb(var(--color-gray-500) / 1);
+
+    --color-text-base: rgb(var(--color-gray-100) / 1);
+    --color-text-muted: rgb(var(--color-gray-400) / 1);
+    --color-text-disabled: rgb(var(--color-gray-600) / 1);
+    --color-text-primary: rgb(var(--color-blue-300) / 1);
+    --color-text-success: rgb(var(--color-green-300) / 1);
+    --color-text-warning: rgb(var(--color-yellow-300) / 1);
+    --color-text-danger: rgb(var(--color-red-300) / 1);
+
+    --color-outline-focus: rgb(var(--color-blue-700) / 1);
+    --color-outline-focus-warning: rgb(var(--color-yellow-600) / 1);
+    --color-outline-focus-danger: rgb(var(--color-red-700) / 1);
+
+    --color-bg-base: rgb(var(--color-gray-900) / 1);
+    --color-bg-app: rgb(var(--color-gray-1000) / 1);
+    --color-bg-menu-item-hover: rgb(var(--color-gray-700) / 1);
+
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.15);
+    --shadow-base: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.3),
+      0 2px 4px -2px rgb(0 0 0 / 0.3);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.3),
+      0 4px 6px -4px rgb(0 0 0 / 0.3);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.3),
+      0 8px 10px -6px rgb(0 0 0 / 0.3);
+    --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.8);
+    --shadow-inner: inset 0 2px 4px 0 rgb(0 0 0 / 0.15);
+    --shadow-popover: 0 0 0 1px rgb(var(--color-gray-700) / 1),
+      0 15px 35px 0 rgba(0, 0, 0, 0.2), 0 5px 15px 0 rgba(0, 0, 0, 0.18);
+    --shadow-dialog: 0 10px 40px rgba(0, 0, 0, 0.22),
+      0 0 16px rgba(0, 0, 0, 0.18);
+    --shadow-button: 0 1px 1px rgba(0, 0, 0, 0.14);
+    --shadow-tooltip: 0 0 0 1px rgb(var(--color-gray-700) / 1),
+      0 2px 5px rgba(0, 0, 0, 0.14);
+    --shadow-soft: 0 4px 12px 0 rgba(0, 0, 0, 0.13);
+    --shadow-form: 0 1px 1px rgba(0, 0, 0, 0.14);
+
+    --color-codemirror-background: rgb(var(--color-gray-900) / 1);
+    --color-codemirror-border: rgb(var(--color-gray-600) / 1);
+  }
+
+  html,
+  body,
+  #app-root {
+    min-height: 100vh;
+  }
+
+  body {
+    @apply bg-bg-base w-full antialiased text-base font-sans text-text-base;
+    letter-spacing: -0.015em; /* Inter is a little loose by default */
+    text-rendering: optimizeLegibility;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  ::selection {
+    background-color: rgba(97, 122, 255, 0.2);
+  }
+
+  strong {
+    @apply font-semibold;
+  }
+
+  button {
+    text-align: inherit; /* don't center buttons by default */
+    letter-spacing: inherit; /* inherit existing letter spacing, rather than using browser defaults */
+    vertical-align: top; /* fix alignment of display: inline-block buttons */
+  }
+
+  .visible-focus {
+    @apply outline outline-2 outline-outline-focus outline-offset-2;
+  }
+
+  a:focus,
+  button:focus {
+    outline: none;
+  }
+  a:focus-visible,
+  button:focus-visible {
+    @apply visible-focus;
+  }
+
+  @supports (scrollbar-gutter: stable) {
+    /**
+     * This block fixes an issue with Radix UI's Dialog component, where it
+     * tries to account for the scrollbar's width appearing or disappearing by
+     * manually adding a margin. However, this margin results in the page
+     * shifting behind a dialog when switching tabs.
+     *
+     * We fix it by forcing the scrollbar to always occupy space, and manually
+     * removing the applied margin from the body.
+     *
+     * See: https://github.com/tailscale/corp/issues/17806
+     */
+    html {
+      scrollbar-gutter: stable;
+    }
+
+    html body {
+      margin-right: 0 !important;
+      --removed-body-scroll-bar-size: 0 !important;
+    }
   }
 }
 
-@layer components {}
+@layer components {
+  .container {
+    width: 94%;
+    max-width: 1120px;
+  }
 
-@layer utilities {}
+  .navigation {
+    -webkit-overflow-scrolling: touch;
+    -webkit-scrollbar-width: none;
+    -moz-scrollbar-width: none;
+    -ms-scrollbar-width: none;
+    scrollbar-width: none;
+  }
+
+  .navigation::-webkit-scrollbar {
+    @apply hidden;
+  }
+
+  /**
+   * .navigation-link pre-sets the width of the link by creating a hidden ::before
+   * element, so the links don't shuffle around as you click them.
+   */
+  .navigation-link {
+    @apply font-medium;
+  }
+
+  .navigation-link:before {
+    @apply block font-semibold h-0 invisible;
+    content: attr(data-content);
+  }
+
+  .navigation-linkActive {
+    @apply font-semibold;
+  }
+
+  /**
+   * .icon-parent is a utility for sizing icons alongside text. Icons can
+   * override this default sizing by adding a .no-sizing class. For example
+   * uses, see the <Tabs /> and <Button /> components.
+   */
+  .icon-parent svg:not(.no-sizing) {
+    width: 1.125em;
+    height: 1.125em;
+  }
+
+  /**
+   * .button encapsulates all the base button styles we use across the app.
+   */
+
+  .button {
+    @apply relative inline-flex flex-nowrap items-center justify-center font-medium leading-none rounded-md border border-transparent shadow-button text-center whitespace-nowrap;
+    transition-property: background-color, border-color, color, box-shadow;
+    transition-duration: 120ms;
+  }
+
+  .button:disabled {
+    @apply pointer-events-none select-none;
+  }
+
+  .button-group {
+    @apply whitespace-nowrap;
+  }
+
+  .button-group .button {
+    @apply min-w-[60px];
+  }
+
+  .button-group .button:not(:first-child) {
+    @apply rounded-l-none;
+  }
+
+  .button-group .button:not(:last-child) {
+    @apply rounded-r-none border-r-0;
+  }
+
+  /**
+   * .input defines default text input field styling. These styles should
+   * correspond to .button, sharing a similar height and rounding, since .input
+   * and .button are commonly used together.
+   */
+
+  .input,
+  .input-wrapper {
+    @apply appearance-none leading-tight rounded-md bg-bg-base border border-border-interactive hover:border-border-interactive-hover transition-colors w-full h-9;
+  }
+
+  .input {
+    @apply px-3;
+  }
+
+  .input::placeholder,
+  .input-wrapper::placeholder {
+    @apply text-text-disabled;
+  }
+
+  .input:disabled,
+  .input-wrapper:disabled {
+    @apply border-border-interactive;
+    @apply bg-gray-0 dark:bg-gray-800;
+    @apply cursor-not-allowed;
+  }
+
+  .input:focus,
+  .input-wrapper:focus-within {
+    @apply visible-focus outline-offset-0 border-border-focus;
+  }
+
+  .input-error,
+  .input-error:hover,
+  .input-error:focus {
+    @apply outline-outline-focus-danger border-border-focus-danger;
+  }
+
+  /**
+   * .select defines default dropdown field styling. These styles should
+   * correspond to .button and .input, sharing a similar height and rounding,
+   * since .input, .button, and .select are commonly used together.
+   */
+
+  .select {
+    @apply appearance-none py-2 px-3 leading-tight rounded-md bg-bg-base border border-border-interactive w-full;
+  }
+
+  .select::placeholder {
+    @apply text-text-disabled;
+  }
+
+  .select:hover {
+    @apply border-border-interactive-hover;
+  }
+
+  .select:focus {
+    @apply outline-none ring border-border-interactive;
+  }
+
+  .select-with-arrow {
+    @apply relative;
+  }
+
+  .select-with-arrow .select {
+    @apply w-full;
+  }
+
+  .select-with-arrow::after {
+    @apply absolute top-1/2 right-2 opacity-60 bg-current w-[0.6em] h-[0.4em];
+    content: "";
+    transform: translate(-0.3em, -0.15em);
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  }
+
+  /**
+   * .picker follows .input and .button styles, with custom values for a
+   * non-native dropdown component.
+   */
+
+  .picker {
+    @apply bg-bg-base border rounded-md border-border-interactive shadow-button;
+  }
+
+  .picker:focus {
+    @apply ring border-transparent;
+  }
+
+  .picker-menu {
+    @apply py-2 px-3 leading-tight rounded-md bg-bg-base shadow-popover;
+  }
+
+  /**
+   * .radio applies default styles to input[type="radio"] form elements.
+   */
+
+  .radio {
+    @apply appearance-none w-4 h-4 rounded-full border border-border-interactive shrink-0 shadow-form;
+  }
+
+  .radio:checked {
+    @apply border-blue-500 border-[5px];
+  }
+
+  .radio:focus-visible {
+    @apply visible-focus;
+  }
+
+  /**
+   * .toggle applies "Toggle" UI styles to input[type="checkbox"] form elements.
+   * You can use the -large and -small modifiers for size variants.
+   */
+
+  .toggle {
+    @apply appearance-none relative w-10 h-5 rounded-full bg-border-interactive cursor-pointer;
+    @apply focus-visible:visible-focus;
+    transition: background-color 200ms ease-in-out;
+  }
+
+  .toggle:disabled {
+    @apply bg-gray-200 dark:bg-gray-700;
+    @apply cursor-not-allowed;
+  }
+
+  .toggle:checked {
+    @apply bg-blue-500;
+  }
+
+  .toggle:checked:disabled {
+    @apply bg-blue-300 dark:bg-blue-600 dark:opacity-50;
+  }
+
+  .toggle::after {
+    @apply absolute bg-white rounded-full will-change-[width];
+    @apply w-3.5 h-3.5 m-[0.1875rem] translate-x-0;
+    content: " ";
+    transition: width 200ms ease, transform 200ms ease;
+  }
+
+  .toggle:checked::after {
+    @apply translate-x-5;
+  }
+
+  .toggle:enabled:active::after {
+    @apply w-[1.125rem];
+  }
+
+  .toggle:checked:enabled:active::after {
+    @apply w-[1.125rem] translate-x-3.5;
+  }
+
+  .toggle-large {
+    @apply w-12 h-6;
+  }
+
+  .toggle-large::after {
+    @apply m-1 w-4 h-4;
+  }
+
+  .toggle-large:checked::after {
+    @apply translate-x-6;
+  }
+
+  .toggle-large:enabled:active::after {
+    @apply w-6;
+  }
+
+  .toggle-large:checked:enabled:active::after {
+    @apply w-6 translate-x-4;
+  }
+
+  .toggle-small {
+    @apply w-6 h-3;
+  }
+
+  .toggle-small:focus {
+    /**
+     * We disable ring for .toggle-small because it is a
+     * small, inline element.
+     */
+    @apply outline-none shadow-none;
+  }
+
+  .toggle-small::after {
+    @apply w-2 h-2 m-0.5;
+  }
+
+  .toggle-small:checked::after {
+    @apply translate-x-3;
+  }
+
+  .toggle-small:enabled:active::after {
+    @apply w-[0.675rem];
+  }
+
+  .toggle-small:checked:enabled:active::after {
+    @apply w-[0.675rem] translate-x-[0.55rem];
+  }
+
+  /**
+   * .link applies standard styling to links across the app. By default we unstyle
+   * all anchor tags. While this might sound crazy for a website, it's _very_
+   * helpful in an app, since anchor tags can be used to wrap buttons, icons,
+   * and all manner of UI component. As a result, all anchor tags intended to look
+   * like links should have a .link class.
+   */
+
+  .link {
+    @apply text-text-primary underline underline-offset-4 decoration-blue-50 dark:decoration-blue-300/30 focus-visible:no-underline;
+  }
+
+  .link:hover,
+  .link:active {
+    @apply text-text-primary decoration-blue-500 dark:decoration-blue-300;
+  }
+
+  .link-underline {
+    @apply underline;
+  }
+
+  .link-underline:hover {
+    @apply opacity-75;
+  }
+
+  /**
+   * .tb applies standard table styles. It resets all table elements back to block
+   * and layers on visual styles. .tb-auto applies standard table styles without
+   * resetting elements to block. .tb-auto should be used sparingly because
+   * standard tables rarely fa
+   */
+
+  .tb {
+    @apply block w-auto h-auto;
+  }
+
+  .tb > * {
+    box-sizing: border-box;
+  }
+
+  .tb thead,
+  .tb tbody {
+    @apply block;
+  }
+
+  .tb thead,
+  .tb-auto thead {
+    @apply font-semibold uppercase tracking-wider;
+    @apply text-xs text-text-muted text-left;
+  }
+
+  .tb tr {
+    @apply flex border-b;
+  }
+  .no-border tr {
+    @apply border-b-0;
+  }
+
+  .tb-auto tr {
+    @apply border-b;
+  }
+
+  .tb tr > :not(template) ~ :not(template) {
+    @apply px-1;
+  }
+
+  .tb-auto tr > :not(:first-child) {
+    @apply pl-1;
+  }
+
+  .tb td,
+  .tb th {
+    @apply py-2 shrink-0;
+  }
+
+  .tb-auto td,
+  .tb-auto th {
+    @apply py-2;
+  }
+
+  /**
+   * .hovercard applies standard styling to hovercards.
+   */
+
+  .hovercard {
+    transform-origin: var(--radix-hover-card-content-transform-origin);
+    @apply shadow-popover;
+  }
+
+  .hovercard[data-state="open"] {
+    @apply animate-scale-in;
+  }
+
+  .hovercard[data-state="closed"] {
+    @apply animate-scale-out;
+  }
+
+  .dropdown {
+    transform-origin: var(--radix-dropdown-menu-content-transform-origin);
+    @apply shadow-popover;
+  }
+
+  /**
+   * .spinner creates a circular animated spinner, most often used to indicate a
+   * loading state. The .spinner element must define a width, height, and
+   * border-width for the spinner to apply.
+   */
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .spinner {
+    @apply border-transparent border-t-current border-l-current rounded-full;
+    animation: spin 700ms linear infinite;
+  }
+
+  /**
+   * .loading-dots creates a set of three dots that pulse for indicating loading
+   * states where a more horizontal appearance is helpful.
+   */
+
+  .loading-dots {
+    @apply inline-flex items-center;
+  }
+
+  .loading-dots span {
+    @apply w-[0.3125rem] h-[0.3125rem] rounded-full bg-current;
+    animation-name: loading-dots-blink;
+    animation-duration: 1.4s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+  }
+
+  .loading-dots span:nth-child(2) {
+    animation-delay: 200ms;
+  }
+
+  .loading-dots span:nth-child(3) {
+    animation-delay: 400ms;
+  }
+
+  @keyframes loading-dots-blink {
+    0% {
+      opacity: 0.2;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.2;
+    }
+  }
+
+  /**
+   * .pulse-circle is an circle that pulses out concentric circles to indicate
+   * we're searching for devices.
+   */
+
+  .pulse-circle {
+    @apply relative w-4 h-4 rounded-full bg-current;
+  }
+
+  .pulse-circle::after {
+    @apply absolute top-2 left-2 w-16 h-16 rounded-full border-[3px] border-current;
+    content: "";
+    transform: translate(-50%, -50%) scale(1);
+    animation: pulse-circle-grow 1.8s infinite ease-in-out;
+    animation-delay: 0.5s;
+    animation-fill-mode: both;
+  }
+
+  @keyframes pulse-circle-grow {
+    0% {
+      opacity: 0.5;
+      transform: translate(-50%, -50%) scale(0.1);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+
+  /**
+   * .tooltip wraps all the styles for hover tooltips
+   */
+
+  .tooltip {
+    @apply flex flex-col gap-2;
+    @apply font-sans font-normal tracking-normal normal-case leading-normal text-text-base;
+    @apply rounded-md shadow-tooltip bg-gray-0 dark:bg-gray-800 px-3 py-2;
+    @apply z-50 max-w-[18rem] text-[0.8rem];
+  }
+
+  .tooltip code {
+    @apply text-xs;
+  }
+
+  /**
+   * .inner-full-width allows an element inside a .container class to occupy
+   * the full width of the screen anyway
+   */
+  .inner-full-width {
+    width: 100vw;
+    margin-left: calc((100% - 100vw) / 2);
+  }
+
+  /**
+   * Design View
+   */
+
+  .ts-design-markdown {
+  }
+
+  .ts-design-markdown h1 {
+    @apply text-4xl font-semibold tracking-tight mb-6;
+  }
+
+  .ts-design-markdown h1:not(:first-child) {
+    @apply mt-6;
+  }
+
+  .ts-design-markdown h2 {
+    @apply text-2xl font-semibold tracking-tight mb-4 mt-4;
+  }
+
+  .ts-design-markdown h3 {
+    @apply text-xl font-semibold tracking-tight mb-4 mt-4;
+  }
+
+  .ts-design-markdown h2:not(:first-child),
+  .ts-design-markdown h3:not(:first-child) {
+    @apply mt-4;
+  }
+
+  .ts-design-markdown li {
+    @apply mt-1;
+  }
+
+  .ts-design-markdown ul {
+    @apply pl-8 mt-4 list-disc;
+  }
+
+  .ts-design-markdown ol {
+    @apply pl-8 mt-4 list-decimal;
+  }
+
+  .ts-design-markdown p {
+    @apply text-gray-600 dark:text-gray-300;
+  }
+
+  .ts-design-markdown p:not(:first-child),
+  .ts-design-markdown pre:not(:first-child),
+  .ts-design-markdown ul:not(:first-child),
+  .ts-design-markdown ol:not(:first-child) {
+    @apply mt-4;
+  }
+
+  .ts-design-markdown pre {
+    @apply text-sm bg-gray-50 dark:bg-gray-800 rounded-lg px-4 py-4 overflow-x-auto;
+  }
+
+  .ts-design-markdown :not(pre) code {
+    @apply text-sm bg-gray-50 dark:bg-gray-800 rounded-lg px-1 py-0.5;
+  }
+
+  .ts-design-markdown a {
+    @apply link;
+  }
+
+  .ts-design-markdown table {
+    @apply w-full border-collapse my-8;
+  }
+
+  .ts-design-markdown table th {
+    @apply text-left font-semibold py-1 pr-3;
+  }
+
+  .ts-design-markdown table td {
+    @apply py-3 pr-3;
+  }
+
+  .ts-design-markdown .toc {
+    @apply sticky;
+    @apply text-sm;
+  }
+
+  .ts-design-markdown .toc ol {
+    @apply mt-0 list-none;
+  }
+
+  .ts-design-markdown .toc .toc-level {
+    @apply pl-4;
+  }
+
+  .ts-design-markdown .toc .toc-level-1 {
+    @apply pl-0;
+  }
+
+  .ts-design-markdown .icon-link:after {
+    width: 0.875rem;
+    height: 0.875rem;
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' %3E%3Cpath d='M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3'%3E%3C/path%3E%3Cline x1='8' y1='12' x2='16' y2='12'%3E%3C/line%3E%3C/svg%3E");
+    @apply pl-2;
+  }
+  @media (prefers-color-scheme: dark) {
+    .ts-design-markdown .icon-link:after {
+      content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' %3E%3Cpath d='M15 7h3a5 5 0 0 1 5 5 5 5 0 0 1-5 5h-3m-6 0H6a5 5 0 0 1-5-5 5 5 0 0 1 5-5h3'%3E%3C/path%3E%3Cline x1='8' y1='12' x2='16' y2='12'%3E%3C/line%3E%3C/svg%3E");
+    }
+  }
+
+  /**
+   * styles for thanking friends of Tailscale
+   */
+
+  .heart {
+    @apply bg-red-400 absolute bottom-0 right-0 z-10;
+    transform: rotate(45deg) scale(0.8);
+    width: 10px;
+    height: 10px;
+  }
+  .heart-wrapper:hover .heart {
+    animation: heartBeat 1.5s infinite;
+  }
+  .heart::before,
+  .heart::after {
+    @apply bg-red-400 absolute rounded-full;
+    content: "";
+    width: 10px;
+    height: 10px;
+  }
+  .heart::before {
+    left: -5px;
+  }
+  .heart::after {
+    top: -5px;
+  }
+
+  @keyframes heartBeat {
+    0% {
+      transform: rotate(45deg) scale(0.8);
+    }
+    10% {
+      transform: rotate(45deg) scale(0.9);
+    }
+    15% {
+      transform: rotate(45deg) scale(0.8);
+    }
+    20% {
+      transform: rotate(45deg) scale(1);
+    }
+    50% {
+      transform: rotate(45deg) scale(0.8);
+    }
+    100% {
+      transform: rotate(45deg) scale(0.8);
+    }
+  }
+
+  /**
+   * Animation for showing and hiding tags in auth key creation flow
+   */
+
+  @keyframes uncollapseTags {
+    from {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: var(--radix-collapsible-content-height);
+      opacity: 1;
+    }
+  }
+
+  @keyframes collapseTags {
+    from {
+      height: var(--radix-collapsible-content-height);
+      opacity: 1;
+    }
+    to {
+      height: 0;
+      opacity: 0;
+    }
+  }
+
+  /**
+   * Animation for showing and hiding logstream disclaimer in auth key creation flow
+   */
+
+  @keyframes uncollapseLogstreamDisclaimer {
+    from {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: var(--radix-collapsible-content-height);
+      opacity: 1;
+    }
+  }
+
+  @keyframes collapseLogstreamDisclaimer {
+    from {
+      height: var(--radix-collapsible-content-height);
+      opacity: 1;
+    }
+    to {
+      height: 0;
+      opacity: 0;
+    }
+  }
+}
+
+@layer utilities {
+  .image-pixelated {
+    image-rendering: pixelated;
+  }
+
+  .rounded-2xl {
+    border-radius: 1rem;
+  }
+
+  .border-cm {
+    border-color: var(--color-codemirror-border);
+  }
+
+  .border-b-cm-selected {
+    border-bottom-color: var(--color-codemirror-background);
+  }
+
+  .bg-cm {
+    background-color: var(--color-codemirror-background);
+  }
+
+  /**
+   * shadow-drag-outline adds a shadow when dragging UI elements. It applies a
+   * subtle border using shadows, and hence, is intended for UI elements that
+   * don't already have a border.
+   */
+  .shadow-drag-outline {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03), 0 3px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* shadow-drag is intended to be used when dragging UI elements with a border */
+  .shadow-drag {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .font-numeric-alt {
+    font-feature-settings: "ss01", "cv01";
+  }
+
+  .-indent-2 {
+    text-indent: calc(-1 * theme("spacing.2"));
+  }
+
+  .-indent-3 {
+    text-indent: calc(-1 * theme("spacing.3"));
+  }
+
+  .stretched-link::before {
+    @apply absolute top-0 left-0 w-full h-full;
+    content: "";
+  }
+
+  .transition-color-shadow {
+    transition-property: background-color, border-color, color, box-shadow;
+  }
+
+  .hyphenate {
+    hyphens: auto;
+  }
+}
+
+/**
+ * .DNSDomainGroup contains custom styles for dragging DNS records.
+ */
+
+.DNSDomainGroup {
+  @apply bg-bg-base;
+  transition-property: box-shadow, background-color;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+/**
+ * .ACLEditor contains styles for the ACL Editor component.
+ */
+
+.ACLEditor {
+  /* we use this min-height to avoid a FOUC while the diff is initializing */
+  --editor-height: 35rem;
+  @apply min-h-[var(--editor-height)] md:max-h-[calc(100vh-24rem)];
+}
+
+.ACLEditor .CodeMirror,
+.ACLDiff .CodeMirror {
+  @apply h-full min-h-[var(--editor-height)];
+}
+
+/**
+ * .ConfigLog contains styles for the ConfigLog diff component.
+ */
+
+.ts-config-log-wrapper .ConfigLog .CodeMirror {
+  height: auto;
+  min-height: 0;
+}
+
+.ts-config-log-wrapper .ConfigLog .CodeMirror-merge {
+  @apply mt-1 mr-1 mb-1 ml-1 rounded border border-gray-300 dark:border-gray-600 border-solid overflow-hidden;
+}
+
+/** Editor theme */
+
+.cm-s-tailscale.CodeMirror {
+  @apply bg-transparent text-[0.8125rem] overscroll-y-contain;
+  line-height: 1.45;
+}
+.cm-s-readonly.CodeMirror {
+  @apply bg-gray-100 dark:bg-gray-900 !important;
+  border-top-right-radius: 0;
+}
+
+.cm-s-tailscale .CodeMirror-gutters {
+  border-right: none;
+  background-color: transparent;
+}
+
+.cm-s-tailscale .CodeMirror-gutter-elt {
+  @apply pr-4;
+}
+
+.cm-s-tailscale .CodeMirror-scroll {
+  @apply overscroll-y-contain;
+}
+
+.cm-s-tailscale.CodeMirror pre.CodeMirror-line,
+.cm-s-tailscale.CodeMirror pre.CodeMirror-line-like {
+  @apply break-all;
+}
+
+.cm-s-tailscale .CodeMirror-lines {
+  @apply py-2;
+}
+.cm-s-readonly .CodeMirror-lines {
+  @apply cursor-not-allowed;
+}
+
+.cm-s-tailscale .CodeMirror-selected,
+.cm-s-tailscale .CodeMirror-focused .CodeMirror-selected {
+  background-color: rgba(79, 127, 230, 0.2);
+  @apply dark:!bg-gray-700;
+}
+
+.cm-s-tailscale .CodeMirror-linenumber {
+  @apply text-text-muted;
+  border-right: 0;
+}
+
+.cm-s-tailscale .CodeMirror-activeline-background {
+  background: #e8f2ff;
+  @apply dark:bg-gray-700;
+}
+.cm-s-tailscale .CodeMirror-matchingbracket {
+  @apply !text-gray-600 dark:!text-gray-400;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15);
+  border-radius: 2px;
+}
+
+.cm-s-tailscale .CodeMirror-dialog {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+  padding: 0.35em 0.8em;
+}
+
+.cm-s-tailscale .CodeMirror-dialog {
+  background-color: rgb(253, 252, 251, 0.9);
+}
+
+.cm-s-tailscale .CodeMirror-search-label {
+  @apply !text-gray-800 dark:text-gray-400;
+  font-weight: 500;
+}
+
+.cm-s-tailscale .CodeMirror-dialog input {
+  font-family: inherit;
+}
+
+.CodeMirror-cursor {
+  border-color: currentColor !important;
+}
+
+/** CodeMirror styles, less unnecessary ones */
+
+.CodeMirror-merge {
+  position: relative;
+  white-space: pre;
+}
+
+.CodeMirror-merge-2pane .CodeMirror-merge-pane {
+  width: 50%;
+}
+.CodeMirror-merge-2pane .CodeMirror-merge-gap {
+  width: 0%;
+}
+
+.CodeMirror-merge-pane {
+  display: inline-block;
+  white-space: normal;
+  vertical-align: top;
+}
+.CodeMirror-merge-pane-rightmost {
+  border-left: 1px solid rgb(238, 235, 234);
+  @apply dark:!border-gray-700;
+  position: absolute;
+  right: 0px;
+  z-index: 1;
+}
+
+.CodeMirror-merge-2pane .CodeMirror-merge-gap {
+  display: none;
+}
+.CodeMirror-merge-scrolllock {
+  display: none;
+}
+
+.CodeMirror-merge textarea {
+  pointer-events: none;
+}
+
+/** Diff view theme */
+
+.ACLWrapper {
+  @apply border dark:border-gray-600 border-cm bg-cm dark:bg-gray-900;
+  border-radius: 4px;
+  border-top-left-radius: 0;
+  min-height: 35rem; /* we use this min-height to avoid a FOUC while the diff is initializing */
+}
+
+.CodeMirror-merge {
+  border: none;
+}
+
+.ACLDiff .CodeMirror-merge,
+.ACLDiff .CodeMirror-merge .CodeMirror {
+  height: 35rem;
+}
+
+.CodeMirror-merge .cm-s-tailscale.CodeMirror {
+  border: none;
+}
+
+.CodeMirror-merge .CodeMirror-linebackground {
+  left: -4rem; /* 4rem pulls it through the width of the gutter */
+}
+.CodeMirror-merge .CodeMirror-merge-spacer {
+  margin-left: -4rem; /* 4rem pulls it through the width of the gutter */
+}
+
+.cm-s-tailscale .CodeMirror-merge-l-deleted,
+.cm-s-tailscale .CodeMirror-merge-r-deleted {
+  background-color: rgba(255, 200, 200, 0.9);
+  color: #343434 !important;
+  @apply dark:!text-red-100 dark:!bg-red-600/50;
+  border-radius: 2px;
+  background-image: none;
+}
+
+.cm-s-tailscale .CodeMirror-merge-l-inserted,
+.cm-s-tailscale .CodeMirror-merge-r-inserted {
+  background-color: rgba(160, 240, 155, 0.5);
+  color: #343434 !important;
+  @apply dark:!text-green-100 dark:!bg-green-600/50;
+  border-radius: 2px;
+  background-image: none;
+}
+
+.cm-s-tailscale .CodeMirror-merge-spacer {
+  background: #f8f7f6;
+  @apply dark:!bg-gray-900;
+}
+
+.CodeMirror-merge-left .cm-s-tailscale .CodeMirror-merge-l-chunk {
+  background-color: rgba(255, 200, 200, 0.3);
+  @apply dark:bg-red-600/30;
+}
+
+.CodeMirror-merge-editor .cm-s-tailscale .CodeMirror-merge-l-chunk {
+  @apply dark:!bg-green-600/20;
+  background-color: rgba(160, 240, 155, 0.15);
+}
+
+.cm-s-tailscale .CodeMirror-merge-collapsed-widget {
+  @apply bg-gray-100 dark:bg-gray-900 text-text-muted border-gray-300 dark:!border-gray-600 dark:hover:!border-gray-500;
+  display: block;
+  cursor: pointer;
+  border: 1px solid #dde9ff;
+  font-size: 90%;
+  padding: 0 3px;
+  border-radius: 4px;
+}
+
+.cm-s-tailscale .CodeMirror-merge-collapsed-widget::before {
+  content: "...";
+}
+
+.CodeMirror-merge-collapsed-line .CodeMirror-gutter-elt {
+  display: none;
+}
+
+/** Syntax theme */
+
+.cm-s-tailscale {
+  @apply dark:!text-gray-400;
+}
+
+.cm-s-tailscale span.cm-number {
+  color: #b85bb3;
+}
+.cm-s-tailscale span.cm-string {
+  @apply text-green-500 dark:text-green-300;
+}
+.cm-s-tailscale span.cm-comment {
+  @apply text-text-muted;
+  line-height: 1em;
+}
+.cm-s-tailscale span.cm-meta {
+  color: #454545;
+  @apply dark:text-gray-300;
+  line-height: 1em;
+}
+.cm-s-tailscale span.cm-variable,
+.cm-s-tailscale span.cm-variable-2 {
+  @apply text-gray-1000 dark:text-gray-0;
+}
+.cm-s-tailscale span.cm-property {
+  @apply text-blue-500 dark:text-blue-300;
+}
+.cm-s-tailscale span.cm-qualifier {
+  color: #555;
+}
+.cm-s-tailscale span.cm-keyword {
+  color: #730;
+}
+.cm-s-tailscale span.cm-builtin {
+  color: #30a;
+}
+.cm-s-tailscale span.cm-link {
+  color: #762;
+}
+.cm-s-tailscale span.cm-error {
+  background-color: #fdd;
+}
+
+/* Typography classes not included in Tailwind */
+
+.sup {
+  font-feature-settings: "sups";
+}
+
+.open-digits {
+  font-feature-settings: "ss01";
+}
+
+/* Hiding scrollbar */
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Getting started Youtube link background (for cards to be displayed as Youtube videos) */
+.background-youtube {
+  background-image: url("/assets/images/getting-started-thumbnail.png");
+  background-size: cover;
+}
+
+/* Onboarding */
+.onboarding-survey-bg {
+  background-image: url("/assets/images/onboarding/onboarding-survey-bg.svg");
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: auto 300px;
+  background-color: #082429;
+}
+
+.breadcrumb-divider {
+  @apply text-text-disabled;
+}
+
+/**
+ *  Class for matching the radix trigger width for radix react-select components.
+ */
+.radix-select-full-width {
+  width: var(--radix-select-trigger-width);
+}
