@@ -1,0 +1,37 @@
+import cx from "classnames"
+import React from "react"
+
+export type CardProps = {
+  children: React.ReactNode
+  className?: string
+  elevated?: boolean
+  empty?: boolean
+  noPadding?: boolean
+}
+
+/**
+ * Card is a box with a border, rounded corners, and some padding. Use it to
+ * group content into a single container and give it more importance. The
+ * elevation prop gives it a box shadow, while the empty prop a light gray
+ * background color.
+ *
+ *     <Card>{content}</Card>
+ *     <Card elevated>{content}</Card>
+ *     <Card empty><EmptyState description="You don't have any keys" /></Card>
+ *
+ */
+export function Card(props: CardProps) {
+  const { children, className, elevated, empty, noPadding } = props
+  return (
+    <div
+      className={cx("rounded-md border", className, {
+        "shadow-soft": elevated,
+        "bg-gray-0 dark:bg-gray-900": empty,
+        "bg-bg-base": !empty,
+        "p-6": !noPadding,
+      })}
+    >
+      {children}
+    </div>
+  )
+}
