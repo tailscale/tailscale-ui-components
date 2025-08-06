@@ -1,6 +1,6 @@
 import cx from "classnames"
 import React, { HTMLProps } from "react"
-// import LoadingDots from "src/ui/loading-dots"
+import LoadingDots from "src/components/loading-dots/loading-dots"
 
 export type ButtonProps = {
   type?: "button" | "submit" | "reset"
@@ -138,8 +138,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>((props, r
     >
       {prefixIcon && <span className="flex-shrink-0">{prefixIcon}</span>}
       {loading && (
-        // <LoadingDots className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-current" />
-        <div>...</div>
+        <LoadingDots className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-current" />
       )}
       {children && (
         <span
