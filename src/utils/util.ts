@@ -1,18 +1,16 @@
-import { IMachine } from "./format"
-
 /**
  * assertNever ensures a branch of code can never be reached, and throws a
  * Typescript error if it can.
  */
 export function assertNever(a: never): never {
-  return a
+  return a;
 }
 
 /**
  * isObject checks if a value is an object.
  */
 export function isObject(val: unknown): val is object {
-  return Boolean(val && typeof val === "object" && val.constructor === Object)
+  return Boolean(val && typeof val === "object" && val.constructor === Object);
 }
 
 /**
@@ -20,9 +18,9 @@ export function isObject(val: unknown): val is object {
  */
 export function isPromise<T = unknown>(val: unknown): val is Promise<T> {
   if (!val) {
-    return false
+    return false;
   }
-  return typeof val === "object" && "then" in val
+  return typeof val === "object" && "then" in val;
 }
 
 /**
@@ -30,7 +28,7 @@ export function isPromise<T = unknown>(val: unknown): val is Promise<T> {
  * are equal in value and order.
  */
 export function isArrayEqual(a: any[], b: any[]): boolean {
-  return a.length === b.length && a.every((val, i) => b[i] === val)
+  return a.length === b.length && a.every((val, i) => b[i] === val);
 }
 
 /**
@@ -45,20 +43,20 @@ export function arrayToObject<Data extends { [key: string]: any }>(
   return data.reduce(
     (prevMap, nextItem) => ({ ...prevMap, [nextItem[key]]: nextItem }),
     {}
-  )
+  );
 }
 
 /**
  * reorder rearranges items in an array into a new order.
  */
 export function reorder<T>(arr: T[], source: number, destination: number): T[] {
-  const result = Array.from(arr)
-  const [removed] = result.splice(source, 1)
-  result.splice(destination, 0, removed)
-  return result
+  const result = Array.from(arr);
+  const [removed] = result.splice(source, 1);
+  result.splice(destination, 0, removed);
+  return result;
 }
 
-const has = Object.prototype.hasOwnProperty
+const has = Object.prototype.hasOwnProperty;
 
 /**
  * deepEqual deeply compares two variables, returning whether or not they
@@ -68,32 +66,32 @@ const has = Object.prototype.hasOwnProperty
  * Taken from: https://github.com/lukeed/dequal/blob/master/src/lite.js
  */
 export function deepEqual(foo: any, bar: any): boolean {
-  var ctor, len
-  if (foo === bar) return true
+  var ctor, len;
+  if (foo === bar) return true;
 
   if (foo && bar && (ctor = foo.constructor) === bar.constructor) {
-    if (ctor === Date) return foo.getTime() === bar.getTime()
-    if (ctor === RegExp) return foo.toString() === bar.toString()
+    if (ctor === Date) return foo.getTime() === bar.getTime();
+    if (ctor === RegExp) return foo.toString() === bar.toString();
 
     if (ctor === Array) {
       if ((len = foo.length) === bar.length) {
         while (len-- && deepEqual(foo[len], bar[len]));
       }
-      return len === -1
+      return len === -1;
     }
 
     if (!ctor || typeof foo === "object") {
-      len = 0
+      len = 0;
       for (ctor in foo) {
-        if (has.call(foo, ctor) && ++len && !has.call(bar, ctor)) return false
-        if (!(ctor in bar) || !deepEqual(foo[ctor], bar[ctor])) return false
+        if (has.call(foo, ctor) && ++len && !has.call(bar, ctor)) return false;
+        if (!(ctor in bar) || !deepEqual(foo[ctor], bar[ctor])) return false;
       }
-      return Object.keys(bar).length === len
+      return Object.keys(bar).length === len;
     }
   }
 
   // eslint-disable-next-line no-self-compare
-  return foo !== foo && bar !== bar
+  return foo !== foo && bar !== bar;
 }
 
 /**
@@ -108,11 +106,11 @@ export function countUniqueValues<Data extends { [key: string]: any }>(
   key: string
 ): [string, number][] {
   const countsMap = data.reduce((prevMap, nextItem) => {
-    const keyValue = nextItem[key]
-    const keyCount = (prevMap[keyValue] || 0) + 1
-    return { ...prevMap, [keyValue]: keyCount }
-  }, {} as { [key: string]: number })
-  return Object.entries(countsMap).sort(([, a], [, b]) => b - a)
+    const keyValue = nextItem[key];
+    const keyCount = (prevMap[keyValue] || 0) + 1;
+    return { ...prevMap, [keyValue]: keyCount };
+  }, {} as { [key: string]: number });
+  return Object.entries(countsMap).sort(([, a], [, b]) => b - a);
 }
 
 /**
@@ -125,7 +123,7 @@ export function noop() {}
  * being accessed from a windows device, otherwise false.
  */
 export function browserIsOnWindowsDevice(): boolean {
-  return window.navigator.userAgent.includes("Win")
+  return window.navigator.userAgent.includes("Win");
 }
 
 /**
@@ -133,7 +131,7 @@ export function browserIsOnWindowsDevice(): boolean {
  * being accessed from a macOS device, otherwise false.
  */
 export function browserIsOnMacDevice(): boolean {
-  return window.navigator.userAgent.includes("Mac")
+  return window.navigator.userAgent.includes("Mac");
 }
 
 /**
@@ -143,15 +141,15 @@ export function browserIsOnMacDevice(): boolean {
  */
 export function isExternalUrl(url: string) {
   try {
-    const el = document.createElement("a")
-    el.href = url
+    const el = document.createElement("a");
+    el.href = url;
 
-    const isExternalDomain = el.host !== window.location.host
-    const isExternalPath = !el.pathname.startsWith("/admin/")
+    const isExternalDomain = el.host !== window.location.host;
+    const isExternalPath = !el.pathname.startsWith("/admin/");
 
-    return isExternalDomain || isExternalPath
+    return isExternalDomain || isExternalPath;
   } catch {
-    return true
+    return true;
   }
 }
 
@@ -159,27 +157,16 @@ export function isExternalUrl(url: string) {
  * isAlphanumeric returns whether the current string is alphanumeric.
  */
 export function isAlphanumeric(str: string): boolean {
-  const regex = /^[\dA-Za-z]+$/
-  return regex.test(str)
-}
-
-/**
- * isHelloNode returns whether the current machine is our hello.ts.net test
- * server.
- */
-export function isHelloNode(machine: IMachine): boolean {
-  return (
-    machine.addresses[0] === "100.101.102.103" &&
-    machine.user === "services@tailscale.com"
-  )
+  const regex = /^[\dA-Za-z]+$/;
+  return regex.test(str);
 }
 
 /**
  * isValidHex returns whether the current string is a valid hex string
  */
 export function isValidHex(test: string): boolean {
-  var regExp = /^[\dA-Fa-f]+?$/
-  return typeof test === "string" && regExp.test(test)
+  var regExp = /^[\dA-Fa-f]+?$/;
+  return typeof test === "string" && regExp.test(test);
 }
 
 /**
@@ -191,7 +178,7 @@ export function isTailscaleIPv4(ip: string): boolean {
   // range that Tailscale uses doesn't include all
   // 100.x.y.z addresses, only 100.64-127.y.z.
   // But it's good enough to start.
-  return ip.startsWith("100.")
+  return ip.startsWith("100.");
 }
 
 /**
@@ -199,7 +186,7 @@ export function isTailscaleIPv4(ip: string): boolean {
  * Tailnet's IPv6 format.
  */
 export function isTailscaleIPv6(ip: string): boolean {
-  return ip.startsWith("fd7a:115c:a1e0")
+  return ip.startsWith("fd7a:115c:a1e0");
 }
 
 /**
@@ -208,7 +195,7 @@ export function isTailscaleIPv6(ip: string): boolean {
  * a valid IPv4 string.
  */
 export function isIPv4(ip: string): boolean {
-  return ip.includes(".")
+  return ip.includes(".");
 }
 
 /**
@@ -217,14 +204,14 @@ export function isIPv4(ip: string): boolean {
  * a valid IPv6 string.
  */
 export function isIPv6(ip: string): boolean {
-  return ip.includes(":")
+  return ip.includes(":");
 }
 
 /**
  * isDevInstance returns true when env.DEV is set to true
  */
 export function isDevInstance(): boolean {
-  return !!import.meta.env.DEV
+  return !!import.meta.env.DEV;
 }
 
 /**
@@ -232,7 +219,7 @@ export function isDevInstance(): boolean {
  * Vitest.
  */
 export function isTestInstance(): boolean {
-  return !!import.meta.env.VITEST
+  return !!import.meta.env.VITEST;
 }
 
 /**
@@ -241,15 +228,15 @@ export function isTestInstance(): boolean {
  */
 export function serverUrl(): string {
   // TODO(adrian): Fetch this from control instead of using a fixed value.
-  let host = "https://login.tailscale.com"
+  let host = "https://login.tailscale.com";
   if (isDevInstance()) {
-    host = window.location.protocol + "//" + window.location.host
+    host = window.location.protocol + "//" + window.location.host;
   }
-  return host
+  return host;
 }
 
 export function isGithubOrg(domain: string): boolean {
-  return domain.endsWith(".org.github")
+  return domain.endsWith(".org.github");
 }
 
 /**
@@ -264,18 +251,18 @@ export function constructURLWithParams(
   const filteredParams = Object.entries(params).reduce<Record<string, string>>(
     (acc, [key, value]) => {
       if (value !== undefined) {
-        acc[key] = value.toString()
+        acc[key] = value.toString();
       }
-      return acc
+      return acc;
     },
     {}
-  )
+  );
 
   // Construct query string if there are any filtered parameters
   const queryString =
     Object.keys(filteredParams).length > 0
       ? "?" + new URLSearchParams(filteredParams).toString()
-      : ""
+      : "";
 
-  return url + queryString
+  return url + queryString;
 }
