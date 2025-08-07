@@ -1,6 +1,6 @@
 {
   "name": "@tailscale/tailscale-ui-components",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Tailscale",
   "license": "MIT",
   "main": "dist/tailscale-ui-components.umd.js",
@@ -12,9 +12,9 @@
   ],
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/tailscale-ui-components.es.js",
-      "require": "./dist/tailscale-ui-components.umd.js",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/tailscale-ui-components.umd.js"
     }
   },
   "publishConfig": {
