@@ -66,7 +66,6 @@ Example component structure:
 src/components/button/
 ├── button.tsx           # Main component
 ├── button.stories.tsx   # Storybook stories
-└── index.ts            # Barrel export
 ```
 
 ### Styling Guidelines
@@ -77,6 +76,10 @@ src/components/button/
 - Support both light and dark themes
 
 ### Contributing
+
+**Branch Workflow:**
+
+There are many components and stories for those components already ported over from corp to this UI library. They live in the **staging branch**. When making updates to components, adding stories, etc., please submit the PR towards that staging branch. **Main will only contain components that we're actively using in corp and other repos**.
 
 When adding or modifying components:
 
