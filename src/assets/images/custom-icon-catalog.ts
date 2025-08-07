@@ -36,7 +36,7 @@ import BuildingIcon from "src/assets/images/generic-icons/building.svg?react"
 import NasLogo from "src/assets/images/generic-icons/nas.svg?react"
 import SshLogo from "src/assets/images/generic-icons/ssh.svg?react"
 import VscodeLogo from "src/assets/images/generic-icons/vscode.svg?react"
-import { Dice, DragHandle, Idle, Magic } from "src/ui/icons"
+import { Dice, DragHandle, Idle, Magic } from "src/icons"
 
 export interface IconsMeta {
   name: React.FunctionComponent<React.SVGProps<SVGSVGElement>>

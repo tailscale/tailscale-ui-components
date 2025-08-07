@@ -2,7 +2,6 @@ import cx from "classnames"
 import React, { useCallback, useEffect, useRef, useState } from "react"
 import { Button } from "src/components/button/button"
 import { ArrowLeft, ArrowRight } from "src/icons"
-import { trackEvent } from "src/utils/analytics"
 
 type CarouselProps = {
   children: React.ReactNode
@@ -137,14 +136,7 @@ export default function Carousel({
       <div className="justify-end sm:flex hidden mr-4">
         <Button
           type="button"
-          onClick={() => {
-            handlePrevClick()
-            trackEvent("Click previous arrow", {
-              featureFlagProperties: {
-                feature: trackingFeature,
-              },
-            })
-          }}
+          onClick={handlePrevClick}
           disabled={isPrevDisabled}
           variant="minimal"
           aria-label="Previous items"
@@ -153,14 +145,7 @@ export default function Carousel({
         </Button>
         <Button
           type="button"
-          onClick={() => {
-            handleNextClick()
-            trackEvent("Click next arrow", {
-              featureFlagProperties: {
-                feature: trackingFeature,
-              },
-            })
-          }}
+          onClick={handleNextClick}
           disabled={isNextDisabled}
           variant="minimal"
           aria-label="Next items"

@@ -1,4 +1,4 @@
-import { IMachine } from "src/types"
+import { IMachine } from "./format"
 
 /**
  * assertNever ensures a branch of code can never be reached, and throws a

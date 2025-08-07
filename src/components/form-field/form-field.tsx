@@ -88,8 +88,7 @@ export default function FormField({
       {idProp
         ? children
         : Children.map(children, (child) =>
-            // @ts-expect-error
-            isValidElement(child) ? cloneElement(child, { id, error }) : child
+            isValidElement(child) ? cloneElement(child as React.ReactElement<any>, { id, error }) : child
           )}
       {error ? (
         <p className="text-sm text-text-danger mt-2">{error}</p>

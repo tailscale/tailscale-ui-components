@@ -1,7 +1,7 @@
 import cx from "classnames"
 import React from "react"
-import { AlertTriangle } from "src/ui/icons"
-import Spinner from "src/ui/spinner"
+import { AlertTriangle } from "src/icons"
+import Spinner from "src/components/spinner/spinner"
 
 type Props = {
   error?: { message: string }

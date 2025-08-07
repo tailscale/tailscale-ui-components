@@ -1,11 +1,9 @@
-import {
-  MagicDNSNameserver,
-  MagicDNSSearchPath,
-} from "src/components/dns-editor/dns-consts"
-
 /**
  * Common validation utilities.
  */
+
+export const MagicDNSNameserver = "100.100.100.100"
+export const MagicDNSSearchPath = ".beta.tailscale.net"
 
 export function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)

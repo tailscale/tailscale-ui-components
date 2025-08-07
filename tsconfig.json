@@ -16,8 +16,9 @@
     "resolveJsonModule": true,
     "incremental": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "react",
+    "declaration": true,
+    "declarationDir": "dist/",
     "noFallthroughCasesInSwitch": true,
     "types": ["vite-plugin-svgr/client", "vite/client"]
   },

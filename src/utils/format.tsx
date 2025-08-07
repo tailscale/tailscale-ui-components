@@ -1,10 +1,84 @@
 import { differenceInHours, formatDistance } from "date-fns"
 import { format } from "date-fns-tz"
 import React, { Fragment, ReactNode } from "react"
-import { IMachine } from "src/types"
-import NullValue from "src/ui/null"
-import Tooltip from "src/ui/tooltip"
+import NullValue from "src/components/null/null"
+import Tooltip from "src/components/tooltip/tooltip"
 import { serverNow } from "src/utils/time"
+
+// IMachine correspond with Go type tailscale.io/control/adminhttp:machineData
+export interface IMachine {
+  user: string // owner; empty for tagged-nodes
+  creator: string
+  name: string
+  fqdn: string
+  hostname: string
+  domain: string
+  ipnVersion: string
+  os: string
+  osVersion?: string
+  app?: string
+  parsedLinuxDistro?: string
+  parsedOSVersion?: string
+  created: string
+  lastSeen?: string // optional, because old nodes in control have empty timestamps
+  addresses: string[]
+  allowedIPs: string[]
+  extraIPs: string[]
+  advertisedIPs: string[]
+  advertisedExitNode?: boolean
+  allowedExitNode?: boolean
+  hasSubnets?: boolean
+  hasTags?: boolean
+  hasExitNode?: boolean
+  endpoints?: string[] // optional, migrated to the debug endpoint
+  allowedTags: string[]
+  invalidTags: string[]
+  machineKey: string
+  nodeKey: string
+  id: string
+  stableId: string
+  authorized?: boolean
+  authURL: string
+  expires: string
+  neverExpires?: boolean
+  isExternal?: boolean
+  availableUpdateVersion?: string
+  availableUpdateSecurity?: boolean
+  availableUpdateVOOD?: boolean
+  shareID?: string
+  acceptedShareCount: number // -1 indicates you don't have permission to read this, don't show in UI.
+  automaticNameMode: boolean
+  blocksIncomingConnections?: boolean
+  multipleConnections?: boolean
+  brokenIPForwarding?: boolean
+  connectedToControl?: boolean
+  isEphemeral?: boolean
+  sshEnabled?: boolean
+  funnelEnabled?: boolean
+  adminPanelSSH?: boolean
+  sshUsernames?: string[]
+  otherSSHUsernamesAllowed?: boolean
+  upgradeWindowsWarningNov2022?: boolean
+  ownerDisabledStatus?: string
+  tlLockedOut?: boolean
+  tlTrusted?: boolean
+  postureIdentity?: PostureIdentity
+  appConnector?: boolean
+  autoUpdatesEnabled?: boolean
+  canNat?: boolean
+}
+
+type PostureIdentity = {
+  /** needsUpgrade being true means the current client version of tailscaled does not support posture identity collection */
+  needsUpgrade?: boolean
+  /** notCollected being true means that this node's posture identity will be collected when the machine re-connects */
+  notCollected?: boolean
+  /** nodeDisabled means that the node has not enabled sharing posture identity data with control */
+  nodeDisabled?: boolean
+  updated?: string
+  serialNumbers?: string[]
+  hardwareAddresses?: string[]
+}
 
 export const dateFilterFormat = "y/MM/dd"
 /**

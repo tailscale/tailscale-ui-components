@@ -3,5 +3,6 @@ node_modules
 .DS_Store
 dist
 storybook-static
+tsconfig.tsbuildinfo
 
 *storybook.log
