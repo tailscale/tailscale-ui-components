@@ -2,7 +2,7 @@ import cx from "classnames"
 import React from "react"
 import { AlertCircle } from "src/icons"
 
-type Props = {
+export type ErrorProps = {
   className?: string
   children: React.ReactNode
   label: string | false
@@ -11,7 +11,7 @@ type Props = {
 /**
  * Error is a standard way to display errors in the admin panel.
  */
-export default function Error(props: Props) {
+export function Error(props: ErrorProps) {
   const { className, label, children } = props
 
   return (

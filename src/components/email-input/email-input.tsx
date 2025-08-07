@@ -1,5 +1,5 @@
 import React, { InputHTMLAttributes, useCallback, useEffect } from "react"
-import Input from "src/components/input/input"
+import { Input } from "src/components/input/input";
 import useDebounce from "src/hooks/debounce"
 import { isValidEmail } from "src/utils/validators"
 
@@ -11,13 +11,7 @@ import { isValidEmail } from "src/utils/validators"
  * as well as doing validation against the values being valid email addresses
  * and (optionally) restricted to provided domains.
  */
-export default function EmailInput({
-  restrictToDomains,
-  setEmails,
-  value,
-  onChange,
-  ...rest
-}: {
+export type EmailInputProps = {
   /**
    * restrictToDomains provides the option to optionally restrict to provided
    * email domains. Domains are expected to be provided lowercase.
@@ -39,7 +33,23 @@ export default function EmailInput({
    * match valid email format.
    */
   setEmails: (validEmails: string[], invalidEmails: string[]) => void
-} & InputHTMLAttributes<HTMLInputElement>) {
+} & InputHTMLAttributes<HTMLInputElement>
+
+/**
+ * EmailInput component provides a text input for entering multiple
+ * comma-separated email addresses.
+ *
+ * The component handles passing the inputted emails back to the parent,
+ * as well as doing validation against the values being valid email addresses
+ * and (optionally) restricted to provided domains.
+ */
+export function EmailInput({
+  restrictToDomains,
+  setEmails,
+  value,
+  onChange,
+  ...rest
+}: EmailInputProps) {
   const [inputValue, setInputValue] = React.useState(value || "")
   useEffect(() => setInputValue(value || ""), [value])
   const debouncedValue = useDebounce(inputValue, 500)

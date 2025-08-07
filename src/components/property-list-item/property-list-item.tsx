@@ -1,8 +1,8 @@
 import cx from "classnames"
 import React from "react"
-import Tooltip from "src/components/tooltip/tooltip"
+import { Tooltip } from "src/components/tooltip/tooltip"
 
-type PropertyListItemProps = {
+export type PropertyListItemProps = {
   label: React.ReactNode
   tooltipLabel?: React.ReactNode
   noTruncation?: boolean

@@ -2,15 +2,17 @@ import cx from "classnames"
 import React from "react"
 import { Button } from "src/components/button/button"
 
-export default function ApplyButton({
-  className,
-  onClick,
-  disabled,
-}: {
+export type ApplyButtonProps = {
   className?: string
   onClick: () => void
   disabled: boolean
-}) {
+}
+
+export function ApplyButton({
+  className,
+  onClick,
+  disabled,
+}: ApplyButtonProps) {
   return (
     <div className={cx("p-3", className)}>
       <Button

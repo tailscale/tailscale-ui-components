@@ -3,7 +3,7 @@ import cx from "classnames"
 import React, { JSX } from "react"
 import { Check } from "src/icons"
 
-type Props = {
+export type CheckboxProps = {
   id: string
   label: string | JSX.Element
   description?: string
@@ -21,7 +21,7 @@ type Props = {
  *     <Checkbox checked onChange={...} />
  *     <Checkbox checked onChange={...} label="Sign me up" />
  */
-export default function Checkbox(props: Props) {
+export function Checkbox(props: CheckboxProps) {
   const {
     id,
     label,

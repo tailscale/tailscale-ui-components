@@ -6,10 +6,10 @@ import {
   Trigger,
 } from "@radix-ui/react-hover-card"
 import React from "react"
-import PortalContainerContext from "src/components/portal-container-context"
+import { PortalContainerContext } from "src/components/portal-container-context"
 import { isExternalUrl } from "src/utils/util"
 
-type Props = {
+export type HoverCardProps = {
   children: React.ReactNode
   trigger: React.ReactNode
   asChild?: boolean
@@ -19,7 +19,7 @@ type Props = {
 /**
  * HoverCards are used to provide more context and preview content behind a link.
  */
-export default function HoverCard(props: Props) {
+export function HoverCard(props: HoverCardProps) {
   const {
     children,
     trigger,

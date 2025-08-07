@@ -4,7 +4,7 @@ import useTimedToggle from "src/hooks/timed-toggle"
 import { copyText } from "src/utils/clipboard"
 import { noop } from "src/utils/util"
 
-type Props = {
+export type CopyInputProps = {
   text: string
   visibleText?: string
   buttonLabel?: string
@@ -19,7 +19,7 @@ type Props = {
  * CopyInput is an input component with a "copy" button for easy clipboard
  * management.
  */
-export default function CopyInput(props: Props) {
+export function CopyInput(props: CopyInputProps) {
   const {
     buttonLabel = "Copy",
     className,

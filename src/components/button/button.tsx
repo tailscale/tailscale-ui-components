@@ -1,6 +1,6 @@
 import cx from "classnames"
 import React, { HTMLProps } from "react"
-import LoadingDots from "src/components/loading-dots/loading-dots"
+import { LoadingDots } from "src/components/loading-dots/loading-dots"
 
 export type ButtonProps = {
   type?: "button" | "submit" | "reset"

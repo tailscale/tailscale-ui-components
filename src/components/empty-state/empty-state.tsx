@@ -1,7 +1,7 @@
 import cx from "classnames"
 import React, { cloneElement } from "react"
 
-type Props = {
+export type EmptyStateProps = {
   action?: React.ReactNode
   className?: string
   description: string
@@ -13,7 +13,7 @@ type Props = {
  * EmptyState shows some text and an optional action when some area that can
  * house content is empty (eg. no search results, empty tables).
  */
-export default function EmptyState(props: Props) {
+export function EmptyState(props: EmptyStateProps) {
   const { action, className, description, icon, title } = props
   const iconColor = "text-text-muted"
   const iconComponent = getIcon(icon, iconColor)

@@ -1,9 +1,9 @@
 import * as PopoverPrimitive from "@radix-ui/react-popover"
 import cx from "classnames"
 import React, { ReactNode } from "react"
-import PortalContainerContext from "src/components/portal-container-context"
+import { PortalContainerContext } from "src/components/portal-container-context"
 
-type Props = {
+export type PopoverProps = {
   className?: string
   content: ReactNode
   children: ReactNode
@@ -63,7 +63,7 @@ type Props = {
  *
  * The former style is recommended whenever possible.
  */
-export default function Popover(props: Props) {
+export function Popover(props: PopoverProps) {
   const {
     children,
     className,

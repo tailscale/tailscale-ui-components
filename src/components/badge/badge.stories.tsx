@@ -1,6 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import Badge, {
+import {
+  Badge,
   AlphaBadge,
   BetaBadge,
   BADGE_COLORS,

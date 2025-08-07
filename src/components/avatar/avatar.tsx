@@ -9,7 +9,7 @@ export type UserAvatarProps = {
   loginName: string
 }
 
-type Props = {
+export type AvatarProps = {
   /**
    * The user the avatar is for.
    */
@@ -45,7 +45,7 @@ type Props = {
  * name with a colored background. If no user is provided, it falls back to a
  * circle with a dotted border (with whatever children specified).
  */
-export default function Avatar(props: Props) {
+export function Avatar(props: AvatarProps) {
   const { className, sizeClassName, user, group, children, ...rest } = props
   const hasAvatar = user && user.profilePicURL && user.profilePicURL.length > 0
 

@@ -1,7 +1,7 @@
 import cx from "classnames"
 import React from "react"
 
-type Props = {
+export type CardBackgroundProps = {
   bottomSVGClassName?: string
   topSVGClassName?: string
 }
@@ -21,7 +21,7 @@ Usage:
 </Card>
 */
 
-export default function CardBackground(props: Props) {
+export function CardBackground(props: CardBackgroundProps) {
   const { bottomSVGClassName, topSVGClassName } = props
   return (
     <>

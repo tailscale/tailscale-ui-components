@@ -2,7 +2,7 @@ import clsx from "classnames"
 import React, { HTMLProps, useEffect, useState } from "react"
 import { Button } from "src/components/button/button"
 import { Minus, Plus } from "src/icons"
-import Input from "src/components/input/input"
+import { Input } from "src/components/input/input"
 
 const constrain = (
   val: number,
@@ -39,7 +39,7 @@ export type Props = {
  * Use it for quantities, counts, and integer values. Don't use it for
  * numeric-like values such as phone numbers or PIN codes.
  */
-export default function NumericInput(props: Props) {
+export function NumericInput(props: Props) {
   const {
     value,
     min,

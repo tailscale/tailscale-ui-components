@@ -3,7 +3,7 @@ import React, { cloneElement, HTMLAttributes } from "react"
 import { Button } from "src/components/button/button"
 import { AlertCircle, AlertTriangle, Info, X } from "src/icons"
 
-type Props = HTMLAttributes<HTMLDivElement> & {
+export type NoteProps = HTMLAttributes<HTMLDivElement> & {
   intent?: NoteIntent
   title?: string
   icon?: React.ReactElement | false
@@ -22,11 +22,10 @@ export type NoteIntent = "info" | "primary" | "warning" | "error"
 /**
  * Note is a component for calling out information that requires attention.
  */
-export default function Note(props: Props) {
+export function Note(props: NoteProps) {
   const {
     className,
     children,
-    color,
     icon,
     title,
     intent,

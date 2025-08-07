@@ -1,13 +1,13 @@
 import cx from "classnames"
-import React from "react"
+import React, { HTMLAttributes } from "react"
 import { AlertTriangle } from "src/icons"
-import Spinner from "src/components/spinner/spinner"
+import { Spinner } from "src/components/spinner/spinner";
 
-type Props = {
+export type LoadingBlockProps = {
   error?: { message: string }
   loadingMessage?: string
   className?: string
-}
+} & HTMLAttributes<HTMLDivElement>
 
 /**
  * `LoadingBlock` is a standard component for displaying state about data that's
@@ -20,7 +20,7 @@ type Props = {
  *       return <LoadingBlock loadingMessage="Loading data..." />
  *     }
  */
-export default function LoadingBlock(props: Props) {
+export function LoadingBlock(props: LoadingBlockProps) {
   const { error, loadingMessage, className } = props
   return (
     <div

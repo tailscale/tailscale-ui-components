@@ -1,4 +1,4 @@
-import NullValue from "src/components/null/null"
+import { NullValue } from "src/components/null/null"
 
 const cellHeaderBase =
   "pr-3 py-2 uppercase font-bold text-xs tracking-wider leading-4 text-text-muted align-middle"
@@ -6,7 +6,7 @@ const cellHeaderBase =
 const aclGUICellBodyBase = "pl-1 pr-3 py-4 h-[3.25rem]"
 const cellActionBase = "flex justify-end ml-auto md:ml-0 relative"
 
-const table = {
+export const table = {
   /**
    * cellExpand grows a cell to fill all available space given to it.
    */

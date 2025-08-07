@@ -1,11 +1,19 @@
 import cx from "classnames"
 import { useCombobox, useMultipleSelection } from "downshift"
 import React, { useCallback, useEffect, useState } from "react"
-import Checkbox from "src/components/checkbox/checkbox"
+import { Checkbox } from "src/components/checkbox/checkbox"
 import { Search } from "src/icons"
-import ApplyButton from "src/components/select/apply-button"
+import { ApplyButton } from "src/components/select/apply-button"
 import { StringConstantValue } from "src/components/select/types"
 import { isArrayEqual } from "src/utils/util"
+
+export type CheckboxSelectProps = {
+  label: string
+  values: StringConstantValue[]
+  selected?: StringConstantValue[]
+  onUpdateSelected: (selected: StringConstantValue[]) => void
+  searchClassName?: string
+}
 
 /**
  * CheckboxSelect is a multiselect UI component.
@@ -13,19 +21,13 @@ import { isArrayEqual } from "src/utils/util"
  * TODO(sonia): Should be used to replace the FilterMultiSelect
  * and MultiSelect components.
  */
-export default function CheckboxSelect({
+export function CheckboxSelect({
   label,
   values,
   selected,
   onUpdateSelected,
   searchClassName,
-}: {
-  label: string
-  values: StringConstantValue[]
-  selected?: StringConstantValue[]
-  onUpdateSelected: (selected: StringConstantValue[]) => void
-  searchClassName?: string
-}) {
+}: CheckboxSelectProps) {
   const [searchString, setSearchString] = useState("")
   const [filteredValues, setFilteredValues] = useState(values)
   const [hasChanged, setHasChanged] = useState(false)
