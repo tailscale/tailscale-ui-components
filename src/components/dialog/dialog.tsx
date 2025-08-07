@@ -1,10 +1,41 @@
 import * as DialogPrimitive from "@radix-ui/react-dialog"
 import cx from "classnames"
 import React, { Component, ComponentProps, FormEvent } from "react"
-import { Button, ButtonProps } from "src/components/button/button"
-import { X } from "src/icons"
-import { PortalContainerContext } from "src/components/portal-container-context"
-import { isObject } from "src/utils/util"
+import { Button } from "../button/button"
+import { X } from "../../icons"
+import { PortalContainerContext } from "../portal-container-context"
+import { isObject } from "../../utils/util"
+
+export type DialogSize = "regular" | "large" | "xlarge" | "2xlarge"
+export type DialogPosition =
+  | "top-left"
+  | "top-center"
+  | "top-right"
+  | "center-left"
+  | "center-center"
+  | "center-right"
+  | "bottom-left"
+  | "bottom-center"
+  | "bottom-right"
+
+export const DIALOG_SIZES = [
+  "regular",
+  "large",
+  "xlarge",
+  "2xlarge",
+] as const satisfies readonly DialogSize[]
+
+export const DIALOG_POSITIONS = [
+  "top-left",
+  "top-center",
+  "top-right",
+  "center-left",
+  "center-center",
+  "center-right",
+  "bottom-left",
+  "bottom-center",
+  "bottom-right",
+] as const satisfies readonly DialogPosition[]
 
 type ButtonProp = boolean | string | Partial<ComponentProps<typeof Button>>
 
@@ -28,6 +59,37 @@ export type ControlledDialogProps = {
 type PointerDownOutsideEvent = CustomEvent<{
   originalEvent: PointerEvent
 }>
+
+/**
+ * Dialog size style mappings
+ */
+const DIALOG_SIZE_STYLES: Record<DialogSize, string> = {
+  regular: "max-w-lg", // TODO(amrfouad): change to "medium" to follow the rest of the design system size tokens.
+  large: "max-w-xl",
+  xlarge: "max-w-2xl",
+  "2xlarge": "max-w-3xl",
+}
+
+/**
+ * Dialog position style mappings
+ */
+const DIALOG_POSITION_STYLES: Record<DialogPosition, string> = {
+  "top-left":
+    "top-0 md:left-0 md:translate-x-0 sm:left-1/2 sm:-translate-x-1/2 mt-8 md:ml-8",
+  "top-center": "top-0 left-1/2 -translate-x-1/2 mt-8",
+  "top-right":
+    "top-0 md:right-0 md:translate-x-0 sm:right-1/2 sm:translate-x-1/2 mt-8 md:mr-8",
+  "center-left":
+    "top-1/2 md:left-0 md:translate-x-0 -translate-y-1/2 sm:left-1/2 sm:-translate-x-1/2 md:ml-8",
+  "center-center": "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
+  "center-right":
+    "top-1/2 md:right-0 md:translate-x-0 -translate-y-1/2 sm:right-1/2 sm:translate-x-1/2 md:mr-8",
+  "bottom-left":
+    "bottom-0 md:left-0 md:translate-x-0 sm:left-1/2 sm:-translate-x-1/2 mb-8 md:ml-8",
+  "bottom-center": "bottom-0 left-1/2 -translate-x-1/2 mb-8",
+  "bottom-right":
+    "bottom-0 md:right-0 md:translate-x-0 sm:right-1/2 sm:translate-x-1/2 mb-8 md:mr-8",
+}
 
 type Props = {
   className?: string
@@ -73,20 +135,11 @@ type Props = {
   /**
    * size determines how wide the dialog box is.
    */
-  size?: "regular" | "large" | "xlarge" | "2xlarge"
+  size?: DialogSize
   /**
    * position determines where the dialog is positioned relative to the viewport.
    */
-  position?:
-    | "top-left"
-    | "top-center"
-    | "top-right"
-    | "center-left"
-    | "center-center"
-    | "center-right"
-    | "bottom-left"
-    | "bottom-center"
-    | "bottom-right"
+  position?: DialogPosition
 
   /**
    * hideCloseIcon determines whether the close icon is shown in the dialog.
@@ -110,27 +163,42 @@ const dialogWindow = cx(
   "transform-gpu"
 )
 
-const positionClasses = {
-  "top-left":
-    "top-0 md:left-0 md:translate-x-0 sm:left-1/2 sm:-translate-x-1/2 mt-8 md:ml-8",
-  "top-center": "top-0 left-1/2 -translate-x-1/2 mt-8",
-  "top-right":
-    "top-0 md:right-0 md:translate-x-0 sm:right-1/2 sm:translate-x-1/2 mt-8 md:mr-8",
-  "center-left":
-    "top-1/2 md:left-0 md:translate-x-0 -translate-y-1/2 sm:left-1/2 sm:-translate-x-1/2 md:ml-8",
-  "center-center": "top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
-  "center-right":
-    "top-1/2 md:right-0 md:translate-x-0 -translate-y-1/2 sm:right-1/2 sm:translate-x-1/2 md:mr-8",
-  "bottom-left":
-    "bottom-0 md:left-0 md:translate-x-0 sm:left-1/2 sm:-translate-x-1/2 mb-8 md:ml-8",
-  "bottom-center": "bottom-0 left-1/2 -translate-x-1/2 mb-8",
-  "bottom-right":
-    "bottom-0 md:right-0 md:translate-x-0 sm:right-1/2 sm:translate-x-1/2 mb-8 md:mr-8",
-}
-
 /**
- * Dialog provides a modal dialog, for prompting a user for input or confirmation
- * before proceeding.
+ * Dialog provides a modal dialog for prompting a user for input or confirmation
+ * before proceeding. Built on top of Radix UI Dialog primitives.
+ *
+ * @example
+ * ```tsx
+ * // Basic dialog with trigger
+ * <Dialog
+ *   title="Confirm Action"
+ *   trigger={<Button>Open Dialog</Button>}
+ * >
+ *   <p>Are you sure you want to continue?</p>
+ * </Dialog>
+ *
+ * // Dialog with form
+ * <Dialog title="User Settings" trigger={<Button>Settings</Button>}>
+ *   <Dialog.Form
+ *     cancelButton="Cancel"
+ *     submitButton="Save"
+ *     onSubmit={handleSubmit}
+ *   >
+ *     <input type="text" placeholder="Enter name" />
+ *   </Dialog.Form>
+ * </Dialog>
+ *
+ * // Controlled dialog
+ * <Dialog
+ *   title="Custom Dialog"
+ *   open={isOpen}
+ *   onOpenChange={setIsOpen}
+ *   size="large"
+ *   position="center-center"
+ * >
+ *   <p>Dialog content here</p>
+ * </Dialog>
+ * ```
  */
 export default function Dialog(props: Props) {
   const {
@@ -167,14 +235,9 @@ export default function Dialog(props: Props) {
                 aria-describedby={undefined}
                 aria-label={title}
                 className={cx(
-                  positionClasses[position],
+                  DIALOG_POSITION_STYLES[position],
                   dialogWindow,
-                  {
-                    "max-w-lg": size === "regular", // TODO(amrfouad): change to "medium" to follow the rest of the design system size tokens.
-                    "max-w-xl": size === "large",
-                    "max-w-2xl": size === "xlarge",
-                    "max-w-3xl": size === "2xlarge",
-                  },
+                  DIALOG_SIZE_STYLES[size],
                   {
                     "p-4 md:p-6": !noPadding,
                   }
@@ -228,6 +291,9 @@ export default function Dialog(props: Props) {
  *     </Dialog.Form>
  */
 Dialog.Form = DialogForm
+
+// Named export for consistency
+export { Dialog }
 
 export type FormProps = {
   /**
