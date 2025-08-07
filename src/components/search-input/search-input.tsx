@@ -2,7 +2,7 @@ import cx from "classnames"
 import React, { forwardRef, InputHTMLAttributes } from "react"
 import { Search, X } from "src/icons"
 
-type Props = {
+export type SearchInputProps = {
   className?: string
   onClearClick?: () => void
   inputClassName?: string
@@ -11,7 +11,7 @@ type Props = {
 /**
  * SearchInput is a standard input with a search icon and optional clear button.
  */
-const SearchInput = forwardRef<HTMLInputElement, Props>((props, ref) => {
+export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>((props, ref) => {
   const { className, inputClassName, onClearClick, ...rest } = props
   return (
     <div className={cx("relative", className)}>

@@ -1,12 +1,12 @@
 import cx from "classnames"
 import React, { HTMLAttributes } from "react"
 
-type Props = {
+export type SpinnerProps = {
   className?: string
   size: "sm" | "md"
 } & HTMLAttributes<HTMLDivElement>
 
-export default function Spinner(props: Props) {
+export function Spinner(props: SpinnerProps) {
   const { className, size, ...rest } = props
 
   return (

@@ -1,7 +1,7 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 import cx from "classnames"
 import React from "react"
-import Badge from "src/components/badge/badge"
+import { Badge } from "src/components/badge/badge"
 import { Button } from "src/components/button/button"
 import { Check, ChevronDown } from "src/icons"
 
@@ -39,7 +39,7 @@ export type SelectItem = {
  * Instead it calls `updateSelectedValues` on item selection to allow the
  * caller to manage the change to `selectedValues`.
  */
-export default function MultiSelect(props: MultiSelectProps) {
+export function MultiSelect(props: MultiSelectProps) {
   const {
     title,
     items,

@@ -1,12 +1,19 @@
 import cx from "classnames"
 import React from "react"
-import NumericInput, { Props } from "src/components/input-numeric/input-numeric"
+import { NumericInput } from "src/components/input-numeric/input-numeric"
+
+export type DurationInputProps = {
+  id: string
+  value: number | string
+  onChange: (value: number) => void
+  disabled?: boolean
+}
 
 /**
  * DurationInput is a pair of "days" and "hours" inputs whose value is
  * translated to/from the value in seconds.
  */
-export default function DurationInput(props: Props) {
+export function DurationInput(props: DurationInputProps) {
   const value =
     typeof props.value === "string"
       ? Number.parseInt(props.value, 10)

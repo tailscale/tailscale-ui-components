@@ -1,8 +1,8 @@
 import { differenceInHours, formatDistance } from "date-fns"
 import { format } from "date-fns-tz"
 import React, { Fragment, ReactNode } from "react"
-import NullValue from "src/components/null/null"
-import Tooltip from "src/components/tooltip/tooltip"
+import { NullValue } from "src/components/null/null"
+import { Tooltip } from "src/components/tooltip/tooltip"
 import { serverNow } from "src/utils/time"
 
 // IMachine correspond with Go type tailscale.io/control/adminhttp:machineData

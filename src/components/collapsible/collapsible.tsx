@@ -3,7 +3,7 @@ import cx from "classnames"
 import React, { useEffect, useState } from "react"
 import { ChevronDown, ChevronRight } from "src/icons"
 
-type CollapsibleProps = {
+export type CollapsibleProps = {
   trigger?: string
   children: React.ReactNode
   className?: string
@@ -11,7 +11,7 @@ type CollapsibleProps = {
   onOpenChange?: (open: boolean) => void
 }
 
-export default function Collapsible(props: CollapsibleProps) {
+export function Collapsible(props: CollapsibleProps) {
   const { children, className, trigger, onOpenChange } = props
   const [open, setOpen] = useState(props.open)
 

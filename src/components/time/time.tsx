@@ -1,8 +1,8 @@
 import React, { ReactNode } from "react"
-import Tooltip from "src/components/tooltip/tooltip"
+import { Tooltip } from "src/components/tooltip/tooltip"
 import { formatRelativeDate, fullDate, shortTime } from "src/utils/format"
 
-type TimeProps = {
+export type TimeProps = {
   time: Date
   className?: string
 
@@ -18,7 +18,7 @@ type TimeProps = {
   format?: TimeFormat
 }
 
-type TimeFormat = "long" | "relative" | "date"
+export type TimeFormat = "long" | "relative" | "date"
 
 /**
  * Time is a helper for inserting a HTML5 time tag with dateTime and title set
@@ -34,7 +34,7 @@ type TimeFormat = "long" | "relative" | "date"
  *      const t = new Date()
  *      return <Time time={t}>{t.getFullYear()}</Time>
  */
-export default function Time({ time, className, children, format }: TimeProps) {
+export function Time({ time, className, children, format }: TimeProps) {
   let title: string | undefined = formatTime("long", time)
   if (!format) {
     format = "long"

@@ -2,9 +2,9 @@ import * as TooltipPrimitive from "@radix-ui/react-tooltip"
 import cx from "classnames"
 import React from "react"
 import { Info } from "src/icons"
-import PortalContainerContext from "src/components//portal-container-context"
+import { PortalContainerContext } from "src/components//portal-container-context"
 
-type Props = {
+export type TooltipProps = {
   side?: "top" | "right" | "bottom" | "left"
   align?: "start" | "center" | "end"
   delay?: number
@@ -13,7 +13,7 @@ type Props = {
   asChild?: boolean // when true, renders the tooltip trigger as a child; defaults to true
 }
 
-export default function Tooltip(props: Props) {
+export function Tooltip(props: TooltipProps) {
   const { delay = 150, side, align, content, children, asChild = true } = props
 
   return (

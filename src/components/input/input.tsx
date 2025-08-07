@@ -1,7 +1,7 @@
 import cx from "classnames"
 import React, { InputHTMLAttributes } from "react"
 
-type Props = {
+export type InputProps = {
   className?: string
   inputClassName?: string
   error?: boolean
@@ -9,7 +9,7 @@ type Props = {
 } & InputHTMLAttributes<HTMLInputElement>
 
 // Input is styled in a way that only works for text inputs.
-const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
+export const Input = React.forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   const {
     className,
     inputClassName,
@@ -37,4 +37,4 @@ const Input = React.forwardRef<HTMLInputElement, Props>((props, ref) => {
 const overlayClassName =
   "bg-bg-base top-1 bottom-1 right-1 rounded-r-md absolute flex items-center"
 
-export default Input
+

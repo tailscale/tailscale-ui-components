@@ -1,7 +1,7 @@
 import cx from "classnames"
 import React, { HTMLProps, useLayoutEffect } from "react"
 
-type Props = HTMLProps<HTMLTextAreaElement> & {
+export type TextAreaProps = HTMLProps<HTMLTextAreaElement> & {
   /**
    * autoResize enables auto-resizing of the textarea to fit its content.
    * Defaults to true.
@@ -28,7 +28,7 @@ type Props = HTMLProps<HTMLTextAreaElement> & {
   visible?: boolean
 }
 
-export default function TextArea(props: Props) {
+export function TextArea(props: TextAreaProps) {
   const {
     className,
     autoResize = true,

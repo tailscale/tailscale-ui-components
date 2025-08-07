@@ -1,9 +1,9 @@
 import * as DialogPrimitive from "@radix-ui/react-dialog"
 import cx from "classnames"
 import React, { Component, ComponentProps, FormEvent } from "react"
-import { Button } from "src/components/button/button"
+import { Button, ButtonProps } from "src/components/button/button"
 import { X } from "src/icons"
-import PortalContainerContext from "src/components/portal-container-context"
+import { PortalContainerContext } from "src/components/portal-container-context"
 import { isObject } from "src/utils/util"
 
 type ButtonProp = boolean | string | Partial<ComponentProps<typeof Button>>

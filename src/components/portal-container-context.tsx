@@ -1,6 +1,5 @@
 import React from "react"
 
-const PortalContainerContext = React.createContext<HTMLElement | undefined>(
+export const PortalContainerContext = React.createContext<HTMLElement | undefined>(
   undefined
 )
-export default PortalContainerContext

@@ -1,7 +1,7 @@
 import cx from "classnames"
 import React from "react"
 
-type Props = {
+export type CardProps = {
   children: React.ReactNode
   className?: string
   elevated?: boolean
@@ -20,7 +20,7 @@ type Props = {
  *     <Card empty><EmptyState description="You don't have any keys" /></Card>
  *
  */
-export default function Card(props: Props) {
+export function Card(props: CardProps) {
   const { children, className, elevated, empty, noPadding } = props
   return (
     <div

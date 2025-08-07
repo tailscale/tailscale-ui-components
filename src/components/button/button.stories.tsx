@@ -1,7 +1,7 @@
 import React from 'react'
 import type { Meta, StoryObj } from "@storybook/react"
 import { Plus, Lock } from "lucide-react"
-import { Button } from "./button"
+import { Button } from "./button";
 
 const meta = {
   title: "Components/Button",

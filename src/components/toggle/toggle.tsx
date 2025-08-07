@@ -1,7 +1,7 @@
 import cx from "classnames"
 import React, { ChangeEvent } from "react"
 
-type Props = {
+export type ToggleProps = {
   id?: string
   className?: string
   disabled?: boolean
@@ -10,7 +10,7 @@ type Props = {
   onChange: (checked: boolean) => void
 }
 
-export default function Toggle(props: Props) {
+export function Toggle(props: ToggleProps) {
   const { className, id, disabled, checked, sizeVariant, onChange } = props
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {

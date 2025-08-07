@@ -1,12 +1,12 @@
 import cx from "classnames"
 import React, { HTMLAttributes } from "react"
 
-type Props = {
+export type ButtonGroupProps = {
   className?: string
   children: React.ReactNode
 } & HTMLAttributes<HTMLDivElement>
 
-export default function ButtonGroup(props: Props) {
+export function ButtonGroup(props: ButtonGroupProps) {
   const { className, children, ...rest } = props
   return (
     <div className={cx("button-group", className)} {...rest}>

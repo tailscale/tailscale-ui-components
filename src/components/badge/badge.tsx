@@ -66,7 +66,7 @@ export interface BadgeProps
  * <Badge variant="cell" color="red">Error</Badge>
  * ```
  */
-export default function Badge(props: BadgeProps) {
+export function Badge(props: BadgeProps) {
   const {
     className,
     color = "gray",
@@ -96,8 +96,7 @@ export default function Badge(props: BadgeProps) {
   );
 }
 
-// Named export for consistency
-export { Badge };
+
 
 export function AlphaBadge({
   className,

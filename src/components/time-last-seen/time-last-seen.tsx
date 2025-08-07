@@ -1,10 +1,18 @@
 import cx from "classnames"
 import { differenceInMinutes, isSameDay, isSameYear, isValid } from "date-fns"
 import React from "react"
-import StatusDot from "src/components/status-dot/status-dot"
-import Time from "src/components/time/time"
+import { StatusDot } from "src/components/status-dot/status-dot"
+import { Time } from "src/components/time/time"
 import { fullDate, shortDate, shortTime } from "src/utils/format"
 import { serverNow } from "src/utils/time"
+
+export type TimeLastSeenProps = {
+  connected?: boolean
+  restricted?: boolean
+  date: any
+  dot?: boolean
+  className?: string
+}
 
 /**
  * TimeLastSeen renders a "🟢 Connected" when connected or "⚫ 2pm" with the
@@ -14,19 +22,13 @@ import { serverNow } from "src/utils/time"
  * @example
  *  Last Seen: {<TimeLastSeen connected={false} date={undefined} /> || "Never"}
  */
-export default function TimeLastSeen({
+export function TimeLastSeen({
   connected,
   restricted,
   date,
   className,
   dot = true,
-}: {
-  connected?: boolean
-  restricted?: boolean
-  date: any
-  dot?: boolean
-  className?: string
-}) {
+}: TimeLastSeenProps) {
   if (connected) {
     return (
       <span className={className}>

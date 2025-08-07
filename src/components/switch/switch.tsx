@@ -2,12 +2,12 @@ import { List, Root, Trigger } from "@radix-ui/react-tabs"
 import cx from "classnames"
 import React from "react"
 
-type SwitchOption = {
+export type SwitchOption = {
   id: string
   label: React.ReactNode
 }
 
-type SwitchProps = {
+export type SwitchProps = {
   className?: string
   options: [SwitchOption, SwitchOption]
   value: string
@@ -32,7 +32,7 @@ type SwitchProps = {
  *     />
  */
 
-export default function Switch({
+export function Switch({
   className,
   options,
   value,

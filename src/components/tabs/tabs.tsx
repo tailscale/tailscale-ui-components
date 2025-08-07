@@ -2,13 +2,15 @@ import { Content, List, Root, Trigger } from "@radix-ui/react-tabs"
 import cx from "classnames"
 import React, { ReactNode } from "react"
 
-type Props = {
-  tabs: {
-    id: string
-    label: ReactNode
-    content?: ReactNode
-    icon?: ReactNode
-  }[]
+export type Tab = {
+  id: string
+  label: ReactNode
+  content?: ReactNode
+  icon?: ReactNode
+}
+
+export type TabsProps = {
+  tabs: Tab[]
 } & (
   | {
       defaultValue?: string
@@ -28,7 +30,7 @@ type Props = {
  *       { value: "billing", label: "Billing", content: <BillingTab /> },
  *     ]} />
  */
-export default function Tabs({ tabs, defaultValue, value, onChange }: Props) {
+export function Tabs({ tabs, defaultValue, value, onChange }: TabsProps) {
   const hasValue = value !== undefined && onChange !== undefined
   const hasDefaultValue = !hasValue && defaultValue !== undefined
 

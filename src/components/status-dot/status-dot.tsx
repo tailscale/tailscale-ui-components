@@ -1,11 +1,13 @@
 import cx from "classnames"
 import React from "react"
 
-export default function StatusDot(props: {
+export type StatusDotProps = {
   className?: string
   status: "connected" | "restricted" | "offline" | "unknown" | "error"
   size?: "medium" | "large"
-}) {
+}
+
+export function StatusDot(props: StatusDotProps) {
   const { className, status, size = "medium" } = props
 
   if (status === "error") {

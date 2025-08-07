@@ -3,7 +3,7 @@ import React, { useCallback, useEffect, useRef, useState } from "react"
 import { Button } from "src/components/button/button"
 import { ArrowLeft, ArrowRight } from "src/icons"
 
-type CarouselProps = {
+export type CarouselProps = {
   children: React.ReactNode
   cardWidth: number
   gap: number
@@ -25,7 +25,7 @@ type CarouselProps = {
  *       ...
  *     </ Carousel>
  */
-export default function Carousel({
+export function Carousel({
   children,
   cardWidth,
   gap,

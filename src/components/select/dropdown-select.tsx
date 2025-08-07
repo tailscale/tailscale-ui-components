@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react"
-import Input from "src/components/input/input"
-import ApplyButton from "src/components/select/apply-button"
+import { Input } from "src/components/input/input"
+import { ApplyButton } from "src/components/select/apply-button"
 import { SingleSelect } from "src/components/select/single-select"
 import { SelectValue } from "src/components/select/types"
 import { assertNever } from "src/utils/util"
+
+export type DropdownSelectProps = {
+  values: SelectValue[]
+  selected?: SelectValue
+  onUpdateSelected: (selected: SelectValue) => void
+}
 
 /**
  * DropdownSelect is a picker UI component that wraps the SingleSelect
  * component with additional date/text input options after selection.
  */
-export default function DropdownSelect({
+export function DropdownSelect({
   values,
   selected,
   onUpdateSelected,
-}: {
-  values: SelectValue[]
-  selected?: SelectValue
-  onUpdateSelected: (selected: SelectValue) => void
-}) {
+}: DropdownSelectProps) {
   const [tmpSelected, setTmpSelected] = useState(selected)
   const [error, setError] = useState("")
 

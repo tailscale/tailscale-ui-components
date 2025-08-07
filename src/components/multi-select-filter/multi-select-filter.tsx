@@ -4,7 +4,8 @@ import {
   FilterPrefix,
   serializeFilterInQuery,
 } from "src/hooks/filter-search"
-import MultiSelect, {
+import {
+  MultiSelect,
   MultiselectSizeVariant,
   SelectItem,
 } from "src/components/multi-select/multi-select"
