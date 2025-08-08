@@ -1,6 +1,6 @@
 {
   "name": "@tailscale/tailscale-ui-components",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "author": "Tailscale",
   "license": "MIT",
   "main": "dist/tailscale-ui-components.umd.js",
@@ -8,14 +8,16 @@
   "types": "dist/index.d.ts",
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+    "tailwind.config.js"
   ],
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/tailscale-ui-components.es.js",
-      "require": "./dist/tailscale-ui-components.umd.js",
-      "types": "./dist/index.d.ts"
-    }
+      "require": "./dist/tailscale-ui-components.umd.js"
+    },
+    "./tailwind.config.js": "./tailwind.config.js"
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
@@ -69,7 +71,8 @@
   },
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006 -h 0.0.0.0",
     "build-storybook": "storybook build"
+    
   }
 }

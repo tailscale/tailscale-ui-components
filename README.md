@@ -52,6 +52,25 @@ This project has been tested and works with:
 
 This project uses **Yarn v1** as the package manager. The `yarn.lock` file should be committed, and `package-lock.json` should be ignored/removed if present.
 
+### Repo Structure:
+```
+tailscale-ui-components/
+├── src/
+│   ├── components/
+│   │   ├── button/
+│   │   │   ├── button.tsx
+│   │   │   ├── button.stories.tsx
+│   │   ├── ...
+│   ├── assets/
+│   │   ├── fonts/
+│   │   └── images/
+│   ├── hooks/
+│   ├── utils/
+│   ├── theme.css
+│   ├── styles.json
+│   └── index.ts    # barrel file for listing official exports of the library
+```
+
 ### Component Development
 
 Components are located in `src/components/` and follow these patterns:
