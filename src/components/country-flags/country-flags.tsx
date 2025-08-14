@@ -75,7 +75,7 @@ function lookup(c: string): Country {
 
 // list built from https://runkit.com/651174d862b4910008bd70a0/651174d83b47050008bf8a89:
 // console.log(JSON.stringify(require("emoji-flags").data.map(c => [c.name.toLowerCase(), c.code.toLowerCase(), c.emoji])))
-const countryList = [
+export const countryList = [
   ["Andorra", "ad", "🇦🇩"],
   ["United Arab Emirates", "ae", "🇦🇪"],
   ["Afghanistan", "af", "🇦🇫"],

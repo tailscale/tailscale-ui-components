@@ -6,6 +6,9 @@ export type ButtonGroupProps = {
   children: React.ReactNode
 } & HTMLAttributes<HTMLDivElement>
 
+/**
+ * ButtonGroup component for presenting a group of buttons connected together.
+ */
 export function ButtonGroup(props: ButtonGroupProps) {
   const { className, children, ...rest } = props
   return (

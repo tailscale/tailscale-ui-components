@@ -9,7 +9,7 @@ export type ErrorProps = {
 }
 
 /**
- * Error is a standard way to display errors in the admin panel.
+ * Error is a standard way to display errors in the admin console.
  */
 export function Error(props: ErrorProps) {
   const { className, label, children } = props

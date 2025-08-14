@@ -11,6 +11,10 @@ export type CollapsibleProps = {
   onOpenChange?: (open: boolean) => void
 }
 
+/**
+ * An interactive component for expanding and collapsing content which shouldn’t always be shown.
+ * Built on top of Radix UI’s collapsible component (https://www.radix-ui.com/docs/primitives/components/collapsible).
+ */
 export function Collapsible(props: CollapsibleProps) {
   const { children, className, trigger, onOpenChange } = props
   const [open, setOpen] = useState(props.open)

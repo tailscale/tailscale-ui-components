@@ -7,6 +7,7 @@ export type CardProps = {
   elevated?: boolean
   empty?: boolean
   noPadding?: boolean
+  style?: React.CSSProperties
 }
 
 /**
@@ -21,7 +22,7 @@ export type CardProps = {
  *
  */
 export function Card(props: CardProps) {
-  const { children, className, elevated, empty, noPadding } = props
+  const { children, className, elevated, empty, noPadding, style } = props
   return (
     <div
       className={cx("rounded-md border", className, {
@@ -30,6 +31,7 @@ export function Card(props: CardProps) {
         "bg-bg-base": !empty,
         "p-6": !noPadding,
       })}
+      style={style}
     >
       {children}
     </div>

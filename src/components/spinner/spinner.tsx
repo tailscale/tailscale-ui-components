@@ -23,7 +23,3 @@ export function Spinner(props: SpinnerProps) {
     />
   )
 }
-
-Spinner.defaultProps = {
-  size: "md",
-}
