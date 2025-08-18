@@ -10,6 +10,11 @@ export type ToggleProps = {
   onChange: (checked: boolean) => void
 }
 
+/**
+ * Toggles are used to turn an option on or off.
+ * Use a toggle only if the option takes effect immediately.
+ * For selecting multiple options or for changes that require separate confirmation, use a Checkbox instead.
+ */
 export function Toggle(props: ToggleProps) {
   const { className, id, disabled, checked, sizeVariant, onChange } = props
 
@@ -37,5 +42,5 @@ export function Toggle(props: ToggleProps) {
 }
 
 Toggle.defaultProps = {
-  sizeVariant: "medium",
+  sizeVariant: "medium" as "medium",
 }

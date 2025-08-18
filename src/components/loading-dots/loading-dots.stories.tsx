@@ -5,7 +5,6 @@ import { LoadingDots } from "./loading-dots"
 const meta: Meta<typeof LoadingDots> = {
   title: "Components/LoadingDots",
   component: LoadingDots,
-  tags: ["autodocs"],
 }
 
 export default meta

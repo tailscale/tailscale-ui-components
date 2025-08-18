@@ -4,7 +4,6 @@ import { Note } from "./note";
 const meta: Meta<typeof Note> = {
   title: "Components/Note",
   component: Note,
-  tags: ["autodocs"],
   argTypes: {
     icon: { control: false },
   },

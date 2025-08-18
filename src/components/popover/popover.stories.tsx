@@ -6,7 +6,6 @@ import { Button } from "../button/button"
 const meta: Meta<typeof Popover> = {
   title: "Components/Popover",
   component: Popover,
-  tags: ["autodocs"],
   parameters: {
     controls: { exclude: ["children", "content"] },
   },

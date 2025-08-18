@@ -7,7 +7,6 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-  tags: ["autodocs"],
   argTypes: {
     onCopySuccess: { action: "copied" },
     onCopyFailed: { action: "copy failed" },

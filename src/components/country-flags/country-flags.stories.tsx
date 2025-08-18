@@ -10,7 +10,6 @@ const countryOptions = countryList.map(([name, code]) => ({
 const meta: Meta<typeof CountryFlag> = {
   title: "components/CountryFlag",
   component: CountryFlag,
-  tags: ["autodocs"],
   argTypes: {
     country: {
       control: { type: "select" },

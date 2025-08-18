@@ -5,7 +5,6 @@ import { Error } from "./error"
 const meta: Meta<typeof Error> = {
   title: "components/Error",
   component: Error,
-  tags: ["autodocs"],
 }
 
 export default meta

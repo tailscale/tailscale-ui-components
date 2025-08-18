@@ -6,7 +6,6 @@ import useListPagination from "src/hooks/list-pagination";
 const meta: Meta<typeof PageStepper> = {
   title: "Components/PageStepper",
   component: PageStepper,
-  tags: ["autodocs"],
 };
 export default meta;
 

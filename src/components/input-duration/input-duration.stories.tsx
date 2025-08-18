@@ -5,7 +5,6 @@ import { DurationInput } from "./input-duration";
 const meta: Meta<typeof DurationInput> = {
   title: "Components/DurationInput",
   component: DurationInput,
-  tags: ["autodocs"],
 };
 export default meta;
 

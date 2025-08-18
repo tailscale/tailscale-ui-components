@@ -6,6 +6,9 @@ const cellHeaderBase =
 const aclGUICellBodyBase = "pl-1 pr-3 py-4 h-[3.25rem]"
 const cellActionBase = "flex justify-end ml-auto md:ml-0 relative"
 
+/**
+ * `table` is a collection of styles for building tabular displays.
+ */
 export const table = {
   /**
    * cellExpand grows a cell to fill all available space given to it.

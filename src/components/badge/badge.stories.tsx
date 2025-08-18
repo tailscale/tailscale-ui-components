@@ -14,7 +14,6 @@ const meta: Meta<typeof Badge> = {
   parameters: {
     layout: "centered",
   },
-  tags: ["autodocs"],
   argTypes: {
     children: { control: "text" },
     variant: {

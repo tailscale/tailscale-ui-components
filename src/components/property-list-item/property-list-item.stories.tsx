@@ -5,7 +5,6 @@ import { PropertyListItem } from "./property-list-item";
 const meta: Meta<typeof PropertyListItem> = {
   title: "Components/PropertyListItem",
   component: PropertyListItem,
-  tags: ["autodocs"],
 };
 export default meta;
 

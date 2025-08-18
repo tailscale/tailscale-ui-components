@@ -9,7 +9,6 @@ type StoryArgs = React.ComponentProps<typeof LoadingBlock> & {
 const meta: Meta<typeof LoadingBlock> = {
   title: "Components/LoadingBlock",
   component: LoadingBlock,
-  tags: ["autodocs"],
   argTypes: {
     loadingMessage: {
       control: "text",

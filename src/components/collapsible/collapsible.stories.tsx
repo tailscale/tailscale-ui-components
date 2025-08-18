@@ -5,7 +5,6 @@ import { Collapsible } from "./collapsible"
 const meta: Meta<typeof Collapsible> = {
   title: "components/Collapsible",
   component: Collapsible,
-  tags: ["autodocs"],
   argTypes: {
     trigger: { control: "text" },
     open: { control: "boolean" },

@@ -7,7 +7,6 @@ import { Button } from "../button/button"
 const meta: Meta<typeof EmptyState> = {
   title: "components/EmptyState",
   component: EmptyState,
-  tags: ["autodocs"],
 }
 
 export default meta

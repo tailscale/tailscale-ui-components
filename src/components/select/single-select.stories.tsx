@@ -6,7 +6,6 @@ import { SelectValue, StringConstantValue } from "src/components/select/types"
 const meta: Meta<typeof SingleSelect> = {
   title: "Components/Select",
   component: SingleSelect,
-  tags: ["autodocs"],
   argTypes: {
     onUpdateSelected: { action: "updated" },
   },
@@ -21,10 +20,6 @@ const sampleValues: SelectValue[] = [
   { type: "string-constant", label: "Subnet Router", value: "subnet-router" },
   { type: "string-constant", label: "ACLs", value: "acls" },
 ]
-
-// =============================================================================
-// SingleSelect
-// =============================================================================
 
 type Story = StoryObj<typeof SingleSelect>
 
@@ -71,10 +66,6 @@ export const Disabled: Story = {
     disabled: true,
   },
 }
-
-// =============================================================================
-// InlineSingleSelect
-// =============================================================================
 
 const inlineSampleValues: StringConstantValue[] = [
   {

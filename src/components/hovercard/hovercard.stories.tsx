@@ -5,7 +5,6 @@ import { HoverCard } from "./hovercard"
 const meta: Meta<typeof HoverCard> = {
   title: "components/HoverCard",
   component: HoverCard,
-  tags: ["autodocs"],
   argTypes: {
     trigger: { table: { disable: true } },
     children: { table: { disable: true } },

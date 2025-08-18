@@ -8,7 +8,6 @@ const meta: Meta<typeof Checkbox> = {
   parameters: {
     layout: "centered",
   },
-  tags: ["autodocs"],
   argTypes: {
     id: { control: "text" },
     label: { control: "text" },

@@ -6,7 +6,6 @@ import React from "react";
 const meta: Meta<typeof NumericInput> = {
   title: "Components/NumericInput",
   component: NumericInput,
-  tags: ["autodocs"],
 };
 export default meta;
 

@@ -6,7 +6,6 @@ import { Card } from "../card/card"
 const meta: Meta<typeof Carousel> = {
   title: "components/Carousel",
   component: Carousel,
-  tags: ["autodocs"],
   argTypes: {
     cardWidth: { control: "number" },
     gap: { control: "number" },
