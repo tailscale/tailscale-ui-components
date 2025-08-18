@@ -1,6 +1,6 @@
 # tailscale-ui-components
 
-Tailscale UI component library used by tailscale/corp/adminhttp/panel and tailscale/tailscale/client/web React projects. Not maintained for external use.
+Tailscale UI component library used by Tailscale web projects. Not maintained for external use.
 
 ## Development Setup
 

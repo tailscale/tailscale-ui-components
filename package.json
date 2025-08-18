@@ -2,7 +2,7 @@
   "name": "@tailscale/tailscale-ui-components",
   "version": "0.0.3",
   "author": "Tailscale",
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "main": "dist/tailscale-ui-components.umd.js",
   "module": "dist/tailscale-ui-components.es.js",
   "types": "dist/index.d.ts",
