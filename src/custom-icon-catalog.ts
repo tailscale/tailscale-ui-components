@@ -36,7 +36,17 @@ import BuildingIcon from "src/assets/images/generic-icons/building.svg?react"
 import NasLogo from "src/assets/images/generic-icons/nas.svg?react"
 import SshLogo from "src/assets/images/generic-icons/ssh.svg?react"
 import VscodeLogo from "src/assets/images/generic-icons/vscode.svg?react"
-import { Dice, DragHandle, Idle, Magic } from "src/icons"
+import {
+  Dice,
+  DragHandle,
+  Idle,
+  Magic,
+  StarFilled,
+  Stamp,
+  DevicePlus,
+  AppConnector,
+  CloudCheck,
+} from "src/icons"
 
 export interface IconsMeta {
   name: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
@@ -78,12 +88,17 @@ export const ProviderIcons: IconsMeta[] = [
   { name: AWSS3Icon, title: "s3" },
 ]
 export const OtherIcons: IconsMeta[] = [
+  { name: AppConnector, title: "app-connector" },
+  { name: BuildingIcon, title: "building" },
+  { name: CloudCheck, title: "cloud-check" },
+  { name: DevicePlus, title: "device-plus" },
   { name: Dice, title: "dice" },
   { name: DragHandle, title: "drag-handle" },
   { name: Idle, title: "idle" },
   { name: Magic, title: "magic-dns" },
-  { name: SshLogo, title: "ssh" },
   { name: NasLogo, title: "nas" },
+  { name: SshLogo, title: "ssh" },
+  { name: Stamp, title: "stamp" },
+  { name: StarFilled, title: "star-filled" },
   { name: VscodeLogo, title: "vscode" },
-  { name: BuildingIcon, title: "building" },
 ]

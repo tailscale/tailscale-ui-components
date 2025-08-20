@@ -1,0 +1,53 @@
+import { Meta, IconGallery, IconItem } from "@storybook/addon-docs/blocks"
+import {
+  PlatformIcons,
+  PricingIcons,
+  ProviderIcons,
+  OtherIcons,
+} from "./custom-icon-catalog"
+
+<Meta title="Custom Icons" />
+
+# Custom Icons
+
+Icons that are made by Tailscale/not included in the <a href="https://lucide.dev/icons/" target="_blank" rel="noopener noreferrer">Lucide Icons</a> set that is otherwise used for icons.
+
+## Platform Icons
+
+<IconGallery>
+  {PlatformIcons.map(icon => (
+    <IconItem name={icon.title} key={icon.title}>
+      <icon.name />
+    </IconItem>
+  ))}
+</IconGallery>
+
+## Pricing Icons
+
+<IconGallery>
+  {PricingIcons.map(icon => (
+    <IconItem name={icon.title} key={icon.title}>
+      <icon.name />
+    </IconItem>
+  ))}
+</IconGallery>
+
+## Provider Icons
+
+<IconGallery>
+  {ProviderIcons.map(icon => (
+    <IconItem name={icon.title} key={icon.title}>
+      <icon.name />
+    </IconItem>
+  ))}
+</IconGallery>
+
+## Other Icons
+
+<IconGallery>
+  {OtherIcons.map(icon => (
+    <IconItem name={icon.title} key={icon.title}>
+      <icon.name />
+    </IconItem>
+  ))}
+</IconGallery>
