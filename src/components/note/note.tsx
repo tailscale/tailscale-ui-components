@@ -20,7 +20,7 @@ export type NoteProps = HTMLAttributes<HTMLDivElement> & {
 export type NoteIntent = "info" | "primary" | "warning" | "error"
 
 /**
- * Note is a component for calling out information that requires attention.
+ * Note displays text that requires attention or provides additional information.
  */
 export function Note(props: NoteProps) {
   const {

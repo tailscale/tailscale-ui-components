@@ -120,8 +120,7 @@ export type ButtonProps = {
 } & HTMLProps<HTMLButtonElement>
 
 /**
- * Button is a clickable element that can be used to trigger actions. It can
- * have different visual styles and semantic meanings.
+ * Buttons are used to trigger actions throughout the UI. Buttons take both a variant (filled or ghost) and an intent (base, primary, warning, danger).
  *
  * @example
  * ```tsx

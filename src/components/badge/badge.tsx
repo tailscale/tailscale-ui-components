@@ -58,6 +58,8 @@ export interface BadgeProps
 
 /**
  * Badge component for displaying status indicators, tags, and labels.
+ * 
+ * They are used to call attention to states of objects, or to provide indicators which call attention.
  *
  * @example
  * ```tsx
