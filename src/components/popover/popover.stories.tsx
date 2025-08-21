@@ -58,7 +58,7 @@ export const Controlled: Story = {
     side: "right",
     align: "center",
   },
-  render: (args: PopoverProps) => {
+  render: function ControlledStory(args: PopoverProps) {
     const [open, setOpen] = useState(false)
     return (
       <div

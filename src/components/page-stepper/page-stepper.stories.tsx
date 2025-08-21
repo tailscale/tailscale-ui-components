@@ -12,7 +12,7 @@ export default meta
 type Story = StoryObj<typeof PageStepper>
 
 export const Default: Story = {
-  render: () => {
+  render: function PageStepperStory() {
     // rigged list data
     const data = Array.from({ length: 23 }, (_, i) => `Item ${i + 1}`)
     const pageSize = 5

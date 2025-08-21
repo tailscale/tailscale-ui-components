@@ -11,7 +11,7 @@ export default meta
 type Story = StoryObj<typeof DurationInput>
 
 export const Default: Story = {
-  render: (args) => {
+  render: function DurationInputStory(args) {
     const [value, setValue] = useState(93600)
     return (
       <div>

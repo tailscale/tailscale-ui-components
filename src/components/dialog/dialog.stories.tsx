@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { AlertTriangle, Plus, Settings, Trash2 } from "lucide-react"
+import { AlertTriangle, Plus, Settings, X } from "src/icons"
 import React, { useState } from "react"
 import { Button } from "../button/button"
 import Dialog from "./dialog"
@@ -116,7 +116,7 @@ export const DestructiveAction: Story = {
   render: (args) => (
     <Dialog
       trigger={
-        <Button intent="danger" prefixIcon={<Trash2 size={16} />}>
+        <Button intent="danger" prefixIcon={<X size={16} />}>
           Delete
         </Button>
       }
@@ -152,7 +152,7 @@ export const DestructiveAction: Story = {
 }
 
 export const Controlled: Story = {
-  render: () => {
+  render: function ControlledStory(){
     const [isOpen, setIsOpen] = useState(false)
 
     return (

@@ -11,7 +11,7 @@ export default meta
 type Story = StoryObj<typeof NumericInput>
 
 export const Default: Story = {
-  render: (args) => {
+  render: function NumericInputStory(args) {
     const [value, setValue] = useState(args.value)
     return (
       <NumericInput

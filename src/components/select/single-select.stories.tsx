@@ -24,7 +24,7 @@ const sampleValues: SelectValue[] = [
 type Story = StoryObj<typeof SingleSelect>
 
 export const Default: Story = {
-  render: (args) => {
+  render: function DefaultStory(args) {
     const [selected, setSelected] = useState<SelectValue | undefined>(undefined)
     return (
       <SingleSelect
@@ -41,7 +41,7 @@ export const Default: Story = {
 }
 
 export const WithValue: Story = {
-  render: (args) => {
+  render: function WithValueStory(args) {
     const [selected, setSelected] = useState<SelectValue | undefined>(
       args.selected
     )
@@ -86,7 +86,7 @@ const inlineSampleValues: StringConstantValue[] = [
 ]
 
 export const Inline: StoryObj<typeof InlineSingleSelect> = {
-  render: (args) => {
+  render: function InlineStory(args) {
     const [selected, setSelected] = useState<StringConstantValue | undefined>(
       args.selected
     )

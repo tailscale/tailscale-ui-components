@@ -21,7 +21,7 @@ export const Default: Story = {
 }
 
 export const Dismissible: Story = {
-  render: (args) => {
+  render: function DismissableStory(args) {
     const [dismissed, setDismissed] = useState(false)
     return (
       <Note

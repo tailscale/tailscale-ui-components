@@ -76,7 +76,7 @@ export const VisibilityRecalculation: Story = {
       "Toggle the section to hide/show this TextArea.\n" +
       "When shown, `visible=true` triggers a re-measure for correct height.",
   },
-  render: (args) => {
+  render: function ToggleStory(args) {
     const [open, setOpen] = useState(true)
     return (
       <div className="w-full max-w-xl space-y-3">

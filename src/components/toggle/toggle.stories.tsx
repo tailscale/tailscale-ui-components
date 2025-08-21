@@ -12,7 +12,7 @@ export const Interactive: StoryObj<{
   checked: boolean
   sizeVariant?: "small" | "medium" | "large"
 }> = {
-  render: (args) => {
+  render: function InteractiveStory(args) {
     const [checked, setChecked] = useState(args.checked ?? false)
     return <Toggle {...args} checked={checked} onChange={setChecked} />
   },
@@ -23,7 +23,7 @@ export const Interactive: StoryObj<{
 }
 
 export const Sizes: StoryObj = {
-  render: () => {
+  render: function SizesStory() {
     const [small, setSmall] = useState(false)
     const [medium, setMedium] = useState(false)
     const [large, setLarge] = useState(false)

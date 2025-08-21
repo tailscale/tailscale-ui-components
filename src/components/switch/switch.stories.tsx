@@ -33,7 +33,7 @@ const meta: Meta<typeof Switch> = {
         },
         defaultValue: {
           summary:
-            '[{ id: "option1", label: "Option 1" }, { id: "option2", label: "Option 2" }]',
+            '[{ id: “option1”, label: “Option 1” }, { id: “option2”, label: “Option 2” }]',
         },
       },
     },
@@ -53,7 +53,7 @@ export const Basic: Story = {
       { id: "option2", label: "Option 2" },
     ],
   },
-  render: (args) => {
+  render: function SwitchStory(args){
     const [selected, setSelected] = useState(args.options[0]?.id || "option1")
     return <Switch {...args} value={selected} onChange={setSelected} />
   },

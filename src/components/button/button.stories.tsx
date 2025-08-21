@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { Lock, Plus } from "lucide-react"
+import { Lock, Plus } from "src/icons"
 import React from "react"
 import { Button } from "./button"
 

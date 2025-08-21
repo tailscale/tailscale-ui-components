@@ -175,64 +175,66 @@ export const AllStates = {
 }
 
 // Form Example
-export const FormExample = {
-  render: () => {
-    const [preferences, setPreferences] = useState({
-      notifications: false,
-      marketing: false,
-      updates: true,
-      analytics: false,
-    })
+const FormExampleComponent = () => {
+  const [preferences, setPreferences] = useState({
+    notifications: false,
+    marketing: false,
+    updates: true,
+    analytics: false,
+  })
 
-    const handleChange =
-      (key: keyof typeof preferences) => (checked: boolean) => {
-        setPreferences((prev) => ({ ...prev, [key]: checked }))
-      }
+  const handleChange =
+    (key: keyof typeof preferences) => (checked: boolean) => {
+      setPreferences((prev) => ({ ...prev, [key]: checked }))
+    }
 
-    return (
-      <div className="max-w-md p-6 border rounded-lg bg-white">
-        <h3 className="text-lg font-semibold mb-4">Preferences</h3>
+  return (
+    <div className="max-w-md p-6 border rounded-lg bg-white">
+      <h3 className="text-lg font-semibold mb-4">Preferences</h3>
 
-        <div className="space-y-4">
-          <Checkbox
-            id="notifications"
-            label="Email notifications"
-            description="Receive email notifications for important updates"
-            checked={preferences.notifications}
-            onChange={handleChange("notifications")}
-          />
+      <div className="space-y-4">
+        <Checkbox
+          id="notifications"
+          label="Email notifications"
+          description="Receive email notifications for important updates"
+          checked={preferences.notifications}
+          onChange={handleChange("notifications")}
+        />
 
-          <Checkbox
-            id="marketing"
-            label="Marketing emails"
-            description="Receive promotional emails and special offers"
-            checked={preferences.marketing}
-            onChange={handleChange("marketing")}
-          />
+        <Checkbox
+          id="marketing"
+          label="Marketing emails"
+          description="Receive promotional emails and special offers"
+          checked={preferences.marketing}
+          onChange={handleChange("marketing")}
+        />
 
-          <Checkbox
-            id="updates"
-            label="Product updates"
-            description="Get notified about new features and improvements"
-            checked={preferences.updates}
-            onChange={handleChange("updates")}
-          />
+        <Checkbox
+          id="updates"
+          label="Product updates"
+          description="Get notified about new features and improvements"
+          checked={preferences.updates}
+          onChange={handleChange("updates")}
+        />
 
-          <Checkbox
-            id="analytics"
-            label="Analytics and usage data"
-            description="Help us improve by sharing anonymous usage statistics"
-            checked={preferences.analytics}
-            onChange={handleChange("analytics")}
-          />
-        </div>
-
-        <div className="mt-6 pt-4 border-t">
-          <pre className="text-xs text-gray-600 bg-gray-50 p-2 rounded">
-            {JSON.stringify(preferences, null, 2)}
-          </pre>
-        </div>
+        <Checkbox
+          id="analytics"
+          label="Analytics and usage data"
+          description="Help us improve by sharing anonymous usage statistics"
+          checked={preferences.analytics}
+          onChange={handleChange("analytics")}
+        />
       </div>
-    )
-  },
+
+      <div className="mt-6 pt-4 border-t">
+        <pre className="text-xs text-gray-600 bg-gray-50 p-2 rounded">
+          {JSON.stringify(preferences, null, 2)}
+        </pre>
+      </div>
+    </div>
+  )
+}
+
+export const FormExample = {
+  render: () => <FormExampleComponent />,
 }
