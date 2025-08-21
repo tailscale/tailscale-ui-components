@@ -1,5 +1,5 @@
-import cx from "classnames";
-import React, { HTMLAttributes } from "react";
+import cx from "classnames"
+import React, { HTMLAttributes } from "react"
 
 export type BadgeColor =
   | "blue"
@@ -8,8 +8,8 @@ export type BadgeColor =
   | "orange"
   | "yellow"
   | "gray"
-  | "outline";
-export type BadgeVariant = "tag" | "status" | "cell";
+  | "outline"
+export type BadgeVariant = "tag" | "status" | "cell"
 
 export const BADGE_COLORS = [
   "blue",
@@ -19,13 +19,13 @@ export const BADGE_COLORS = [
   "yellow",
   "gray",
   "outline",
-] as const satisfies readonly BadgeColor[];
+] as const satisfies readonly BadgeColor[]
 
 export const BADGE_VARIANTS = [
   "tag",
   "status",
   "cell",
-] as const satisfies readonly BadgeVariant[];
+] as const satisfies readonly BadgeVariant[]
 
 const BADGE_COLOR_STYLES: Record<BadgeColor, string> = {
   gray: "border-gray-200 dark:border-transparent bg-gray-200 dark:bg-gray-600 text-gray-600 dark:text-gray-300",
@@ -38,7 +38,7 @@ const BADGE_COLOR_STYLES: Record<BadgeColor, string> = {
     "border-yellow-50 dark:border-transparent bg-yellow-50 dark:bg-yellow-200 text-text-warning dark:text-orange-800",
   red: "border-red-50 dark:border-transparent bg-red-50 dark:bg-red-800 text-red-text-danger dark:text-red-100",
   outline: "border-border-interactive bg-bg-base",
-};
+}
 
 /**
  * Badge variant style mappings
@@ -47,18 +47,18 @@ const BADGE_VARIANT_STYLES: Record<BadgeVariant, string> = {
   status: "rounded-full px-2 py-1 leading-none",
   tag: "rounded-sm px-1",
   cell: "rounded-md px-1 text-xs",
-};
+}
 
 export interface BadgeProps
   extends Omit<HTMLAttributes<HTMLDivElement>, "color"> {
-  variant: BadgeVariant;
-  color: BadgeColor;
-  children: React.ReactNode;
+  variant: BadgeVariant
+  color: BadgeColor
+  children: React.ReactNode
 }
 
 /**
  * Badge component for displaying status indicators, tags, and labels.
- * 
+ *
  * They are used to call attention to states of objects, or to provide indicators which call attention.
  *
  * @example
@@ -76,10 +76,10 @@ export function Badge(props: BadgeProps) {
     children,
     role = "img",
     ...rest
-  } = props;
+  } = props
 
-  const colorStyles = BADGE_COLOR_STYLES[color];
-  const variantStyles = BADGE_VARIANT_STYLES[variant];
+  const colorStyles = BADGE_COLOR_STYLES[color]
+  const variantStyles = BADGE_VARIANT_STYLES[variant]
 
   return (
     <div
@@ -95,10 +95,8 @@ export function Badge(props: BadgeProps) {
     >
       {children}
     </div>
-  );
+  )
 }
-
-
 
 export function AlphaBadge({
   className,
@@ -114,7 +112,7 @@ export function AlphaBadge({
     >
       Alpha
     </Badge>
-  );
+  )
 }
 
 export function BetaBadge({
@@ -122,9 +120,9 @@ export function BetaBadge({
   feature,
   ...props
 }: Omit<HTMLAttributes<HTMLDivElement>, "children" | "color"> & {
-  feature?: string;
+  feature?: string
 }) {
-  const label = feature ? `Beta: ${feature}` : "Beta version";
+  const label = feature ? `Beta: ${feature}` : "Beta version"
 
   return (
     <Badge
@@ -141,5 +139,5 @@ export function BetaBadge({
         </span>
       )}
     </Badge>
-  );
+  )
 }

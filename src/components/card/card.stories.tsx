@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import React from "react"
-import { Card } from "./card";
+import { Card } from "./card"
 
 const meta = {
   title: "Components/Card",
@@ -57,8 +57,7 @@ export const NoPadding: Story = {
     ...Default.args,
     children: (
       <div className="bg-blue-50 text-blue-600 p-4">
-        This card has no padding, so the content inside can extend to the
-        edges.
+        This card has no padding, so the content inside can extend to the edges.
       </div>
     ),
     noPadding: true,

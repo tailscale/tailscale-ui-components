@@ -1,7 +1,7 @@
-import React, { useState } from "react"
 import type { Meta, StoryObj } from "@storybook/react"
-import { Popover, PopoverProps } from "./popover"
+import React, { useState } from "react"
 import { Button } from "../button/button"
+import { Popover, PopoverProps } from "./popover"
 
 const meta: Meta<typeof Popover> = {
   title: "Components/Popover",
@@ -13,7 +13,10 @@ const meta: Meta<typeof Popover> = {
     children: { table: { disable: true }, control: false },
     content: { table: { disable: true }, control: false },
 
-    side: { control: { type: "select" }, options: ["top", "bottom", "left", "right"] },
+    side: {
+      control: { type: "select" },
+      options: ["top", "bottom", "left", "right"],
+    },
     align: { control: { type: "select" }, options: ["start", "center", "end"] },
     asChild: { control: "boolean" },
     sideOffset: { control: "number" },
@@ -58,16 +61,22 @@ export const Controlled: Story = {
   render: (args: PopoverProps) => {
     const [open, setOpen] = useState(false)
     return (
-      <div style={{ display: "flex", gap: 12, alignItems: "center", padding: 40 }}>
+      <div
+        style={{ display: "flex", gap: 12, alignItems: "center", padding: 40 }}
+      >
         <Popover
           {...args}
           open={open}
           onOpenChange={setOpen}
-          content={<div style={{ padding: "1rem" }}>Controlled popover content</div>}
+          content={
+            <div style={{ padding: "1rem" }}>Controlled popover content</div>
+          }
         >
           <Button>Toggle Popover</Button>
         </Popover>
-        <Button onClick={() => setOpen((p) => !p)}>{open ? "Close" : "Open"} externally</Button>
+        <Button onClick={() => setOpen((p) => !p)}>
+          {open ? "Close" : "Open"} externally
+        </Button>
       </div>
     )
   },

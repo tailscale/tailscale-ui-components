@@ -1,6 +1,6 @@
 import React from "react"
-import { ListPaginationData } from "src/hooks/list-pagination"
 import { Button } from "src/components/button/button"
+import { ListPaginationData } from "src/hooks/list-pagination"
 import {
   ChevronLeft,
   ChevronRight,

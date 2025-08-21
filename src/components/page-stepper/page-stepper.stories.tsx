@@ -1,22 +1,22 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import React from "react";
-import { PageStepper } from "./page-stepper";
-import useListPagination from "src/hooks/list-pagination";
+import type { Meta, StoryObj } from "@storybook/react"
+import React from "react"
+import useListPagination from "src/hooks/list-pagination"
+import { PageStepper } from "./page-stepper"
 
 const meta: Meta<typeof PageStepper> = {
   title: "Components/PageStepper",
   component: PageStepper,
-};
-export default meta;
+}
+export default meta
 
-type Story = StoryObj<typeof PageStepper>;
+type Story = StoryObj<typeof PageStepper>
 
 export const Default: Story = {
   render: () => {
     // rigged list data
-    const data = Array.from({ length: 23 }, (_, i) => `Item ${i + 1}`);
-    const pageSize = 5;
-    const pagination = useListPagination(data, pageSize);
+    const data = Array.from({ length: 23 }, (_, i) => `Item ${i + 1}`)
+    const pageSize = 5
+    const pagination = useListPagination(data, pageSize)
     return (
       <div>
         <PageStepper {...pagination} />
@@ -26,6 +26,6 @@ export const Default: Story = {
           ))}
         </ul>
       </div>
-    );
+    )
   },
-};
+}

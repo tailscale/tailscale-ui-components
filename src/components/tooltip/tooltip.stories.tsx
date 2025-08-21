@@ -1,29 +1,26 @@
-import React from "react";
-import { Tooltip } from "./tooltip";
-import { Button } from "../button/button";
-import type { Meta, StoryObj } from "@storybook/react";
-
+import type { Meta, StoryObj } from "@storybook/react"
+import React from "react"
+import { Button } from "../button/button"
+import { Tooltip } from "./tooltip"
 
 const meta: Meta<typeof Tooltip> = {
   title: "Components/Tooltip",
   component: Tooltip,
-  decorators: [
-    (Story) => <Tooltip.Provider>{Story()}</Tooltip.Provider>,
-  ],
+  decorators: [(Story) => <Tooltip.Provider>{Story()}</Tooltip.Provider>],
   parameters: {
     controls: {
       exclude: ["children", "content"],
     },
   },
-};
-export default meta;
+}
+export default meta
 
 export const Default: StoryObj<typeof Tooltip> = {
   args: {
     content: "Tooltip content",
     children: <span>Hover me</span>,
   },
-};
+}
 
 export const Placement: StoryObj = {
   render: (args) => (
@@ -42,4 +39,4 @@ export const Placement: StoryObj = {
       </Tooltip>
     </div>
   ),
-};
+}

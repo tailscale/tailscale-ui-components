@@ -1,8 +1,6 @@
-
-import React, { useState } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
-import { Switch } from "./switch";
-
+import type { Meta, StoryObj } from "@storybook/react"
+import React, { useState } from "react"
+import { Switch } from "./switch"
 
 const meta: Meta<typeof Switch> = {
   title: "Components/Switch",
@@ -29,15 +27,21 @@ const meta: Meta<typeof Switch> = {
       ],
       description: "Array of two options, each with id and label.",
       table: {
-        type: { summary: "[{ id: string, label: ReactNode }, { id: string, label: ReactNode }]" },
-        defaultValue: { summary: '[{ id: "option1", label: "Option 1" }, { id: "option2", label: "Option 2" }]' },
+        type: {
+          summary:
+            "[{ id: string, label: ReactNode }, { id: string, label: ReactNode }]",
+        },
+        defaultValue: {
+          summary:
+            '[{ id: "option1", label: "Option 1" }, { id: "option2", label: "Option 2" }]',
+        },
       },
     },
   },
-};
-export default meta;
+}
+export default meta
 
-type Story = StoryObj<typeof Switch>;
+type Story = StoryObj<typeof Switch>
 
 export const Basic: Story = {
   args: {
@@ -50,13 +54,7 @@ export const Basic: Story = {
     ],
   },
   render: (args) => {
-    const [selected, setSelected] = useState(args.options[0]?.id || "option1");
-    return (
-      <Switch
-        {...args}
-        value={selected}
-        onChange={setSelected}
-      />
-    );
+    const [selected, setSelected] = useState(args.options[0]?.id || "option1")
+    return <Switch {...args} value={selected} onChange={setSelected} />
   },
-};
+}

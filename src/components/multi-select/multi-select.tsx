@@ -5,7 +5,6 @@ import { Badge } from "src/components/badge/badge"
 import { Button } from "src/components/button/button"
 import { Check, ChevronDown } from "src/icons"
 
-
 type MultiSelectProps = {
   title: string
   items: SelectItem[]
@@ -101,7 +100,8 @@ function MultiSelectItem(props: {
 }) {
   const { item, selected, setSelection, isLastItem } = props
 
-  const dropdownMenuItemInteractiveClasses = "cursor-pointer hover:enabled:bg-bg-menu-item-hover focus:outline-none focus:bg-bg-menu-item-hover"
+  const dropdownMenuItemInteractiveClasses =
+    "cursor-pointer hover:enabled:bg-bg-menu-item-hover focus:outline-none focus:bg-bg-menu-item-hover"
 
   return (
     <DropdownMenu.CheckboxItem

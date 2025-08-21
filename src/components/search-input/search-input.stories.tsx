@@ -1,17 +1,16 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import React from "react";
-import { SearchInput } from "./search-input";
+import type { Meta, StoryObj } from "@storybook/react"
+import { SearchInput } from "./search-input"
 
 const meta: Meta<typeof SearchInput> = {
   title: "Components/SearchInput",
   component: SearchInput,
-};
-export default meta;
+}
+export default meta
 
-type Story = StoryObj<typeof SearchInput>;
+type Story = StoryObj<typeof SearchInput>
 
 export const Default: Story = {
   args: {
     placeholder: "Search...",
   },
-};
+}

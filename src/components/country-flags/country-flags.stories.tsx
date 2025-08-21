@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { CountryFlag } from "./country-flags"
-import { countryList } from "./country-flags"
+import { CountryFlag, countryList } from "./country-flags"
 
 const countryOptions = countryList.map(([name, code]) => ({
   label: `${name} (${code.toUpperCase()})`,
@@ -13,7 +12,7 @@ const meta: Meta<typeof CountryFlag> = {
   argTypes: {
     country: {
       control: { type: "select" },
-      options: countryOptions.map(opt => opt.value),
+      options: countryOptions.map((opt) => opt.value),
     },
   },
 }

@@ -7,8 +7,8 @@ import React, {
   useState,
 } from "react"
 import { Button } from "src/components/button/button"
-import { Check, ChevronDown } from "src/icons"
 import { SelectValue, StringConstantValue } from "src/components/select/types"
+import { Check, ChevronDown } from "src/icons"
 
 /**
  * SingleSelect is a picker UI component.
@@ -160,5 +160,6 @@ export function InlineSingleSelect({
 }
 
 const dropdownMenuItemClasses = "block px-4 py-2"
-const dropdownMenuItemInteractiveClasses = "cursor-pointer hover:enabled:bg-bg-menu-item-hover focus:outline-none focus:bg-bg-menu-item-hover"
+const dropdownMenuItemInteractiveClasses =
+  "cursor-pointer hover:enabled:bg-bg-menu-item-hover focus:outline-none focus:bg-bg-menu-item-hover"
 export const selectItemClasses = `${dropdownMenuItemClasses} ${dropdownMenuItemInteractiveClasses} flex items-center select-none`

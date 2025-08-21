@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import React, { useState } from "react"
-import { SingleSelect, InlineSingleSelect } from "./single-select"
 import { SelectValue, StringConstantValue } from "src/components/select/types"
+import { InlineSingleSelect, SingleSelect } from "./single-select"
 
 const meta: Meta<typeof SingleSelect> = {
   title: "Components/Select",
@@ -69,16 +69,19 @@ export const Disabled: Story = {
 
 const inlineSampleValues: StringConstantValue[] = [
   {
-    value: "one", label: "First option",
-    type: "string-constant"
+    value: "one",
+    label: "First option",
+    type: "string-constant",
   },
   {
-    value: "two", label: "Second option",
-    type: "string-constant"
+    value: "two",
+    label: "Second option",
+    type: "string-constant",
   },
   {
-    value: "three", label: "Third option",
-    type: "string-constant"
+    value: "three",
+    label: "Third option",
+    type: "string-constant",
   },
 ]
 

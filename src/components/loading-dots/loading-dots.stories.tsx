@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import React from "react"
 import { LoadingDots } from "./loading-dots"
 
 const meta: Meta<typeof LoadingDots> = {

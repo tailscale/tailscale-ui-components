@@ -1,8 +1,8 @@
 // TextArea.stories.tsx
+import type { Meta, StoryObj } from "@storybook/react"
 import React, { useState } from "react"
 import { Collapsible } from "../collapsible/collapsible"
-import type { Meta, StoryObj } from "@storybook/react"
-import { TextArea, type TextAreaProps } from "./textarea"
+import { TextArea } from "./textarea"
 
 const meta: Meta<typeof TextArea> = {
   title: "Components/TextArea",
@@ -13,7 +13,8 @@ const meta: Meta<typeof TextArea> = {
     minHeight: 32,
     maxHeight: undefined,
     placeholder: "Type here…",
-    defaultValue: "This TextArea auto-resizes as you type.\nKeep adding more lines to see its height grow.",
+    defaultValue:
+      "This TextArea auto-resizes as you type.\nKeep adding more lines to see its height grow.",
   },
   argTypes: {
     autoResize: { control: "boolean" },
@@ -39,9 +40,7 @@ export default meta
 type Story = StoryObj<typeof TextArea>
 
 export const Default: Story = {
-  render: (args) => (
-    <TextArea {...args} />
-  ),
+  render: (args) => <TextArea {...args} />,
 }
 
 export const AutoResizeOff: Story = {
@@ -51,9 +50,7 @@ export const AutoResizeOff: Story = {
     defaultValue:
       "Auto-resize is off for this example, so the height will not change automatically as you add more lines.",
   },
-  render: (args) => (
-    <TextArea {...args} className="w-full max-w-xl" />
-  ),
+  render: (args) => <TextArea {...args} className="w-full max-w-xl" />,
 }
 
 export const WithMinMaxHeight: Story = {
@@ -65,9 +62,7 @@ export const WithMinMaxHeight: Story = {
       "This example clamps growth between 48px and 160px.\n" +
       "Add more lines to see it stop growing and become scrollable once it hits the max.",
   },
-  render: (args) => (
-    <TextArea {...args} />
-  ),
+  render: (args) => <TextArea {...args} />,
 }
 
 /**
@@ -99,4 +94,3 @@ export const VisibilityRecalculation: Story = {
     )
   },
 }
-

@@ -1,6 +1,6 @@
-import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
-import { Tabs } from "./tabs";
+import type { Meta, StoryObj } from "@storybook/react"
+import React from "react"
+import { Tabs } from "./tabs"
 
 const meta: Meta<typeof Tabs> = {
   title: "Components/Tabs",
@@ -14,8 +14,14 @@ const meta: Meta<typeof Tabs> = {
       ],
       description: "Array of tab objects with id, label, and content.",
       table: {
-        type: { summary: "{ id: string, label: ReactNode, content?: ReactNode, icon?: ReactNode }[]" },
-        defaultValue: { summary: '[{ id: "account", label: "Account", content: "Account content" }, { id: "billing", label: "Billing", content: "Billing content" }]' },
+        type: {
+          summary:
+            "{ id: string, label: ReactNode, content?: ReactNode, icon?: ReactNode }[]",
+        },
+        defaultValue: {
+          summary:
+            '[{ id: "account", label: "Account", content: "Account content" }, { id: "billing", label: "Billing", content: "Billing content" }]',
+        },
       },
     },
     defaultValue: {
@@ -23,10 +29,10 @@ const meta: Meta<typeof Tabs> = {
       defaultValue: "account",
     },
   },
-};
-export default meta;
+}
+export default meta
 
-type Story = StoryObj<typeof Tabs>;
+type Story = StoryObj<typeof Tabs>
 
 export const Basic: Story = {
   args: {
@@ -37,4 +43,4 @@ export const Basic: Story = {
     defaultValue: "account",
   },
   render: (args) => <Tabs {...args} />,
-};
+}

@@ -6,10 +6,7 @@ import React from "react"
  * tax ID countries.
  * Both full country and 2 digit ISO code are accepted.
  */
-export function CountryFlag(props: {
-  country: string
-  className?: string
-}) {
+export function CountryFlag(props: { country: string; className?: string }) {
   const { country, className } = props
   const v = lookup(country)
   return (

@@ -60,6 +60,8 @@
     "autoprefixer": "^10.4.21",
     "playwright": "^1.54.2",
     "postcss": "^8.5.6",
+    "prettier": "^2.5.1",
+    "prettier-plugin-organize-imports": "^3.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^9.1.1",
@@ -73,6 +75,12 @@
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "format": "prettier --write 'src/**/*.{ts,tsx}'",
+    "format-check": "prettier --check 'src/**/*.{ts,tsx}'"
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 80
   }
 }

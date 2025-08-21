@@ -1,10 +1,10 @@
 import * as DialogPrimitive from "@radix-ui/react-dialog"
 import cx from "classnames"
 import React, { Component, ComponentProps, FormEvent } from "react"
-import { Button } from "../button/button"
 import { X } from "../../icons"
-import { PortalContainerContext } from "../portal-container-context"
 import { isObject } from "../../utils/util"
+import { Button } from "../button/button"
+import { PortalContainerContext } from "../portal-container-context"
 
 export type DialogSize = "regular" | "large" | "xlarge" | "2xlarge"
 export type DialogPosition =

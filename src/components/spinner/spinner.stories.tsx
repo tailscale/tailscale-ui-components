@@ -1,17 +1,16 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import React from "react";
-import { Spinner } from "./spinner";
+import type { Meta, StoryObj } from "@storybook/react"
+import { Spinner } from "./spinner"
 
 const meta: Meta<typeof Spinner> = {
   title: "Components/Spinner",
   component: Spinner,
-};
-export default meta;
+}
+export default meta
 
-type Story = StoryObj<typeof Spinner>;
+type Story = StoryObj<typeof Spinner>
 
 export const Default: Story = {
   args: {
     size: "md",
   },
-};
+}

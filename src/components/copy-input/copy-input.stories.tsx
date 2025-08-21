@@ -1,5 +1,5 @@
-import { CopyInput } from "./copy-input";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react"
+import { CopyInput } from "./copy-input"
 
 const meta = {
   title: "Components/CopyInput",

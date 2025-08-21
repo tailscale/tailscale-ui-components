@@ -37,15 +37,15 @@ import NasLogo from "src/assets/images/generic-icons/nas.svg?react"
 import SshLogo from "src/assets/images/generic-icons/ssh.svg?react"
 import VscodeLogo from "src/assets/images/generic-icons/vscode.svg?react"
 import {
+  AppConnector,
+  CloudCheck,
+  DevicePlus,
   Dice,
   DragHandle,
   Idle,
   Magic,
-  StarFilled,
   Stamp,
-  DevicePlus,
-  AppConnector,
-  CloudCheck,
+  StarFilled,
 } from "src/icons"
 
 export interface IconsMeta {

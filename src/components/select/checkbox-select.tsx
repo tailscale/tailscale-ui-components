@@ -2,9 +2,9 @@ import cx from "classnames"
 import { useCombobox, useMultipleSelection } from "downshift"
 import React, { useCallback, useEffect, useState } from "react"
 import { Checkbox } from "src/components/checkbox/checkbox"
-import { Search } from "src/icons"
 import { ApplyButton } from "src/components/select/apply-button"
 import { StringConstantValue } from "src/components/select/types"
+import { Search } from "src/icons"
 import { isArrayEqual } from "src/utils/util"
 
 export type CheckboxSelectProps = {

@@ -17,7 +17,7 @@ export type CheckboxProps = {
 
 /**
  * Checkbox renders a styled and accessible checkbox with an optional label.
- * 
+ *
  * They are used to select one or more options. These options can either take effect immediately or on submit.
  * For a single option or for changes that are applied immediately, use a `Toggle` instead.
  *

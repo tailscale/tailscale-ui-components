@@ -1,8 +1,8 @@
-import React, { useState } from "react"
 import type { Meta, StoryObj } from "@storybook/react"
-import { Plus, Settings, Trash2, AlertTriangle } from "lucide-react"
-import Dialog from "./dialog"
+import { AlertTriangle, Plus, Settings, Trash2 } from "lucide-react"
+import React, { useState } from "react"
 import { Button } from "../button/button"
+import Dialog from "./dialog"
 
 const meta = {
   title: "Components/Dialog",

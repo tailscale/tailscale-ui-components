@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import type { Meta, StoryObj } from "@storybook/react";
-import { Checkbox } from "./checkbox";
+import type { Meta, StoryObj } from "@storybook/react"
+import React, { useEffect, useState } from "react"
+import { Checkbox } from "./checkbox"
 
 const meta: Meta<typeof Checkbox> = {
   title: "Components/Checkbox",
@@ -17,25 +17,25 @@ const meta: Meta<typeof Checkbox> = {
     truncateLabel: { control: "boolean" },
     onChange: { action: "changed" },
   },
-};
+}
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 // Controlled wrapper for stories
 const CheckboxWrapper = ({
   checked: controlledChecked = false,
   ...args
 }: any) => {
-  const [checked, setChecked] = useState(controlledChecked);
+  const [checked, setChecked] = useState(controlledChecked)
 
   // Update internal state when the controlled prop changes (from Storybook controls)
   useEffect(() => {
-    setChecked(controlledChecked);
-  }, [controlledChecked]);
+    setChecked(controlledChecked)
+  }, [controlledChecked])
 
-  return <Checkbox {...args} checked={checked} onChange={setChecked} />;
-};
+  return <Checkbox {...args} checked={checked} onChange={setChecked} />
+}
 
 // Default checkbox
 export const Default: Story = {
@@ -45,7 +45,7 @@ export const Default: Story = {
     label: "Default checkbox",
     checked: false,
   },
-};
+}
 
 // Checked state
 export const Checked: Story = {
@@ -55,7 +55,7 @@ export const Checked: Story = {
     label: "Checked checkbox",
     checked: true,
   },
-};
+}
 
 // With description
 export const WithDescription: Story = {
@@ -66,7 +66,7 @@ export const WithDescription: Story = {
     description: "Get notified when someone mentions you in a comment.",
     checked: false,
   },
-};
+}
 
 // Disabled unchecked
 export const DisabledUnchecked: Story = {
@@ -77,7 +77,7 @@ export const DisabledUnchecked: Story = {
     disabled: true,
     checked: false,
   },
-};
+}
 
 // Disabled checked
 export const DisabledChecked: Story = {
@@ -88,7 +88,7 @@ export const DisabledChecked: Story = {
     disabled: true,
     checked: true,
   },
-};
+}
 
 // Long label
 export const LongLabel: Story = {
@@ -99,7 +99,7 @@ export const LongLabel: Story = {
       "This is a very long label that demonstrates how the checkbox component handles lengthy text content",
     checked: false,
   },
-};
+}
 
 // Truncated label
 export const TruncatedLabel: Story = {
@@ -115,7 +115,7 @@ export const TruncatedLabel: Story = {
     truncateLabel: true,
     checked: false,
   },
-};
+}
 
 // JSX Label
 export const JSXLabel: Story = {
@@ -130,7 +130,7 @@ export const JSXLabel: Story = {
     ),
     checked: false,
   },
-};
+}
 
 // All States Showcase
 export const AllStates = {
@@ -172,7 +172,7 @@ export const AllStates = {
       </div>
     </div>
   ),
-};
+}
 
 // Form Example
 export const FormExample = {
@@ -182,12 +182,12 @@ export const FormExample = {
       marketing: false,
       updates: true,
       analytics: false,
-    });
+    })
 
     const handleChange =
       (key: keyof typeof preferences) => (checked: boolean) => {
-        setPreferences((prev) => ({ ...prev, [key]: checked }));
-      };
+        setPreferences((prev) => ({ ...prev, [key]: checked }))
+      }
 
     return (
       <div className="max-w-md p-6 border rounded-lg bg-white">
@@ -233,6 +233,6 @@ export const FormExample = {
           </pre>
         </div>
       </div>
-    );
+    )
   },
-};
+}
