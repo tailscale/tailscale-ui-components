@@ -36,13 +36,7 @@ export const Default: Story = {
     children: "Badge",
     variant: "status",
     color: "gray",
-  },
-  parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/NQeNx57BnqsZnrBsCjDEdb/Design-System?node-id=856-677&t=5c2zwTSzHKaRtjau-1",
-    },
-  },
+  }
 }
 
 // Status variant with different colors
