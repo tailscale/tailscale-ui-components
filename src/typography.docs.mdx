@@ -1,0 +1,60 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Utilities/Typography" />
+
+# Typography
+
+The `typography` module provides standard Tailscale text styles as CSS class names. Apply these classes to any text element to ensure consistent typography across your UI.
+
+> **Note:** These classes contain _no_ margin or padding, as those values always vary by context.
+
+## Usage
+
+```tsx
+import { typography } from "@tailscale/tailscale-ui-components"
+
+<h2 className={typography.pageTitle}>My Page Title</h2>
+```
+
+## Styles
+
+<h2 className={"text-3xl font-semibold tracking-tight leading-tight !border-none"}>Page Title</h2>
+
+```
+typography.pageTitle: "text-3xl font-semibold tracking-tight leading-tight"
+```
+
+<h3 className={"text-2xl font-semibold tracking-tight"}>Page SubTitle</h3>
+
+```
+typography.pageSubTitle: "text-2xl font-semibold tracking-tight"
+```
+
+<h4 className={"text-xl font-semibold tracking-tight"}>Section Title</h4>
+
+```
+typography.sectionTitle: "text-xl font-semibold tracking-tight"
+```
+
+<label className={"font-medium"}>Field Label</label>
+
+```
+typography.fieldLabel: "font-medium"
+```
+
+<p className={"text-sm text-text-muted"}>Field Help Text</p>
+
+```
+typography.fieldHelpText: "text-sm text-text-muted"
+```
+
+<p className={"text-sm text-text-danger"}>Field Error Text</p>
+
+```
+typography.fieldErrorText: "text-sm text-text-danger"
+```
+
+## Best Practices
+- Use these classes directly on semantic HTML elements.
+- Combine with other utility classes as needed for layout and spacing.
+- Avoid adding margin or padding to these classes; handle spacing in context.

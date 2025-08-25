@@ -17,9 +17,6 @@ export type CheckboxSelectProps = {
 
 /**
  * CheckboxSelect is a multiselect UI component.
- *
- * TODO(sonia): Should be used to replace the FilterMultiSelect
- * and MultiSelect components.
  */
 export function CheckboxSelect({
   label,
