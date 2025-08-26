@@ -1,5 +1,4 @@
 export * from "./app-icons"
-export * from "./card-background"
 export * from "./components/badge/badge"
 export * from "./components/button-group/button-group"
 export * from "./components/button/button"
