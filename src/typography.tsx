@@ -9,7 +9,7 @@
  * These classes contain _no_ margin or padding, since those values always
  * vary by context.
  */
-const typography = {
+export const typography = {
   /**
    * pageTitle contains styles for the primary header on every page.
    */
@@ -28,5 +28,3 @@ const typography = {
   fieldHelpText: "text-sm text-text-muted",
   fieldErrorText: "text-sm text-text-danger",
 }
-
-export default typography

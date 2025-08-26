@@ -5,16 +5,8 @@ import React, { Children, cloneElement, isValidElement, useId } from "react"
  * FormField is a component for wrapping an input in standard form text: a
  * label, a description, help text, and an error message.
  */
-export default function FormField({
-  id: idProp,
-  className,
-  sideElement,
-  label,
-  description,
-  help,
-  children,
-  error,
-}: {
+
+export type FormFieldProps = {
   /**
    * className is an optional class name to add to the root element.
    */
@@ -27,7 +19,6 @@ export default function FormField({
    * label is the name of the form field.
    */
   label?: React.ReactNode
-
   /**
    * optionality is whether the field is required or optional. By default,
    * this is undefined and shows no indicator. If more fields in the form are
@@ -42,7 +33,6 @@ export default function FormField({
    * should explain something like "Events will be sent to this URL via a POST request."
    */
   description?: React.ReactNode
-
   /**
    * sideElement is an optional element that appears to the right of the label.
    * This is commonly used for toggle-based fields, where they don't need to
@@ -62,7 +52,18 @@ export default function FormField({
    */
   help?: React.ReactNode
   error?: React.ReactNode
-}) {
+}
+
+export function FormField({
+  id: idProp,
+  className,
+  sideElement,
+  label,
+  description,
+  help,
+  children,
+  error,
+}: FormFieldProps) {
   const id = useId()
   return (
     <div className={className}>

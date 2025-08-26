@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react"
 import React from "react"
 import Combobox from "./combobox"
 import { ComboboxValue } from "./types"
-import FormField from "src/components/form-field/form-field"
+import { FormField } from "../form-field/form-field"
 
 const meta = {
   title: "Components/Combobox",

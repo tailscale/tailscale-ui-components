@@ -28,7 +28,7 @@ export type PresetAppID =
  * If the app is a custom app, we return a PencilRuler
  * icon.
  */
-export default function PresetAppIcon(props: {
+export function PresetAppIcon(props: {
   presetAppID?: PresetAppID
   className?: string
   size?: number
