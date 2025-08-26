@@ -1,9 +1,7 @@
-
-
-import React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
-import { Snippet } from "./snippet"
+import React from "react"
 import { ToastProvider } from "../toaster/toaster"
+import { Snippet } from "./snippet"
 
 const meta: Meta<typeof Snippet> = {
   title: "Components/Snippet",
@@ -41,8 +39,7 @@ export const WithCustomChildren: Story = {
 
 export const AllowWrap: Story = {
   args: {
-    text:
-      "A very long command that will wrap to the next line if allowWrap is true. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    text: "A very long command that will wrap to the next line if allowWrap is true. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     allowWrap: true,
     prompt: false,
   },

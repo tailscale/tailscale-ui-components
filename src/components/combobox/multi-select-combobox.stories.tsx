@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import React from "react"
+import { FormField } from "src/components/form-field/form-field"
 import MultiSelectCombobox from "./multi-select-combobox"
 import { ComboboxValue } from "./types"
-import { FormField } from "src/components/form-field/form-field"
 
 const meta = {
   title: "Components/MultiSelectCombobox",

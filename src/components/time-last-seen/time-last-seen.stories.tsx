@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { TimeLastSeen } from "./time-last-seen"
-import { Tooltip } from "../tooltip/tooltip"
 import React from "react"
+import { Tooltip } from "../tooltip/tooltip"
+import { TimeLastSeen } from "./time-last-seen"
 
 const meta: Meta<typeof TimeLastSeen> = {
   title: "components/TimeLastSeen",

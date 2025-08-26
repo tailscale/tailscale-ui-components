@@ -1,9 +1,14 @@
-
 import * as ToastPrimitive from "@radix-ui/react-toast"
 import cx from "classnames"
-import { Button } from "../button/button"
+import React, {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useState,
+} from "react"
 import { X } from "../../icons"
-import React, { createContext, useCallback, useContext, useEffect, useState } from "react"
+import { Button } from "../button/button"
 
 export type Toaster = {
   clear: () => void
@@ -27,9 +32,7 @@ export type ToastAction = {
   persistToastAfterClick?: boolean // whether the toast should be persisted after the click, defaults to dismissing the toast
 }
 
-
 type ToastWithKey = Toast & { key: string }
-
 
 // Context for Toaster
 type ToasterContextType = {
@@ -52,30 +55,38 @@ type ToastProviderProps = {
   maxToasts?: number
 }
 
-/** 
+/**
  * Toasts show transient success or error notifications for asynchronous actions. The React component is not directly used, toasts are shown via the useToaster hook.
  */
-export function ToastProvider({ children, canEscapeKeyClear = true, maxToasts = 5 }: ToastProviderProps) {
+export function ToastProvider({
+  children,
+  canEscapeKeyClear = true,
+  maxToasts = 5,
+}: ToastProviderProps) {
   const [toasts, setToasts] = useState<ToastWithKey[]>([])
 
   // Show a toast
-  const show = useCallback((toast: Toast) => {
-    const key = toast.key || Date.now().toString() + Math.random().toString(36).slice(2)
-    setToasts((prev) => {
-      // If key exists, update; else add
-      const idx = prev.findIndex((t) => t.key === key)
-      let next: ToastWithKey[]
-      if (idx !== -1) {
-        next = [...prev]
-        next[idx] = { ...toast, key }
-      } else {
-        next = [...prev, { ...toast, key }]
-      }
-      // Only keep last maxToasts
-      return next.slice(-maxToasts)
-    })
-    return key
-  }, [maxToasts])
+  const show = useCallback(
+    (toast: Toast) => {
+      const key =
+        toast.key || Date.now().toString() + Math.random().toString(36).slice(2)
+      setToasts((prev) => {
+        // If key exists, update; else add
+        const idx = prev.findIndex((t) => t.key === key)
+        let next: ToastWithKey[]
+        if (idx !== -1) {
+          next = [...prev]
+          next[idx] = { ...toast, key }
+        } else {
+          next = [...prev, { ...toast, key }]
+        }
+        // Only keep last maxToasts
+        return next.slice(-maxToasts)
+      })
+      return key
+    },
+    [maxToasts]
+  )
 
   const dismiss = useCallback((key: string) => {
     setToasts((prev) => prev.filter((t) => t.key !== key))
@@ -104,7 +115,13 @@ export function ToastProvider({ children, canEscapeKeyClear = true, maxToasts = 
 }
 
 // Toast viewport and rendering of toasts
-function ToastViewport({ toasts, dismiss }: { toasts: ToastWithKey[]; dismiss: (key: string) => void }) {
+function ToastViewport({
+  toasts,
+  dismiss,
+}: {
+  toasts: ToastWithKey[]
+  dismiss: (key: string) => void
+}) {
   return (
     // <ToastPrimitive.Viewport className="fixed bottom-6 right-6 z-[99] flex flex-col gap-2 w-[85vw] sm:min-w-[400px] sm:max-w-[500px]">
     <ToastPrimitive.Viewport className="fixed bottom-6 right-6 z-[99] flex flex-col gap-2 w-[85vw] sm:min-w-[400px] sm:max-w-[500px]">
@@ -119,15 +136,21 @@ function ToastViewport({ toasts, dismiss }: { toasts: ToastWithKey[]; dismiss: (
           className={cx(
             "shadow-sm rounded-md text-md flex items-center justify-between px-0 py-0",
             {
-              "text-white bg-gray-700 dark:bg-gray-700 dark:border dark:border-gray-600": toast.variant === undefined,
-              "text-white bg-red-400 dark:bg-red-500": toast.variant === "danger",
+              "text-white bg-gray-700 dark:bg-gray-700 dark:border dark:border-gray-600":
+                toast.variant === undefined,
+              "text-white bg-red-400 dark:bg-red-500":
+                toast.variant === "danger",
             },
             toast.className
           )}
           aria-live="polite"
         >
           <span className="pl-4 py-3 pr-2">{toast.message}</span>
-          <div className={cx("mr-1.5", { "flex items-center gap-1": toast.additionalAction })}>
+          <div
+            className={cx("mr-1.5", {
+              "flex items-center gap-1": toast.additionalAction,
+            })}
+          >
             {toast.additionalAction && (
               <Button
                 variant="minimal"

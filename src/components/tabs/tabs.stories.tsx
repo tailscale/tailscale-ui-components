@@ -20,7 +20,7 @@ const meta: Meta<typeof Tabs> = {
         },
         defaultValue: {
           summary:
-            '[{ id: “account”, label: “Account”, content: “Account content” }, { id: “billing”, label: “Billing”, content: “Billing content” }]',
+            "[{ id: “account”, label: “Account”, content: “Account content” }, { id: “billing”, label: “Billing”, content: “Billing content” }]",
         },
       },
     },

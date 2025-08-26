@@ -1,6 +1,6 @@
 import React from "react"
-import { useToaster, ToastProvider } from "./toaster"
 import { Button } from "src/components/button/button"
+import { ToastProvider, useToaster } from "./toaster"
 
 const meta = {
   title: "Components/Toaster",
@@ -11,8 +11,7 @@ export default meta
 const DemoToasterButtons = () => {
   const toaster = useToaster()
 
-  const showDefault = () =>
-    toaster.show({ message: "Hello World" })
+  const showDefault = () => toaster.show({ message: "Hello World" })
 
   const showDanger = () =>
     toaster.show({ message: "Danger!!", variant: "danger" })

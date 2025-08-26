@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import { AlertTriangle, Plus, Settings, X } from "src/icons"
 import React, { useState } from "react"
+import { AlertTriangle, Plus, Settings, X } from "src/icons"
 import { Button } from "../button/button"
 import Dialog from "./dialog"
 
@@ -152,7 +152,7 @@ export const DestructiveAction: Story = {
 }
 
 export const Controlled: Story = {
-  render: function ControlledStory(){
+  render: function ControlledStory() {
     const [isOpen, setIsOpen] = useState(false)
 
     return (

@@ -41,7 +41,7 @@ class ValueWithAddHint<T> extends ComboboxValue {
 /**
  * A combobox component that allows users to select multiple values from a list of options.
  * It supports filtering and displays a dropdown menu with the available options.
- * 
+ *
  * note: meant for use inside a FormField component
  */
 export default function MultiSelectCombobox({

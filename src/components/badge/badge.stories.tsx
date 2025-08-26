@@ -36,7 +36,7 @@ export const Default: Story = {
     children: "Badge",
     variant: "status",
     color: "gray",
-  }
+  },
 }
 
 // Status variant with different colors

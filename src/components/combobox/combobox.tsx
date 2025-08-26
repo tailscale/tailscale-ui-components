@@ -7,7 +7,7 @@ import { ChevronDown } from "src/icons"
 /**
  * A combobox component that allows users to select a value from a list of options.
  * It supports filtering and displays a dropdown menu with the available options.
- * 
+ *
  * note: meant for use inside a FormField component
  */
 export default function Combobox({

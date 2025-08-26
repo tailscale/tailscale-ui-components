@@ -1,10 +1,10 @@
 import cx from "classnames"
 import React, { SyntheticEvent } from "react"
 import useTimedToggle from "../../hooks/timed-toggle"
-import { copyText } from "../../utils/clipboard"
-import { useToaster } from "../toaster/toaster"
-import { Button } from "../button/button"
 import { Check, Copy } from "../../icons"
+import { copyText } from "../../utils/clipboard"
+import { Button } from "../button/button"
+import { useToaster } from "../toaster/toaster"
 
 export type SnippetProps = {
   className?: string

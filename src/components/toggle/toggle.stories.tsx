@@ -7,7 +7,8 @@ const meta: Meta<typeof Toggle> = {
   component: Toggle,
   argTypes: {
     checked: {
-      description: "The checked state of the toggle (note: this won’t have any effect in the example above - see the Controlled story below for a demo of this in action).",
+      description:
+        "The checked state of the toggle (note: this won’t have any effect in the example above - see the Controlled story below for a demo of this in action).",
     },
   },
 }
@@ -27,7 +28,6 @@ export const Interactive: StoryObj<{
   },
 }
 
-
 export const Controlled: StoryObj<{
   checked: boolean
   sizeVariant?: "small" | "medium" | "large"
@@ -38,7 +38,9 @@ export const Controlled: StoryObj<{
       <>
         <Toggle {...args} checked={checked} onChange={setChecked} />
         <div>
-          <p>Use the radio buttons to set the toggle’s “checked” state to off/on:</p>
+          <p>
+            Use the radio buttons to set the toggle’s “checked” state to off/on:
+          </p>
           <label className="flex items-center gap-2">
             <input
               type="radio"

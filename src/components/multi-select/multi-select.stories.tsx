@@ -74,7 +74,11 @@ WithCounts.args = {
 }
 
 const itemsWithIcons: SelectItem[] = [
-  { value: "database", display: "Database", left: <Database className="mr-2" /> },
+  {
+    value: "database",
+    display: "Database",
+    left: <Database className="mr-2" />,
+  },
   { value: "user", display: "User", left: <User className="mr-2" /> },
 ]
 
