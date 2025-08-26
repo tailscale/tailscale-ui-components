@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import React, { useState } from "react"
-import { AlertTriangle, Plus, Settings, X } from "src/icons"
+import { AlertTriangle, Plus, Settings, X } from "../../icons"
 import { Button } from "../button/button"
 import Dialog from "./dialog"
 

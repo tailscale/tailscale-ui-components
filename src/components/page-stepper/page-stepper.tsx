@@ -1,12 +1,12 @@
 import React from "react"
-import { Button } from "src/components/button/button"
-import { ListPaginationData } from "src/hooks/list-pagination"
+import { ListPaginationData } from "../../hooks/list-pagination"
 import {
   ChevronLeft,
   ChevronRight,
   ChevronsLeft,
   ChevronsRight,
-} from "src/icons"
+} from "../../icons"
+import { Button } from "../button/button"
 const simpleNavMax = 4 // maximum number of pages in a pagestepper before we append first/last buttons
 
 export function PageStepper<T>(props: ListPaginationData<T>) {

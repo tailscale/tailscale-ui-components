@@ -1,5 +1,5 @@
-import { isValidHex } from "src/utils/util"
 import { describe, expect, it } from "vitest"
+import { isValidHex } from "./util"
 
 describe("isValidHex", () => {
   it("accepts valid hex strings", () => {

@@ -1,6 +1,6 @@
 import cx from "classnames"
 import React from "react"
-import { NumericInput } from "src/components/input-numeric/input-numeric"
+import { NumericInput } from "../input-numeric/input-numeric"
 
 export type DurationInputProps = {
   id: string

@@ -1,10 +1,10 @@
 import cx from "classnames"
 import { differenceInMinutes, isSameDay, isSameYear, isValid } from "date-fns"
 import React from "react"
-import { StatusDot } from "src/components/status-dot/status-dot"
-import { Time } from "src/components/time/time"
-import { fullDate, shortDate, shortTime } from "src/utils/format"
-import { serverNow } from "src/utils/time"
+import { fullDate, shortDate, shortTime } from "../../utils/format"
+import { serverNow } from "../../utils/time"
+import { StatusDot } from "../status-dot/status-dot"
+import { Time } from "../time/time"
 
 export type TimeLastSeenProps = {
   connected?: boolean

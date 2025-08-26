@@ -1,8 +1,8 @@
 import clsx from "classnames"
 import React, { HTMLProps, useEffect, useState } from "react"
-import { Button } from "src/components/button/button"
-import { Input } from "src/components/input/input"
-import { Minus, Plus } from "src/icons"
+import { Minus, Plus } from "../../icons"
+import { Button } from "../button/button"
+import { Input } from "../input/input"
 
 const constrain = (
   val: number,

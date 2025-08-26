@@ -1,4 +1,4 @@
-import { isPromise } from "src/utils/util"
+import { isPromise } from "./util"
 
 /**
  * copyText copies text to the clipboard, handling cross-browser compatibility

@@ -1,8 +1,8 @@
 import * as TooltipPrimitive from "@radix-ui/react-tooltip"
 import cx from "classnames"
 import React from "react"
-import { PortalContainerContext } from "src/components//portal-container-context"
-import { Info } from "src/icons"
+import { Info } from "../../icons"
+import { PortalContainerContext } from "../portal-container-context"
 
 export type TooltipProps = {
   side?: "top" | "right" | "bottom" | "left"

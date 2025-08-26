@@ -1,6 +1,6 @@
 import cx from "classnames"
 import React from "react"
-import { Tooltip } from "src/components/tooltip/tooltip"
+import { Tooltip } from "../tooltip/tooltip"
 
 export type PropertyListItemProps = {
   label: React.ReactNode

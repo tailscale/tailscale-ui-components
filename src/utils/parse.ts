@@ -1,6 +1,6 @@
 import { parse } from "date-fns"
 import { format } from "date-fns-tz"
-import { dateFilterFormat } from "src/utils/format"
+import { dateFilterFormat } from "./format"
 
 /**
  * parseNumericDate validates and returns a date in the form of YYYY/MM/DD

@@ -6,9 +6,9 @@ import React, {
   useEffect,
   useState,
 } from "react"
-import { Button } from "src/components/button/button"
-import { SelectValue, StringConstantValue } from "src/components/select/types"
-import { Check, ChevronDown } from "src/icons"
+import { Check, ChevronDown } from "../../icons"
+import { Button } from "../button/button"
+import { SelectValue, StringConstantValue } from "./types"
 
 /**
  * SingleSelect is a picker UI component.

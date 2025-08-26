@@ -1,14 +1,14 @@
 import React, { useMemo } from "react"
 import {
-  MultiSelect,
-  MultiselectSizeVariant,
-  SelectItem,
-} from "src/components/multi-select/multi-select"
-import {
   deserializeFilterInQuery,
   FilterPrefix,
   serializeFilterInQuery,
-} from "src/hooks/filter-search"
+} from "../../hooks/filter-search"
+import {
+  MultiSelect,
+  MultiselectSizeVariant,
+  SelectItem,
+} from "../multi-select/multi-select"
 
 type FilterMultiSelectProps = {
   title: string

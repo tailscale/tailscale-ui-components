@@ -1,8 +1,8 @@
 import cx from "classnames"
 import React, { MouseEvent } from "react"
-import useTimedToggle from "src/hooks/timed-toggle"
-import { copyText } from "src/utils/clipboard"
-import { noop } from "src/utils/util"
+import useTimedToggle from "../../hooks/timed-toggle"
+import { copyText } from "../../utils/clipboard"
+import { noop } from "../../utils/util"
 
 export type CopyInputProps = {
   text: string

@@ -8,8 +8,8 @@ import {
   UseMultipleSelectionGetSelectedItemPropsOptions,
 } from "downshift"
 import React, { useEffect, useRef, useState } from "react"
-import { ComboboxValue } from "src/components/combobox/types"
-import { ChevronDown, Search } from "src/icons"
+import { ChevronDown, Search } from "../../icons"
+import { ComboboxValue } from "./types"
 
 /**
  * ValueWithAddHint extends ComboboxValue for internal usage by the MultiSelectCombobox component for tracking values that should have an

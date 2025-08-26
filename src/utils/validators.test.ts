@@ -1,5 +1,5 @@
-import { isValidWebhookURL, NameserverValidator } from "src/utils/validators"
 import { describe, expect, it } from "vitest"
+import { isValidWebhookURL, NameserverValidator } from "./validators"
 
 describe("NameserverValidator", () => {
   it("accepts valid IPv4 addresses", () => {

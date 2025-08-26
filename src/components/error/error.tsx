@@ -1,6 +1,6 @@
 import cx from "classnames"
 import React from "react"
-import { AlertCircle } from "src/icons"
+import { AlertCircle } from "../../icons"
 
 export type ErrorProps = {
   className?: string

@@ -6,8 +6,8 @@ import {
   Trigger,
 } from "@radix-ui/react-hover-card"
 import React from "react"
-import { PortalContainerContext } from "src/components/portal-container-context"
-import { isExternalUrl } from "src/utils/util"
+import { isExternalUrl } from "../../utils/util"
+import { PortalContainerContext } from "../portal-container-context"
 
 export type HoverCardProps = {
   children: React.ReactNode

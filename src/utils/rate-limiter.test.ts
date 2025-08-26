@@ -1,5 +1,5 @@
-import { RateLimiter } from "src/utils/rate-limiter"
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest"
+import { RateLimiter } from "./rate-limiter"
 
 describe("RateLimiter", () => {
   beforeEach(() => {

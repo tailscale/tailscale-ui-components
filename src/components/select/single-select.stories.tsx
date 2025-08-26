@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import React, { useState } from "react"
-import { SelectValue, StringConstantValue } from "src/components/select/types"
 import { InlineSingleSelect, SingleSelect } from "./single-select"
+import { SelectValue, StringConstantValue } from "./types"
 
 const meta: Meta<typeof SingleSelect> = {
-  title: "Components/Select",
+  title: "Components/SingleSelect",
   component: SingleSelect,
   argTypes: {
     onUpdateSelected: { action: "updated" },

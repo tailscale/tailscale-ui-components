@@ -1,10 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react"
 import React, { useState } from "react"
-import {
-  MultiSelect,
-  SelectItem,
-} from "src/components/multi-select/multi-select"
-import { Database, User } from "src/icons"
+import { Database, User } from "../../icons"
+import { MultiSelect, SelectItem } from "./multi-select"
 
 export default {
   title: "components/MultiSelect",

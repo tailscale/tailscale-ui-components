@@ -1,6 +1,6 @@
 import cx from "classnames"
 import React from "react"
-import { Button } from "src/components/button/button"
+import { Button } from "../button/button"
 
 export type ApplyButtonProps = {
   className?: string

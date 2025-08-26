@@ -1,5 +1,5 @@
-import { isAlphanumeric, kebabCase, titleCase } from "src/utils/format"
 import { describe, expect, it } from "vitest"
+import { isAlphanumeric, kebabCase, titleCase } from "./format"
 
 describe("kebabCase", () => {
   it("converts strings to kebab-case", () => {

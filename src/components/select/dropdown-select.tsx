@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react"
-import { Input } from "src/components/input/input"
-import { ApplyButton } from "src/components/select/apply-button"
-import { SingleSelect } from "src/components/select/single-select"
-import { SelectValue } from "src/components/select/types"
-import { assertNever } from "src/utils/util"
+import { assertNever } from "../../utils/util"
+import { Input } from "../input/input"
+import { ApplyButton } from "./apply-button"
+import { SingleSelect } from "./single-select"
+import { SelectValue } from "./types"
 
 export type DropdownSelectProps = {
   values: SelectValue[]

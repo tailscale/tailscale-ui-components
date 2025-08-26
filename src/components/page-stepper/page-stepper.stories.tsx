@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import React from "react"
-import useListPagination from "src/hooks/list-pagination"
+import useListPagination from "../../hooks/list-pagination"
 import { PageStepper } from "./page-stepper"
 
 const meta: Meta<typeof PageStepper> = {

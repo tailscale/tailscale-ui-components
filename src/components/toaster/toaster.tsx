@@ -34,7 +34,6 @@ export type ToastAction = {
 
 type ToastWithKey = Toast & { key: string }
 
-// Context for Toaster
 type ToasterContextType = {
   show: (toast: Toast) => string
   dismiss: (key: string) => void
@@ -56,7 +55,8 @@ type ToastProviderProps = {
 }
 
 /**
- * Toasts show transient success or error notifications for asynchronous actions. The React component is not directly used, toasts are shown via the useToaster hook.
+ * Toasts show transient success or error notifications for asynchronous actions.
+ * Use this component to wrap your application and provide the toaster context.
  */
 export function ToastProvider({
   children,
@@ -65,13 +65,12 @@ export function ToastProvider({
 }: ToastProviderProps) {
   const [toasts, setToasts] = useState<ToastWithKey[]>([])
 
-  // Show a toast
   const show = useCallback(
     (toast: Toast) => {
       const key =
         toast.key || Date.now().toString() + Math.random().toString(36).slice(2)
       setToasts((prev) => {
-        // If key exists, update; else add
+        // If the toast already exists, update it. Otherwise, append it.
         const idx = prev.findIndex((t) => t.key === key)
         let next: ToastWithKey[]
         if (idx !== -1) {
@@ -114,7 +113,9 @@ export function ToastProvider({
   )
 }
 
-// Toast viewport and rendering of toasts
+/**
+ * ToastViewport shows all displayed toasts. It should only be used by ToastProvider.
+ */
 function ToastViewport({
   toasts,
   dismiss,
@@ -123,59 +124,71 @@ function ToastViewport({
   dismiss: (key: string) => void
 }) {
   return (
-    // <ToastPrimitive.Viewport className="fixed bottom-6 right-6 z-[99] flex flex-col gap-2 w-[85vw] sm:min-w-[400px] sm:max-w-[500px]">
     <ToastPrimitive.Viewport className="fixed bottom-6 right-6 z-[99] flex flex-col gap-2 w-[85vw] sm:min-w-[400px] sm:max-w-[500px]">
       {toasts.map((toast) => (
-        <ToastPrimitive.Root
-          key={toast.key}
-          open={true}
-          duration={toast.timeout ?? 5000}
-          onOpenChange={(open) => {
-            if (!open) dismiss(toast.key)
-          }}
-          className={cx(
-            "shadow-sm rounded-md text-md flex items-center justify-between px-0 py-0",
-            {
-              "text-white bg-gray-700 dark:bg-gray-700 dark:border dark:border-gray-600":
-                toast.variant === undefined,
-              "text-white bg-red-400 dark:bg-red-500":
-                toast.variant === "danger",
-            },
-            toast.className
-          )}
-          aria-live="polite"
-        >
-          <span className="pl-4 py-3 pr-2">{toast.message}</span>
-          <div
-            className={cx("mr-1.5", {
-              "flex items-center gap-1": toast.additionalAction,
-            })}
-          >
-            {toast.additionalAction && (
-              <Button
-                variant="minimal"
-                className="!text-white hover:!bg-white hover:!bg-opacity-15"
-                onClick={() => {
-                  toast.additionalAction?.onClick()
-                  if (!toast.additionalAction?.persistToastAfterClick) {
-                    dismiss(toast.key)
-                  }
-                }}
-              >
-                {toast.additionalAction.label}
-              </Button>
-            )}
-            <Button
-              variant="minimal"
-              iconOnly
-              className="!text-white hover:!bg-white hover:!bg-opacity-15"
-              onClick={() => dismiss(toast.key)}
-            >
-              <X size="1em" />
-            </Button>
-          </div>
-        </ToastPrimitive.Root>
+        <ToastBlock key={toast.key} toast={toast} dismiss={dismiss} />
       ))}
     </ToastPrimitive.Viewport>
+  )
+}
+
+/**
+ * ToastBlock is the display of an individual toast.
+ */
+function ToastBlock({
+  toast,
+  dismiss,
+}: {
+  toast: ToastWithKey
+  dismiss: (key: string) => void
+}) {
+  return (
+    <ToastPrimitive.Root
+      open={true}
+      duration={toast.timeout ?? 5000} // default timeout to 5 seconds
+      onOpenChange={(open) => {
+        if (!open) dismiss(toast.key)
+      }}
+      className={cx(
+        "shadow-sm rounded-md text-md flex items-center justify-between px-0 py-0",
+        {
+          "text-white bg-gray-700 dark:bg-gray-700 dark:border dark:border-gray-600":
+            toast.variant === undefined,
+          "text-white bg-red-400 dark:bg-red-500": toast.variant === "danger",
+        },
+        toast.className
+      )}
+      aria-live="polite"
+    >
+      <span className="pl-4 py-3 pr-2">{toast.message}</span>
+      <div
+        className={cx("mr-1.5", {
+          "flex items-center gap-1": toast.additionalAction,
+        })}
+      >
+        {toast.additionalAction && (
+          <Button
+            variant="minimal"
+            className="!text-white hover:!bg-white hover:!bg-opacity-15"
+            onClick={() => {
+              toast.additionalAction?.onClick()
+              if (!toast.additionalAction?.persistToastAfterClick) {
+                dismiss(toast.key)
+              }
+            }}
+          >
+            {toast.additionalAction.label}
+          </Button>
+        )}
+        <Button
+          variant="minimal"
+          iconOnly
+          className="!text-white hover:!bg-white hover:!bg-opacity-15"
+          onClick={() => dismiss(toast.key)}
+        >
+          <X size="1em" />
+        </Button>
+      </div>
+    </ToastPrimitive.Root>
   )
 }

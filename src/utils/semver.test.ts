@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest"
 import {
   SemVer,
   Track,
@@ -5,8 +6,7 @@ import {
   equivalentSemVer,
   parseSemVer,
   releaseTrack,
-} from "src/utils/semver"
-import { describe, expect, it } from "vitest"
+} from "./semver"
 
 describe("parseSemVer", () => {
   it("accurately parses raw versions", () => {

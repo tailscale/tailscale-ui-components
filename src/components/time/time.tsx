@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react"
-import { Tooltip } from "src/components/tooltip/tooltip"
-import { formatRelativeDate, fullDate, shortTime } from "src/utils/format"
+import { formatRelativeDate, fullDate, shortTime } from "../../utils/format"
+import { Tooltip } from "../tooltip/tooltip"
 
 export type TimeProps = {
   time: Date

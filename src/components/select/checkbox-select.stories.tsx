@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
 import React, { useState } from "react"
-import { StringConstantValue } from "src/components/select/types"
 import { CheckboxSelect } from "./checkbox-select"
+import { StringConstantValue } from "./types"
 
 const meta = {
   title: "Components/CheckboxSelect",

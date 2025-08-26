@@ -1,7 +1,7 @@
 import cx from "classnames"
 import React, { useCallback, useEffect, useRef, useState } from "react"
-import { Button } from "src/components/button/button"
-import { ArrowLeft, ArrowRight } from "src/icons"
+import { ArrowLeft, ArrowRight } from "../../icons"
+import { Button } from "../button/button"
 
 export type CarouselProps = {
   children: React.ReactNode

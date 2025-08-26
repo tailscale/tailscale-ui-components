@@ -1,6 +1,6 @@
 import cx from "classnames"
 import React, { useEffect, useRef, useState } from "react"
-import { copyText } from "src/utils/clipboard"
+import { copyText } from "../../utils/clipboard"
 import { useToaster } from "../toaster/toaster"
 
 export type QuickCopyProps = {

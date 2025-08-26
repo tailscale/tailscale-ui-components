@@ -1,7 +1,7 @@
 import cx from "classnames"
 import React, { HTMLAttributes } from "react"
-import { Spinner } from "src/components/spinner/spinner"
-import { AlertTriangle } from "src/icons"
+import { AlertTriangle } from "../../icons"
+import { Spinner } from "../spinner/spinner"
 
 export type LoadingBlockProps = {
   error?: { message: string }

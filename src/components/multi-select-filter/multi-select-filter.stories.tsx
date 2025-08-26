@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react"
 import React, { useState } from "react"
-import FilterMultiSelect from "src/components/multi-select-filter/multi-select-filter"
-import { SelectItem } from "src/components/multi-select/multi-select"
+import { SelectItem } from "../multi-select/multi-select"
+import FilterMultiSelect from "./multi-select-filter"
 
 export default {
   title: "components/FilterMultiSelect",
@@ -37,15 +37,6 @@ const items: SelectItem[] = [
   { value: "magicdns", display: "MagicDNS" },
 ]
 
-export const SingleSelect = Template.bind({})
-SingleSelect.args = {
-  title: "Feature",
-  items: items,
-  multiselect: false,
-  filterPrefix: "feature",
-  query: "feature:derp",
-}
-
 export const MultiSelectEnabled = Template.bind({})
 MultiSelectEnabled.args = {
   title: "Feature",
@@ -53,6 +44,15 @@ MultiSelectEnabled.args = {
   multiselect: true,
   filterPrefix: "feature",
   query: "feature:derp feature:magicdns",
+}
+
+export const SingleSelect = Template.bind({})
+SingleSelect.args = {
+  title: "Feature",
+  items: items,
+  multiselect: false,
+  filterPrefix: "feature",
+  query: "feature:derp",
 }
 
 export const Disabled = Template.bind({})

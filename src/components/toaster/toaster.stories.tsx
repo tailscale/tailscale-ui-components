@@ -1,5 +1,5 @@
 import React from "react"
-import { Button } from "src/components/button/button"
+import { Button } from "../button/button"
 import { ToastProvider, useToaster } from "./toaster"
 
 const meta = {

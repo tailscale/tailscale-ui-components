@@ -1,7 +1,7 @@
 import { Indicator, Root } from "@radix-ui/react-checkbox"
 import cx from "classnames"
 import React, { JSX } from "react"
-import { Check } from "src/icons"
+import { Check } from "../../icons"
 
 export type CheckboxProps = {
   id: string

@@ -1,7 +1,7 @@
 import * as Primitive from "@radix-ui/react-collapsible"
 import cx from "classnames"
 import React, { useEffect, useState } from "react"
-import { ChevronDown, ChevronRight } from "src/icons"
+import { ChevronDown, ChevronRight } from "../../icons"
 
 export type CollapsibleProps = {
   trigger?: string

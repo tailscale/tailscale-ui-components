@@ -1,8 +1,8 @@
 import cx from "classnames"
 import { useCombobox } from "downshift"
 import React, { useEffect, useState } from "react"
-import { ComboboxValue } from "src/components/combobox/types"
-import { ChevronDown } from "src/icons"
+import { ChevronDown } from "../../icons"
+import { ComboboxValue } from "./types"
 
 /**
  * A combobox component that allows users to select a value from a list of options.

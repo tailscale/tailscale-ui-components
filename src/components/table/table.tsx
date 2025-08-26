@@ -1,4 +1,4 @@
-import { NullValue } from "src/components/null/null"
+import { NullValue } from "../null/null"
 
 const cellHeaderBase =
   "pr-3 py-2 uppercase font-bold text-xs tracking-wider leading-4 text-text-muted align-middle"

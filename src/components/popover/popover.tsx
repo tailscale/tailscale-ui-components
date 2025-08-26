@@ -1,7 +1,7 @@
 import * as PopoverPrimitive from "@radix-ui/react-popover"
 import cx from "classnames"
 import React, { ReactNode } from "react"
-import { PortalContainerContext } from "src/components/portal-container-context"
+import { PortalContainerContext } from "../portal-container-context"
 
 export type PopoverProps = {
   className?: string

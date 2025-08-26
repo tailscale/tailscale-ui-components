@@ -1,9 +1,9 @@
 import * as DropdownMenu from "@radix-ui/react-dropdown-menu"
 import cx from "classnames"
 import React from "react"
-import { Badge } from "src/components/badge/badge"
-import { Button } from "src/components/button/button"
-import { Check, ChevronDown } from "src/icons"
+import { Check, ChevronDown } from "../../icons"
+import { Badge } from "../badge/badge"
+import { Button } from "../button/button"
 
 type MultiSelectProps = {
   title: string

@@ -1,7 +1,7 @@
 import cx from "classnames"
 import React, { cloneElement, HTMLAttributes } from "react"
-import { Button } from "src/components/button/button"
-import { AlertCircle, AlertTriangle, Info, X } from "src/icons"
+import { AlertCircle, AlertTriangle, Info, X } from "../../icons"
+import { Button } from "../button/button"
 
 export type NoteProps = HTMLAttributes<HTMLDivElement> & {
   intent?: NoteIntent

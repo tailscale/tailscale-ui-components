@@ -1,6 +1,6 @@
 import cx from "classnames"
 import React, { HTMLAttributes } from "react"
-import { Users } from "src/icons"
+import { Users } from "../../icons"
 
 export type UserAvatarProps = {
   id?: string

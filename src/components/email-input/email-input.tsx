@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes, useCallback, useEffect } from "react"
-import { Input } from "src/components/input/input"
-import useDebounce from "src/hooks/debounce"
-import { isValidEmail } from "src/utils/validators"
+import useDebounce from "../hooks/debounce"
+import { Input } from "../input/input"
+import { isValidEmail } from "../utils/validators"
 
 /**
  * EmailInput component provides a text input for entering multiple

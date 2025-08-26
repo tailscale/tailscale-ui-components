@@ -1,41 +1,41 @@
 // Import platform icons
-import AndroidIcon from "src/assets/images/platform-icons/android.svg?react"
-import IosIcon from "src/assets/images/platform-icons/ios.svg?react"
-import LinuxIcon from "src/assets/images/platform-icons/linux.svg?react"
-import MacosIcon from "src/assets/images/platform-icons/macos.svg?react"
-import SynologyIcon from "src/assets/images/platform-icons/synology.svg?react"
-import WindowsIcon from "src/assets/images/platform-icons/windows.svg?react"
+import AndroidIcon from "./assets/images/platform-icons/android.svg?react"
+import IosIcon from "./assets/images/platform-icons/ios.svg?react"
+import LinuxIcon from "./assets/images/platform-icons/linux.svg?react"
+import MacosIcon from "./assets/images/platform-icons/macos.svg?react"
+import SynologyIcon from "./assets/images/platform-icons/synology.svg?react"
+import WindowsIcon from "./assets/images/platform-icons/windows.svg?react"
 
 // Import pricing icons
-import BusinessPlanIcon from "src/assets/images/pricing-icons/business.svg?react"
-import EnterprisePlanIcon from "src/assets/images/pricing-icons/enterprise.svg?react"
-import FreeIcon from "src/assets/images/pricing-icons/free.svg?react"
-import GithubPlanIcon from "src/assets/images/pricing-icons/github.svg?react"
-import PersonalProPlanIcon from "src/assets/images/pricing-icons/personal-pro.svg?react"
-import PremiumIcon from "src/assets/images/pricing-icons/premium.svg?react"
-import StarterIcon from "src/assets/images/pricing-icons/starter.svg?react"
-import TeamPlanIcon from "src/assets/images/pricing-icons/team.svg?react"
+import BusinessPlanIcon from "./assets/images/pricing-icons/business.svg?react"
+import EnterprisePlanIcon from "./assets/images/pricing-icons/enterprise.svg?react"
+import FreeIcon from "./assets/images/pricing-icons/free.svg?react"
+import GithubPlanIcon from "./assets/images/pricing-icons/github.svg?react"
+import PersonalProPlanIcon from "./assets/images/pricing-icons/personal-pro.svg?react"
+import PremiumIcon from "./assets/images/pricing-icons/premium.svg?react"
+import StarterIcon from "./assets/images/pricing-icons/starter.svg?react"
+import TeamPlanIcon from "./assets/images/pricing-icons/team.svg?react"
 
 // Import provider icons
-import AWSS3Icon from "src/assets/images/provider-icons/aws-s3.svg?react"
-import AxiomIcon from "src/assets/images/provider-icons/axiom.svg?react"
-import CriblIcon from "src/assets/images/provider-icons/cribl.svg?react"
-import DatadogIcon from "src/assets/images/provider-icons/datadog.svg?react"
-import DockerLogo from "src/assets/images/provider-icons/docker.svg?react"
-import ElasticsearchIcon from "src/assets/images/provider-icons/elasticsearch.svg?react"
-import GithubLogo from "src/assets/images/provider-icons/github.svg?react"
-import GoogleIcon from "src/assets/images/provider-icons/google.svg?react"
-import KubernetesLogo from "src/assets/images/provider-icons/kubernetes.svg?react"
-import MicrosoftIcon from "src/assets/images/provider-icons/microsoft.svg?react"
-import OktaIcon from "src/assets/images/provider-icons/okta.svg?react"
-import PantherIcon from "src/assets/images/provider-icons/panther.svg?react"
-import SplunkIcon from "src/assets/images/provider-icons/splunk.svg?react"
+import AWSS3Icon from "./assets/images/provider-icons/aws-s3.svg?react"
+import AxiomIcon from "./assets/images/provider-icons/axiom.svg?react"
+import CriblIcon from "./assets/images/provider-icons/cribl.svg?react"
+import DatadogIcon from "./assets/images/provider-icons/datadog.svg?react"
+import DockerLogo from "./assets/images/provider-icons/docker.svg?react"
+import ElasticsearchIcon from "./assets/images/provider-icons/elasticsearch.svg?react"
+import GithubLogo from "./assets/images/provider-icons/github.svg?react"
+import GoogleIcon from "./assets/images/provider-icons/google.svg?react"
+import KubernetesLogo from "./assets/images/provider-icons/kubernetes.svg?react"
+import MicrosoftIcon from "./assets/images/provider-icons/microsoft.svg?react"
+import OktaIcon from "./assets/images/provider-icons/okta.svg?react"
+import PantherIcon from "./assets/images/provider-icons/panther.svg?react"
+import SplunkIcon from "./assets/images/provider-icons/splunk.svg?react"
 
 // Import other icons
-import BuildingIcon from "src/assets/images/generic-icons/building.svg?react"
-import NasLogo from "src/assets/images/generic-icons/nas.svg?react"
-import SshLogo from "src/assets/images/generic-icons/ssh.svg?react"
-import VscodeLogo from "src/assets/images/generic-icons/vscode.svg?react"
+import BuildingIcon from "./assets/images/generic-icons/building.svg?react"
+import NasLogo from "./assets/images/generic-icons/nas.svg?react"
+import SshLogo from "./assets/images/generic-icons/ssh.svg?react"
+import VscodeLogo from "./assets/images/generic-icons/vscode.svg?react"
 import {
   AppConnector,
   CloudCheck,
@@ -46,7 +46,7 @@ import {
   Magic,
   Stamp,
   StarFilled,
-} from "src/icons"
+} from "./icons"
 
 export interface IconsMeta {
   name: React.FunctionComponent<React.SVGProps<SVGSVGElement>>
