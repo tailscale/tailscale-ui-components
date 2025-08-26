@@ -44,7 +44,7 @@ class ValueWithAddHint<T> extends ComboboxValue {
  *
  * note: meant for use inside a FormField component
  */
-export default function MultiSelectCombobox({
+export function MultiSelectCombobox({
   values,
   selectedItems,
   onItemCreated,

@@ -200,7 +200,7 @@ const dialogWindow = cx(
  * </Dialog>
  * ```
  */
-export default function Dialog(props: Props) {
+export function Dialog(props: Props) {
   const {
     open,
     defaultOpen,
@@ -291,9 +291,6 @@ export default function Dialog(props: Props) {
  *     </Dialog.Form>
  */
 Dialog.Form = DialogForm
-
-// Named export for consistency
-export { Dialog }
 
 export type FormProps = {
   /**

@@ -54,5 +54,3 @@ export const table = {
   cellSizeMd: "w-1/4",
   cellSizeLg: "w-5/12",
 }
-
-export default table

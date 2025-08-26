@@ -31,7 +31,7 @@ export type QuickCopyProps = {
 /**
  * QuickCopy is a UI component that allows for copying textual content in one click.
  */
-export default function QuickCopy(props: QuickCopyProps) {
+export function QuickCopy(props: QuickCopyProps) {
   const {
     className,
     hideAffordance,

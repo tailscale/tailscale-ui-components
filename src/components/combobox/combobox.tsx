@@ -10,7 +10,7 @@ import { ComboboxValue } from "./types"
  *
  * note: meant for use inside a FormField component
  */
-export default function Combobox({
+export function Combobox({
   values,
   initialSelectedItem,
   placeholder,

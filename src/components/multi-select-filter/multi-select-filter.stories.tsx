@@ -1,7 +1,7 @@
 import { Meta, StoryFn } from "@storybook/react"
 import React, { useState } from "react"
 import { SelectItem } from "../multi-select/multi-select"
-import FilterMultiSelect from "./multi-select-filter"
+import { FilterMultiSelect } from "./multi-select-filter"
 
 export default {
   title: "components/FilterMultiSelect",

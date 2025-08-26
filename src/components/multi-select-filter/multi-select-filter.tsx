@@ -71,7 +71,7 @@ function serializeQuery(
  * `query`. Changing selection from this component writes back to `query` by
  * calling `updateQuery`.
  */
-export default function FilterMultiSelect(props: FilterMultiSelectProps) {
+export function FilterMultiSelect(props: FilterMultiSelectProps) {
   const {
     title,
     items,

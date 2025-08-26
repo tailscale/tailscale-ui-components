@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react"
 import React from "react"
 import { ToastProvider } from "../toaster/toaster"
-import QuickCopy from "./quick-copy"
+import { QuickCopy } from "./quick-copy"
 
 const meta: Meta<typeof QuickCopy> = {
   title: "Components/QuickCopy",
