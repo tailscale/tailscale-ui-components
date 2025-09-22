@@ -1,6 +1,6 @@
 # tailscale-ui-components
 
-Tailscale UI component library used by tailscale/corp/adminhttp/panel and tailscale/tailscale/client/web React projects. Not maintained for external use.
+Tailscale UI component library used by Tailscale web projects. Not maintained for external use.
 
 ## Development Setup
 
@@ -66,8 +66,7 @@ tailscale-ui-components/
 │   │   └── images/
 │   ├── hooks/
 │   ├── utils/
-│   ├── theme.css
-│   ├── styles.json
+│   ├── tailwind.css
 │   └── index.ts    # barrel file for listing official exports of the library
 ```
 
@@ -85,7 +84,6 @@ Example component structure:
 src/components/button/
 ├── button.tsx           # Main component
 ├── button.stories.tsx   # Storybook stories
-└── index.ts            # Barrel export
 ```
 
 ### Styling Guidelines

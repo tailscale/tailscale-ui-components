@@ -55,7 +55,6 @@ export default {
     colors: styles.colors,
     extend: {
       colors: {
-        ...styles.colors,
         "bg-base": "var(--color-bg-base)",
         "bg-app": "var(--color-bg-app)",
         "bg-menu-item-hover": "var(--color-bg-menu-item-hover)",
