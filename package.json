@@ -9,7 +9,7 @@
   "type": "module",
   "files": [
     "dist",
-    "tailwind.config.js"
+    "tailwind.preset.js"
   ],
   "exports": {
     ".": {
@@ -17,7 +17,11 @@
       "import": "./dist/tailscale-ui-components.es.js",
       "require": "./dist/tailscale-ui-components.umd.js"
     },
-    "./tailwind.config.js": "./tailwind.config.js"
+    "./tailwind.preset": {
+      "import": "./tailwind.preset.cjs",
+      "require": "./tailwind.preset.cjs",
+      "default": "./tailwind.preset.cjs"
+    }
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
