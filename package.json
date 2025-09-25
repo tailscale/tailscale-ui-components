@@ -1,6 +1,6 @@
 {
   "name": "@tailscale/tailscale-ui-components",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Tailscale",
   "license": "BSD-3-Clause",
   "main": "dist/tailscale-ui-components.umd.js",
@@ -8,13 +8,19 @@
   "types": "dist/index.d.ts",
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+    "tailwind.preset.js"
   ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/tailscale-ui-components.es.js",
       "require": "./dist/tailscale-ui-components.umd.js"
+    },
+    "./tailwind.preset": {
+      "import": "./tailwind.preset.cjs",
+      "require": "./tailwind.preset.cjs",
+      "default": "./tailwind.preset.cjs"
     }
   },
   "publishConfig": {
@@ -33,10 +39,11 @@
     "@radix-ui/react-popover": "^1.1.14",
     "@radix-ui/react-select": "^2.2.5",
     "@radix-ui/react-tabs": "^1.1.12",
+    "@radix-ui/react-toast": "^1.2.15",
     "@radix-ui/react-toggle-group": "^1.1.10",
     "@radix-ui/react-tooltip": "^1.2.7",
     "classnames": "^2.5.1",
-    "date-fns": "^4.1.0",
+    "date-fns": "^2.28.0",
     "date-fns-tz": "^2.0.1",
     "downshift": "^9.0.10",
     "lucide-react": "^0.536.0"
@@ -51,12 +58,20 @@
     "@types/node": "^24.2.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
+    "@typescript-eslint/parser": "^6.2.1",
     "@vitejs/plugin-react-swc": "^3.11.0",
     "@vitest/browser": "^3.2.4",
     "@vitest/coverage-v8": "^3.2.4",
     "autoprefixer": "^10.4.21",
+    "eslint": "^8.23.1",
+    "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-curly-quotes": "^1.0.4",
+    "eslint-plugin-unicorn": "^41.0.0",
     "playwright": "^1.54.2",
     "postcss": "^8.5.6",
+    "prettier": "^2.5.1",
+    "prettier-plugin-organize-imports": "^3.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^9.1.1",
@@ -70,6 +85,73 @@
   "scripts": {
     "build": "vite build && tsc --emitDeclarationOnly",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "format": "prettier --write 'src/**/*.{ts,tsx}'",
+    "format-check": "prettier --check 'src/**/*.{ts,tsx}'",
+    "lint": "tsc --noEmit && eslint 'src/**/*.{ts,tsx,js,jsx}' --fix --max-warnings=0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "plugin:unicorn/recommended"
+    ],
+    "plugins": [
+      "curly-quotes",
+      "react-hooks"
+    ],
+    "rules": {
+      "unicorn/catch-error-name": "off",
+      "unicorn/consistent-function-scoping": "off",
+      "unicorn/consistent-destructuring": "off",
+      "unicorn/expiring-todo-comments": "off",
+      "unicorn/prefer-json-parse-buffer": "off",
+      "unicorn/prefer-object-from-entries": "off",
+      "unicorn/prefer-spread": "off",
+      "unicorn/prevent-abbreviations": "off",
+      "unicorn/no-array-callback-reference": "off",
+      "unicorn/no-array-for-each": "off",
+      "unicorn/no-array-reduce": "off",
+      "unicorn/no-nested-ternary": "off",
+      "unicorn/no-null": "off",
+      "unicorn/no-useless-undefined": [
+        "error",
+        {
+          "checkArguments": false
+        }
+      ],
+      "unicorn/numeric-separators-style": "off",
+      "curly-quotes/no-straight-quotes": "warn",
+      "react-hooks/rules-of-hooks": "error",
+      "react-hooks/exhaustive-deps": "error",
+      "@typescript-eslint/no-restricted-imports": [
+        "error",
+        {
+          "paths": [
+            {
+              "name": "lucide-react",
+              "message": "Use `src/ui/icons` instead of `lucide-react`"
+            }
+          ]
+        }
+      ],
+      "no-restricted-imports": [
+        "error",
+        {
+          "paths": [
+            {
+              "name": "lucide-react",
+              "importNames": [
+                "*"
+              ],
+              "message": "Please import only the specific icons you need from 'lucide-react' to enable tree-shaking."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "prettier": {
+    "semi": false,
+    "printWidth": 80
   }
 }

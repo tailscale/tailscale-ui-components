@@ -1,12 +1,12 @@
-import React from "react";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react"
+import React from "react"
 import {
-  Badge,
   AlphaBadge,
-  BetaBadge,
+  Badge,
   BADGE_COLORS,
   BADGE_VARIANTS,
-} from "./badge";
+  BetaBadge,
+} from "./badge"
 
 const meta: Meta<typeof Badge> = {
   title: "Components/Badge",
@@ -14,7 +14,6 @@ const meta: Meta<typeof Badge> = {
   parameters: {
     layout: "centered",
   },
-  tags: ["autodocs"],
   argTypes: {
     children: { control: "text" },
     variant: {
@@ -26,10 +25,10 @@ const meta: Meta<typeof Badge> = {
       control: { type: "select" },
     },
   },
-};
+}
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 // Default badge
 export const Default: Story = {
@@ -38,7 +37,7 @@ export const Default: Story = {
     variant: "status",
     color: "gray",
   },
-};
+}
 
 // Status variant with different colors
 export const StatusVariant: Story = {
@@ -47,7 +46,7 @@ export const StatusVariant: Story = {
     variant: "status",
     color: "green",
   },
-};
+}
 
 export const StatusBlue: Story = {
   args: {
@@ -55,7 +54,7 @@ export const StatusBlue: Story = {
     variant: "status",
     color: "blue",
   },
-};
+}
 
 export const StatusRed: Story = {
   args: {
@@ -63,7 +62,7 @@ export const StatusRed: Story = {
     variant: "status",
     color: "red",
   },
-};
+}
 
 export const StatusOrange: Story = {
   args: {
@@ -71,7 +70,7 @@ export const StatusOrange: Story = {
     variant: "status",
     color: "orange",
   },
-};
+}
 
 export const StatusYellow: Story = {
   args: {
@@ -79,7 +78,7 @@ export const StatusYellow: Story = {
     variant: "status",
     color: "yellow",
   },
-};
+}
 
 // Tag variant
 export const TagVariant: Story = {
@@ -88,7 +87,7 @@ export const TagVariant: Story = {
     variant: "tag",
     color: "blue",
   },
-};
+}
 
 // Cell variant
 export const CellVariant: Story = {
@@ -97,7 +96,7 @@ export const CellVariant: Story = {
     variant: "cell",
     color: "gray",
   },
-};
+}
 
 // Outline variant
 export const OutlineVariant: Story = {
@@ -106,7 +105,7 @@ export const OutlineVariant: Story = {
     variant: "status",
     color: "outline",
   },
-};
+}
 
 // All Colors showcase
 export const AllColors = {
@@ -135,7 +134,7 @@ export const AllColors = {
       </Badge>
     </div>
   ),
-} satisfies Story;
+} satisfies Story
 
 // All Variants showcase
 export const AllVariants = {
@@ -152,20 +151,20 @@ export const AllVariants = {
       </Badge>
     </div>
   ),
-} satisfies Story;
+} satisfies Story
 
 // Special badges
 export const Alpha = {
   render: () => <AlphaBadge />,
-} satisfies Story;
+} satisfies Story
 
 export const Beta = {
   render: () => <BetaBadge />,
-} satisfies Story;
+} satisfies Story
 
 export const BetaWithFeature = {
   render: () => <BetaBadge feature="New Feature" />,
-} satisfies Story;
+} satisfies Story
 
 // Use cases
 export const UseCases = {
@@ -226,4 +225,4 @@ export const UseCases = {
       </div>
     </div>
   ),
-} satisfies Story;
+} satisfies Story

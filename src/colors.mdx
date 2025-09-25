@@ -1,101 +1,70 @@
-import React, { useState, useEffect } from 'react';
-import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
-import { colors } from '../styles.json';
+import React, { useEffect, useState } from "react";
+import { Meta, ColorPalette, ColorItem } from "@storybook/addon-docs/blocks";
 
 <Meta title="Colors" />
 
-{/*
-  This component will resolve the CSS variables to their hex values
-  using browser APIs once it's mounted.
-*/}
 {(() => {
+  const colorNames = [
+    "gray", "blue", "green", "red", "yellow", "orange"
+  ];
+  const steps = [
+    "0", "50", "100", "200", "300", "400", "500", "600", "700", "800", "900", "1000"
+  ];
+
+  function rgbStringToHex(rgbString) {
+    const rgb = rgbString.split(" ").map(Number);
+    if (rgb.length !== 3 || rgb.some(isNaN)) return rgbString;
+    return (
+      "#" +
+      rgb
+        .map((x) => x.toString(16).padStart(2, "0"))
+        .join("")
+        .toLowerCase()
+    );
+  }
+
+  // getting the colors computed from the color CSS variables
+  function resolveColors() {
+    const style = getComputedStyle(document.documentElement);
+    const resolved = {};
+
+    colorNames.forEach((color) => {
+      resolved[color] = {};
+      steps.forEach((step) => {
+        // Only add if the variable exists
+        const varName = `--color-${color}-${step}`;
+        const value = style.getPropertyValue(varName).trim();
+        if (value) {
+          resolved[color][step] = rgbStringToHex(value);
+        }
+      });
+    });
+
+    resolved.white = {
+      white: rgbStringToHex(style.getPropertyValue("--color-white").trim())
+    };
+
+    return resolved;
+  }
+
   const ResolvedColorPalette = () => {
-    const [resolvedColors, setResolvedColors] = useState(null);
+    const [colors, setColors] = useState(null);
 
     useEffect(() => {
-      // This code runs in the browser, not during server-side rendering.
-      const toHex = (c) => parseInt(c, 10).toString(16).padStart(2, '0');
-      const rgbToHex = (rgbString) => {
-        const [r, g, b] = rgbString.trim().split(/[\s,]+/);
-        return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
-      };
+      setColors(resolveColors());
+    }, []);
 
-      const resolveColorToHex = (colorString) => {
-        const varMatch = colorString.match(/var\((--[a-zA-Z0-9-]+)\)/);
-        if (!varMatch) return colorString; // Not a variable
-
-        const varName = varMatch[1];
-        const computedValue = getComputedStyle(document.documentElement)
-          .getPropertyValue(varName)
-          .trim();
-
-        // computedValue will be the RGB value string like "255 255 255"
-        if (computedValue) {
-          return rgbToHex(computedValue);
-        }
-        return colorString; // Fallback
-      };
-
-      const processColors = (colorObject) =>
-        Object.entries(colorObject).reduce((acc, [key, value]) => {
-          acc[key] = resolveColorToHex(value);
-          return acc;
-        }, {});
-
-      const allResolved = {
-        white: { white: resolveColorToHex(colors.white) },
-        gray: processColors(colors.gray),
-        blue: processColors(colors.blue),
-        green: processColors(colors.green),
-        red: processColors(colors.red),
-        yellow: processColors(colors.yellow),
-        orange: processColors(colors.orange),
-      };
-
-      setResolvedColors(allResolved);
-    }, []); // Empty dependency array ensures this runs only once on mount
-
-    if (!resolvedColors) {
-      return <div>Loading color palette...</div>;
-    }
+    if (!colors) return <div>Loading color palette…</div>;
 
     return (
       <ColorPalette>
-        <ColorItem
-          title="White"
-          subtitle="Solid white"
-          colors={resolvedColors.white}
-        />
-        <ColorItem
-          title="Gray"
-          subtitle="Grayscale palette"
-          colors={resolvedColors.gray}
-        />
-        <ColorItem
-          title="Blue"
-          subtitle="Blue palette"
-          colors={resolvedColors.blue}
-        />
-        <ColorItem
-          title="Green"
-          subtitle="Green palette"
-          colors={resolvedColors.green}
-        />
-        <ColorItem
-          title="Red"
-          subtitle="Red palette"
-          colors={resolvedColors.red}
-        />
-        <ColorItem
-          title="Yellow"
-          subtitle="Yellow palette"
-          colors={resolvedColors.yellow}
-        />
-        <ColorItem
-          title="Orange"
-          subtitle="Orange palette"
-          colors={resolvedColors.orange}
-        />
+        {Object.entries(colors).map(([group, colorObj]) => (
+          <ColorItem
+            key={group}
+            title={group.charAt(0).toUpperCase() + group.slice(1)}
+            colors={colorObj}
+          />
+        ))}
       </ColorPalette>
     );
   };
