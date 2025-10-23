@@ -2,7 +2,6 @@ import { create } from "storybook/theming"
 
 export default create({
   base: "light",
-  //   fontBase: '"Inter", sans-serif',
 
   brandTitle: "Tailscale Design System",
   brandUrl: "https://tailscale.com",
