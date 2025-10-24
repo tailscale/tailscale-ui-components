@@ -1,5 +1,6 @@
 import type { Preview } from "@storybook/react";
-import '../src/tailwind.css';
+import { create } from "storybook/theming";
+import './storybook.css';
 
 const preview: Preview = {
   parameters: {
@@ -8,6 +9,12 @@ const preview: Preview = {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
+    },
+    docs: {
+      theme: create({
+        base: "light",
+        fontBase: "'Inter', sans-serif",
+      }),
     },
   },
   tags: ['autodocs'],
